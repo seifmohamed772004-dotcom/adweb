@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // If the element is a container for staggered children
                 if (el.hasAttribute('data-reveal-stagger')) {
-                    const children = el.querySelectorAll('.pricing-v2-card-item, .policy-usage-green-card, .subs-stat-card-item, .subs-industry-dark-card, .contact-platform-card-item, .hero-stat-mini-card, .benefit-preview-card, .role-card-mini-item, .benefit-col-item, .timeline-step-card-box, .team-metric-stat-box, .leader-compact-card, .member-card-mini-box, .culture-value-item-box, .culture-testimonial-card-item');
+                    const children = el.querySelectorAll('.pricing-v2-card-item, .policy-usage-green-card, .subs-stat-card-item, .subs-industry-dark-card, .contact-platform-card-item, .hero-stat-mini-card, .benefit-preview-card, .role-card-mini-item, .benefit-col-item, .timeline-step-card-box, .team-metric-stat-box, .leader-compact-card, .member-card-mini-box, .culture-value-item-box, .culture-testimonial-card-item, .blog-featured-card-spotlight, .sidebar-module-box, .blog-card-item-vertical, .blog-card-item-horizontal, .topic-item-card-mini, .ranking-item');
                     children.forEach((child, index) => {
                         child.style.transitionDelay = `${index * 0.15}s`;
                         child.classList.add('is-visible');
@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     el.classList.contains('about-stats-section-reveal') ||
                     el.classList.contains('careers-hero-reveal') ||
                     el.classList.contains('team-hero-reveal') ||
+                    el.classList.contains('blog-hero-reveal') ||
                     el.classList.contains('pricing-table-v2-reveal')) {
                     startStatsCounting(el);
                     if (el.classList.contains('pricing-table-v2-reveal')) {
@@ -406,6 +407,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (faqDiffBtn) {
         faqDiffBtn.addEventListener('click', () => {
             alert('Redirecting to our detailed support portal...');
+        });
+    }
+
+    // 11. Blog Archive Filter Logic
+    const blogFilterTabs = document.querySelectorAll('.blog-filter-tab-item');
+    const blogPosts = document.querySelectorAll('.blog-card-item-vertical, .blog-card-item-horizontal');
+
+    if (blogFilterTabs.length > 0) {
+        blogFilterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                blogFilterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filter = tab.getAttribute('data-filter');
+
+                blogPosts.forEach(post => {
+                    const category = post.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        post.style.display = 'flex';
+                        // Add entrance animation
+                        post.style.animation = 'none';
+                        post.offsetHeight; // trigger reflow
+                        post.style.animation = 'scaleInFade 0.5s ease forwards';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            });
         });
     }
 });

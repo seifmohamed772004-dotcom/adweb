@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Creestudios - Insights & Stories from the Empire</title>
+    <meta name="description" content="Explore the latest insights on design systems, engineering, and digital culture from the visionaries at Creestudios.">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="Stylesheet.css">
+    <!-- Font Preload -->
+    <link rel="preload" href="Assets/Choldera Demo.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="Assets/Unbounded.ttf" as="font" type="font/ttf" crossorigin>
+</head>
+<body class="blog-page-body-root">
+
+    <main id="blog-exclusive-main-content" class="blog-site-main-layout">
+        
+        <!-- Section 1: Editorial Hero -->
+        <section id="blog-hero" class="blog-hero-reveal">
+            <header class="blog-hero-header-row">
+                <span class="small-label-dash">// OUR BLOG</span>
+                <span class="small-label-dash">CREESTUDIOS</span>
+            </header>
+            
+            <h1 class="blog-hero-main-title-unified">INSIGHTS & <br><span class="text-primary-green-span">STORIES</span></h1>
+            
+            <div class="blog-hero-featured-grid-canvas">
+                
+                <!-- Main Featured Post -->
+                <article id="blog-featured-main" class="blog-featured-card-spotlight card-hover-interaction" data-reveal-stagger>
+                    <div class="featured-card-visual-box">
+                        <!-- Placeholder graphic for design systems -->
+                        <div class="featured-visual-graphic-green">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="featured-icon-ruler"><path d="m21.3 15.3-6.4-6.4a2.4 2.4 0 0 0-3.4 0L4.7 15.7a2.4 2.4 0 0 0 0 3.4l.4.4a2.4 2.4 0 0 0 3.4 0l6.4-6.4"/><path d="m7.5 12.5 5 5"/><path d="m10.5 9.5 5 5"/><path d="m13.5 6.5 5 5"/></svg>
+                        </div>
+                    </div>
+                    <div class="featured-card-content-box">
+                        <span class="featured-category-badge-pill">Design</span>
+                        <h2 class="featured-card-title-unified">THE FUTURE OF DESIGN SYSTEMS: BUILDING FOR SCALE</h2>
+                        <p class="featured-card-excerpt">How we rebuilt our design system from the ground up to handle millions of active users. A deep dive into tokenization and sub-component architecture.</p>
+                        <footer class="featured-card-meta-row">
+                            <div class="featured-author-mini">
+                                <span class="author-avatar-initial">S</span>
+                                <div class="author-details-box">
+                                    <h5 class="author-name">Sarah Chen</h5>
+                                    <p class="post-date">Feb 28, 2026</p>
+                                </div>
+                            </div>
+                            <span class="read-more-action-link">READ MORE</span>
+                        </footer>
+                    </div>
+                </article>
+
+                <!-- Sidebar Modules -->
+                <aside class="blog-hero-sidebar-col" data-reveal-stagger>
+                    
+                    <!-- Quick Reads -->
+                    <div class="sidebar-module-box quick-reads-reveal">
+                        <h4 class="sidebar-module-title-unified">QUICK READS</h4>
+                        <div class="quick-read-item-list">
+                            <a href="#" class="quick-read-link">
+                                <h5 class="quick-read-title">5 UI Mistakes we see daily</h5>
+                                <p class="quick-read-meta">2 min read</p>
+                            </a>
+                            <a href="#" class="quick-read-link">
+                                <h5 class="quick-read-title">Why we switched to TypeScript</h5>
+                                <p class="quick-read-meta">5 min read</p>
+                            </a>
+                            <a href="#" class="quick-read-link">
+                                <h5 class="quick-read-title">Remote work best practices</h5>
+                                <p class="quick-read-meta">7 min read</p>
+                            </a>
+                            <a href="#" class="quick-read-link">
+                                <h5 class="quick-read-title">Accessibility matters</h5>
+                                <p class="quick-read-meta">4 min read</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Stay Updated -->
+                    <div class="sidebar-module-box stay-updated-reveal">
+                        <h4 class="sidebar-module-title-unified">STAY UPDATED</h4>
+                        <p class="sidebar-module-text">Subscribe to receive the latest stories and insights in your inbox weekly.</p>
+                        <button class="sidebar-subscribe-btn-green button-hover-interaction">SUBSCRIBE</button>
+                    </div>
+
+                </aside>
+
+            </div>
+
+            <!-- Floating Site Nav -->
+            <nav id="blog-site-pill-nav" class="pill-nav-container main-nav-reveal">
+                <div class="pill-nav-main">
+                    <ul class="pill-nav-list">
+                        <li><a href="Home.html" class="nav-link-anchor-style">Home</a></li>
+                        <li><a href="About.html" class="nav-link-anchor-style">About Us</a></li>
+                        <li><a href="Reach Out.html" class="nav-link-anchor-style">Reach Out</a></li>
+                        <li><a href="Subscriptions.html" class="nav-link-anchor-style">Subscriptions</a></li>
+                        <li><a href="Blog.html" class="nav-link-anchor-style active">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="pill-nav-lang">
+                    <a href="#" class="lang-link">EN</a>
+                </div>
+            </nav>
+        </section>
+
+        <!-- Section 2: Archive Board -->
+        <section id="recent-articles" class="recent-articles-reveal">
+            <header class="archive-reveal-header">
+                <span class="small-label-dash">// LATEST POSTS</span>
+                <h2 class="archive-main-title-unified">RECENT <span class="text-primary-green-span">ARTICLES</span></h2>
+            </header>
+
+            <!-- Categorical Filter Tabs -->
+            <nav id="blog-category-filter" class="blog-filter-tab-pill-nav">
+                <button class="blog-filter-tab-item active" data-filter="all">ALL</button>
+                <button class="blog-filter-tab-item" data-filter="design">DESIGN</button>
+                <button class="blog-filter-tab-item" data-filter="engineering">ENGINEERING</button>
+                <button class="blog-filter-tab-item" data-filter="product">PRODUCT</button>
+                <button class="blog-filter-tab-item" data-filter="culture">CULTURE</button>
+            </nav>
+
+            <div class="blog-archive-mixed-grid-layout" data-reveal-stagger>
+                
+                <!-- Large Article Card -->
+                <article class="blog-card-item-vertical card-hover-interaction" data-category="engineering">
+                    <div class="blog-card-emoji-header">⚡</div>
+                    <span class="blog-card-category-label">ENGINEERING</span>
+                    <h3 class="blog-card-title-unified">BUILDING A REAL-TIME COLLABORATION ENGINE</h3>
+                    <p class="blog-card-excerpt">A deep technical dive into our node infrastructure that enables millions of concurrent sessions in our creative suite.</p>
+                    <footer class="blog-card-footer">
+                        <span class="blog-card-author">Fabian Johnson</span>
+                        <span class="blog-card-read-time">12 min read</span>
+                    </footer>
+                </article>
+
+                <!-- Mixed Size Mini Card -->
+                <article class="blog-card-item-horizontal card-hover-interaction" data-category="design">
+                    <div class="blog-card-mini-visual">🎨</div>
+                    <div class="blog-card-mini-content">
+                        <span class="blog-card-category-label">DESIGN</span>
+                        <h3 class="blog-card-title-unified">COLOR THEORY IN MODERN UI</h3>
+                        <p class="blog-card-meta">By Sarah Chen • Feb 24, 2026</p>
+                    </div>
+                    <span class="mini-card-action-arrow">→</span>
+                </article>
+
+                <!-- Mixed Size Mini Card -->
+                <article class="blog-card-item-horizontal card-hover-interaction" data-category="culture">
+                    <div class="blog-card-mini-visual">🌎</div>
+                    <div class="blog-card-mini-content">
+                        <span class="blog-card-category-label">CULTURE</span>
+                        <h3 class="blog-card-title-unified">HOW WE BUILD REMOTE-FIRST CULTURE</h3>
+                        <p class="blog-card-meta">By HR Team • Feb 23, 2026</p>
+                    </div>
+                    <span class="mini-card-action-arrow">→</span>
+                </article>
+
+                <!-- Large Vertical Card -->
+                <article class="blog-card-item-vertical card-hover-interaction" data-category="product" style="grid-row: span 2;">
+                    <div class="blog-card-emoji-header">🔍</div>
+                    <span class="blog-card-category-label">PRODUCT</span>
+                    <h3 class="blog-card-title-unified">USER RESEARCH THAT WORKS</h3>
+                    <footer class="blog-card-footer">
+                        <span class="blog-card-author">Priya Patel</span>
+                        <span class="blog-card-read-time">8 min read</span>
+                    </footer>
+                </article>
+
+                <!-- Regular Card -->
+                <article class="blog-card-item-vertical card-hover-interaction" data-category="design">
+                    <div class="blog-card-emoji-header">✨</div>
+                    <span class="blog-card-category-label">DESIGN</span>
+                    <h3 class="blog-card-title-unified">ANIMATION PRINCIPLES FOR WEB DESIGNERS</h3>
+                    <p class="blog-card-excerpt">How to use motion to improve user experience without distracting from the content. Principles for 60fps fluidity.</p>
+                    <footer class="blog-card-footer">
+                        <span class="blog-card-author">Thomas Anderson</span>
+                        <span class="blog-card-read-time">10 min read</span>
+                    </footer>
+                </article>
+
+                <!-- Regular Card -->
+                <article class="blog-card-item-vertical card-hover-interaction" data-category="engineering">
+                    <div class="blog-card-emoji-header">🚀</div>
+                    <span class="blog-card-category-label">ENGINEERING</span>
+                    <h3 class="blog-card-title-unified">PERFORMANCE OPTIMIZATION GUIDE</h3>
+                    <footer class="blog-card-footer">
+                        <span class="blog-card-author">Dario Barukia</span>
+                        <span class="blog-card-read-time">15 min read</span>
+                    </footer>
+                </article>
+
+                <!-- Regular Card -->
+                <article class="blog-card-item-vertical card-hover-interaction" data-category="product">
+                    <div class="blog-card-emoji-header">📊</div>
+                    <span class="blog-card-category-label">PRODUCT</span>
+                    <h3 class="blog-card-title-unified">METRICS THAT MATTER</h3>
+                    <footer class="blog-card-footer">
+                        <span class="blog-card-author">Isabella Garcia</span>
+                        <span class="blog-card-read-time">6 min read</span>
+                    </footer>
+                </article>
+
+                <!-- Regular Card -->
+                <article class="blog-card-item-vertical card-hover-interaction" data-category="design">
+                    <div class="blog-card-emoji-header">📝</div>
+                    <span class="blog-card-category-label">DESIGN</span>
+                    <h3 class="blog-card-title-unified">TYPOGRAPHY BEST PRACTICES</h3>
+                    <footer class="blog-card-footer">
+                        <span class="blog-card-author">Alicia Brown</span>
+                        <span class="blog-card-read-time">9 min read</span>
+                    </footer>
+                </article>
+
+            </div>
+
+            <div class="archive-action-footer">
+                <button class="load-more-action-pill-btn-beige button-hover-interaction">LOAD MORE ARTICLES</button>
+            </div>
+        </section>
+
+        <!-- Section 3: Topic Hub -->
+        <section id="blog-topic-hub" class="blog-topic-hub-reveal">
+            <header class="topic-reveal-header">
+                <span class="small-label-dash">// KNOWLEDGE CATEGORIES</span>
+                <h2 class="topic-main-title-unified">BROWSE BY <span class="text-primary-green-span">TOPIC</span></h2>
+            </header>
+
+            <div class="topic-hub-grid-canvas">
+                
+                <!-- Grid of Topic Cards -->
+                <div class="topic-cards-grid-layout" data-reveal-stagger>
+                    
+                    <a href="#" class="topic-item-card-mini card-hover-interaction">
+                        <div class="topic-card-header">
+                            <span class="topic-emoji">🎨</span>
+                            <span class="topic-count-badge">43</span>
+                        </div>
+                        <h3 class="topic-card-title">DESIGN</h3>
+                        <p class="topic-card-desc">UI/UX, design systems, visual strategy, and creative processes.</p>
+                    </a>
+
+                    <a href="#" class="topic-item-card-mini card-hover-interaction">
+                        <div class="topic-card-header">
+                            <span class="topic-emoji">💻</span>
+                            <span class="topic-count-badge">56</span>
+                        </div>
+                        <h3 class="topic-card-title">ENGINEERING</h3>
+                        <p class="topic-card-desc">Architecture, performance, best practices, and code quality.</p>
+                    </a>
+
+                    <a href="#" class="topic-item-card-mini card-hover-interaction">
+                        <div class="topic-card-header">
+                            <span class="topic-emoji">📦</span>
+                            <span class="topic-count-badge">31</span>
+                        </div>
+                        <h3 class="topic-card-title">PRODUCT</h3>
+                        <p class="topic-card-desc">Strategy, roadmaps, user research, and product development.</p>
+                    </a>
+
+                    <a href="#" class="topic-item-card-mini card-hover-interaction">
+                        <div class="topic-card-header">
+                            <span class="topic-emoji">🤝</span>
+                            <span class="topic-count-badge">24</span>
+                        </div>
+                        <h3 class="topic-card-title">CULTURE</h3>
+                        <p class="topic-card-desc">Team building, remote work, hires, and company values.</p>
+                    </a>
+
+                    <a href="#" class="topic-item-card-mini card-hover-interaction">
+                        <div class="topic-card-header">
+                            <span class="topic-emoji">📢</span>
+                            <span class="topic-count-badge">18</span>
+                        </div>
+                        <h3 class="topic-card-title">MARKETING</h3>
+                        <p class="topic-card-desc">Mission, content strategy, and community building.</p>
+                    </a>
+
+                    <a href="#" class="topic-item-card-mini card-hover-interaction">
+                        <div class="topic-card-header">
+                            <span class="topic-emoji">🎯</span>
+                            <span class="topic-count-badge">21</span>
+                        </div>
+                        <h3 class="topic-card-title">LEADERSHIP</h3>
+                        <p class="topic-card-desc">Visionaries, standards, decision-making, and team growth.</p>
+                    </a>
+
+                </div>
+
+                <!-- Trending & Search Sidebar -->
+                <aside class="topic-hub-sidebar-col" data-reveal-stagger>
+                    
+                    <div class="sidebar-module-box popular-posts-reveal">
+                        <h4 class="sidebar-module-title-unified">MOST POPULAR</h4>
+                        <div class="popular-ranking-list">
+                            <a href="#" class="ranking-item">
+                                <span class="ranking-index">01</span>
+                                <div class="ranking-content">
+                                    <h5 class="ranking-title">The Complete Guide to Design Systems</h5>
+                                    <p class="ranking-meta">15.2k views</p>
+                                </div>
+                            </a>
+                            <a href="#" class="ranking-item">
+                                <span class="ranking-index">02</span>
+                                <div class="ranking-content">
+                                    <h5 class="ranking-title">Building Better Components</h5>
+                                    <p class="ranking-meta">12.5k views</p>
+                                </div>
+                            </a>
+                            <a href="#" class="ranking-item">
+                                <span class="ranking-index">03</span>
+                                <div class="ranking-content">
+                                    <h5 class="ranking-title">Remote Team Management</h5>
+                                    <p class="ranking-meta">11.8k views</p>
+                                </div>
+                            </a>
+                            <a href="#" class="ranking-item">
+                                <span class="ranking-index">04</span>
+                                <div class="ranking-content">
+                                    <h5 class="ranking-title">Modern CSS Techniques</h5>
+                                    <p class="ranking-meta">10.1k views</p>
+                                </div>
+                            </a>
+                            <a href="#" class="ranking-item">
+                                <span class="ranking-index">05</span>
+                                <div class="ranking-content">
+                                    <h5 class="ranking-title">Product Roadmap Planning</h5>
+                                    <p class="ranking-meta">9.4k views</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-module-box search-archive-reveal">
+                        <h4 class="sidebar-module-title-unified">SEARCH ARTICLES</h4>
+                        <div class="search-field-minimal-row">
+                            <input type="text" id="blog-archive-search-input" placeholder="Search..." class="search-input-minimal">
+                            <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        </div>
+                    </div>
+
+                </aside>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Site Footer Section (Consistent Style) -->
+    <footer id="blog-site-footer" class="main-site-footer-container">
+        <div class="footer-action-banner-row">
+            <a href="#" class="footer-get-app-pill-btn">
+                GET APP 
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+        <div class="footer-navigation-grid">
+            <div class="footer-nav-column">
+                <span class="footer-nav-label">// ABOUT US</span>
+                <p class="footer-about-text">We are a creative studio dedicated to pushing the boundaries of digital interaction. Our mission is to create visuals beyond reality.</p>
+            </div>
+            <div class="footer-nav-column">
+                <span class="footer-nav-label">// EXPLORE</span>
+                <nav class="footer-link-list">
+                    <a href="Home.html" class="footer-link-item">Work</a>
+                    <a href="#" class="footer-link-item">Services</a>
+                    <a href="About.html" class="footer-link-item">About</a>
+                    <a href="Blog.html" class="footer-link-item active">Blog</a>
+                </nav>
+            </div>
+            <div class="footer-nav-column">
+                <span class="footer-nav-label">// CONNECT</span>
+                <div class="footer-connect-list">
+                    <a href="mailto:creestudios@gmail.com" class="footer-connect-item">creestudios@gmail.com</a>
+                    <a href="tel:+201122334455" class="footer-connect-item">(+20) 1122334455</a>
+                    <a href="#" class="footer-connect-item">@creestudios</a>
+                </div>
+            </div>
+            <div class="footer-nav-column footer-subscribe-wrapper">
+                <span class="footer-nav-label">// STAY UPDATED</span>
+                <div class="footer-email-field-row">
+                    <input type="email" placeholder="YOUR EMAIL" class="footer-email-input-minimal">
+                </div>
+                <a href="#" class="footer-subscribe-action-link">SUBSCRIBE</a>
+                <button id="back-to-top-btn" class="back-to-top-pill-btn">↑</button>
+            </div>
+        </div>
+        <div class="footer-bottom-branding-row">
+            <div class="footer-massive-branding-text">
+                <img src="Assets/White Logo.png" alt="Creestudios wordmark" class="footer-massive-logo-img">
+            </div>
+            <div class="footer-legal-bar">
+                <p>© 2026 CREESTUDIOS INC.</p>
+                <div class="footer-legal-links-flex">
+                    <a href="Policy.html" class="footer-legal-link">PRIVACY POLICY</a>
+                    <a href="#" class="footer-legal-link">TERMS OF USE</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External script -->
+    <script src="script.js"></script>
+</body>
+</html>
