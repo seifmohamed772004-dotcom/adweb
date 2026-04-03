@@ -439,4 +439,57 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Features specific interactions
+    const featuresRevealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                el.classList.add('is-visible');
+                
+                if (el.hasAttribute('data-reveal-stagger')) {
+                    const children = el.querySelectorAll('.feature-hero-pill-item, .toolkit-card-item, .poweruser-card-item');
+                    children.forEach((child, index) => {
+                        child.style.transitionDelay = `${index * 0.1}s`;
+                        child.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                        setTimeout(() => {
+                            child.style.opacity = '1';
+                            child.style.transform = 'translateY(0)';
+                        }, 50);
+                    });
+                }
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    const featureElements = document.querySelectorAll('.features-hero-section-reveal, .features-creators-reveal, .creator-block-reveal, .features-toolkit-reveal, .features-poweruser-reveal, .features-ready-reveal, [data-reveal-stagger]');
+    featureElements.forEach(el => {
+        if (!el.classList.contains('is-visible') && !el.hasAttribute('data-reveal-stagger')) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
+        } else if (el.hasAttribute('data-reveal-stagger')) {
+            const children = el.querySelectorAll('.feature-hero-pill-item, .toolkit-card-item, .poweruser-card-item');
+            children.forEach(child => {
+                child.style.opacity = '0';
+                child.style.transform = 'translateY(20px)';
+            });
+        }
+        featuresRevealObserver.observe(el);
+    });
+
+    const magneticBtns2 = document.querySelectorAll('.features-start-trial-btn, .features-pricing-btn');
+    magneticBtns2.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.3}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0px, 0px)';
+        });
+    });
+
 });

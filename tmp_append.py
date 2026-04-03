@@ -1,0 +1,728 @@
+import sys
+
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creestudios | Features</title>
+    <link rel="stylesheet" href="Stylesheet.css">
+    <link rel="preload" href="Assets/Choldera Demo.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="Assets/Unbounded.ttf" as="font" type="font/ttf" crossorigin>
+</head>
+<body class="features-page-body-root">
+    <nav id="site-primary-navbar" class="pill-nav-container">
+        <div class="pill-nav-main">
+            <ul class="pill-nav-list">
+                <li>
+                    <a href="Home.html" class="nav-link-anchor-style">
+                        <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Features.html" class="nav-link-anchor-style active">
+                        <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <span>Features</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Contact.html" class="nav-link-anchor-style">
+                        <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <span>Reach Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="pill-nav-lang">
+            <a href="#" class="lang-link">
+                <span>EN</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="features-page-main-wrapper">
+        <section id="features-hero-section" class="features-hero-section-reveal">
+           <span class="features-hero-label">FEATURES / ALL</span>
+           <h1 class="features-hero-title-unified">EVERYTHING <br><span class="text-primary-green-span">YOU NEED</span></h1>
+           <p class="features-hero-subtext">A complete set of tools to elevate your business workflow, enhanced features built for developers, agencies and enterprises.</p>
+           
+           <div class="features-hero-pills-row" data-reveal-stagger>
+               <div class="feature-hero-pill-item">Vector Tool</div>
+               <div class="feature-hero-pill-item">Collaboration</div>
+               <div class="feature-hero-pill-item">Prototyping</div>
+               <div class="feature-hero-pill-item">Version Control</div>
+               <div class="feature-hero-pill-item">Auto Layout</div>
+               <div class="feature-hero-pill-item">Inspections</div>
+           </div>
+
+           <div class="features-hero-cta-group" data-reveal-stagger>
+               <button class="features-start-trial-btn button-hover-interaction">START FREE TRIAL</button>
+               <button class="features-pricing-btn button-hover-interaction">VIEW PRICING <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+           </div>
+        </section>
+
+        <section id="features-creators-section" class="features-creators-reveal">
+           <h2 class="features-section-title-unified">BUILT FOR <span class="text-primary-green-span">CREATORS</span></h2>
+           
+           <div class="creators-block-container">
+               <div class="creator-row-right">
+                   <div class="creator-content-block creator-block-reveal">
+                       <span class="creator-badge-label">LAYERS</span>
+                       <h3 class="creator-block-title-unified">INTUITIVE <br>DESIGN <br>TOOLS</h3>
+                       <p class="creator-block-desc">Access an advanced library of premium shapes, grids, and brushes. Turn any shape into a complex and smart interactive component.</p>
+                       <ul class="creator-feature-list">
+                           <li><span class="creator-list-icon"></span> Perfect Pixel technology</li>
+                           <li><span class="creator-list-icon"></span> Advanced shape building tool</li>
+                           <li><span class="creator-list-icon"></span> Unlimited artboards scaling</li>
+                           <li><span class="creator-list-icon"></span> Smart snapping guides</li>
+                       </ul>
+                   </div>
+               </div>
+
+               <div class="creator-row-left">
+                   <div class="creator-content-block creator-block-reveal">
+                       <span class="creator-badge-label">COLLABORATION</span>
+                       <h3 class="creator-block-title-unified">REAL-TIME <br>COLLABORATION</h3>
+                       <p class="creator-block-desc">Work on the same project in real time. Leave comments, assign tasks, and watch updates happen simultaneously, no matter where you are.</p>
+                       <ul class="creator-feature-list">
+                           <li><span class="creator-list-icon"></span> Multi-user editing</li>
+                           <li><span class="creator-list-icon"></span> Contextual comment threads</li>
+                           <li><span class="creator-list-icon"></span> Version history tracking</li>
+                           <li><span class="creator-list-icon"></span> Live presentations</li>
+                       </ul>
+                   </div>
+               </div>
+
+               <div class="creator-row-right">
+                   <div class="creator-content-block creator-block-reveal">
+                       <span class="creator-badge-label">PROTOTYPING</span>
+                       <h3 class="creator-block-title-unified">INTERACTIVE <br>PROTOTYPES</h3>
+                       <p class="creator-block-desc">Bring your design to life. Connect screens, add micro-interactions, and test user flows without leaving the environment.</p>
+                       <ul class="creator-feature-list">
+                           <li><span class="creator-list-icon"></span> Logical animation flows</li>
+                           <li><span class="creator-list-icon"></span> Interactive components</li>
+                           <li><span class="creator-list-icon"></span> User flow mapping</li>
+                           <li><span class="creator-list-icon"></span> Device simulation</li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+        </section>
+
+        <section id="features-toolkit-section" class="features-toolkit-reveal">
+            <div class="toolkit-header-box">
+                <h2 class="features-section-title-unified">COMPLETE <span class="text-primary-green-span">TOOLKIT</span></h2>
+                <p class="toolkit-subtext">Comprehensive set of features designed to enhance your creative potential and team productivity.</p>
+            </div>
+            
+            <div class="toolkit-cards-grid" data-reveal-stagger>
+                <div class="toolkit-card-item card-hover-interaction">
+                    <h4 class="toolkit-card-title-unified">VECTOR NETWORKS</h4>
+                    <p class="toolkit-card-desc">Advanced vector manipulation capabilities that combine control with standard bezier capabilities.</p>
+                </div>
+                <div class="toolkit-card-item card-hover-interaction">
+                    <h4 class="toolkit-card-title-unified">AUTO LAYOUT</h4>
+                    <p class="toolkit-card-desc">Responsive components that automatically adjust to content with spacing algorithms.</p>
+                </div>
+                <div class="toolkit-card-item card-hover-interaction">
+                    <h4 class="toolkit-card-title-unified">PLUGINS & API</h4>
+                    <p class="toolkit-card-desc">Extend functionality with custom plugins or integrate with your existing workflow layers.</p>
+                </div>
+                <div class="toolkit-card-item card-hover-interaction">
+                    <h4 class="toolkit-card-title-unified">COLOR MANAGEMENT</h4>
+                    <p class="toolkit-card-desc">Create, manage and distribute semantic color tokens across your entire organization.</p>
+                </div>
+                <div class="toolkit-card-item card-hover-interaction">
+                    <h4 class="toolkit-card-title-unified">RESPONSIVE DESIGN</h4>
+                    <p class="toolkit-card-desc">Build designs that seamlessly adapt across breakpoints and various screen contexts.</p>
+                </div>
+                <div class="toolkit-card-item card-hover-interaction">
+                    <h4 class="toolkit-card-title-unified">VERSION CONTROL</h4>
+                    <p class="toolkit-card-desc">Branch, merge and track changes effectively across team members and project cycles.</p>
+                </div>
+                <div class="toolkit-card-item card-hover-interaction">
+                    <h4 class="toolkit-card-title-unified">COMMENTING</h4>
+                    <p class="toolkit-card-desc">Collaborate with context using pinned comments and direct team mentions.</p>
+                </div>
+                <div class="toolkit-card-item card-hover-interaction">
+                    <h4 class="toolkit-card-title-unified">SMART GRID</h4>
+                    <p class="toolkit-card-desc">Advanced layout frameworks that bridge the gap between design and implementation.</p>
+                </div>
+                <div class="toolkit-card-item card-hover-interaction">
+                    <h4 class="toolkit-card-title-unified">EXPORT OPTIONS</h4>
+                    <p class="toolkit-card-desc">Export assets in multiple formats organically optimizing for web, app or print standards.</p>
+                </div>
+                <div class="toolkit-card-item card-hover-interaction">
+                    <h4 class="toolkit-card-title-unified">INSPECT MODE</h4>
+                    <p class="toolkit-card-desc\">Translate designs into code seamlessly passing values explicitly to developers.</p>
+                </div>
+                <div class="toolkit-card-item card-hover-interaction">
+                    <h4 class="toolkit-card-title-unified">ACCESSIBILITY</h4>
+                    <p class="toolkit-card-desc">Built-in tools ensuring products meet WCAG compliance from the ground up.</p>
+                </div>
+                <div class="toolkit-card-item card-hover-interaction">
+                    <h4 class="toolkit-card-title-unified">PERFORMANCE</h4>
+                    <p class="toolkit-card-desc">Lightning fast, even with massive files boasting millions of complex layers.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features-poweruser-section" class="features-poweruser-reveal">
+             <h2 class="features-section-title-unified">POWER USER <span class="text-primary-green-span">FEATURES</span></h2>
+             
+             <div class="poweruser-content-wrapper" data-reveal-stagger>
+                 <div class="poweruser-category-box">
+                     <h4 class="poweruser-category-title">DEVELOPER TOOLS</h4>
+                     <div class="poweruser-items-grid-2col">
+                         <div class="poweruser-card-item card-hover-interaction">
+                             <h5 class="poweruser-card-label text-primary-green-span">AUDIT LOGS</h5>
+                             <p class="poweruser-card-desc">Export design tokens natively into your repo.</p>
+                         </div>
+                         <div class="poweruser-card-item card-hover-interaction">
+                             <h5 class="poweruser-card-label text-primary-green-span">AUDIT LOGS</h5>
+                             <p class="poweruser-card-desc">Custom webhooks for automation and security.</p>
+                         </div>
+                         <div class="poweruser-card-item card-hover-interaction">
+                             <h5 class="poweruser-card-label text-primary-green-span">AUDIT LOGS</h5>
+                             <p class="poweruser-card-desc">Detailed logs of all access and document actions.</p>
+                         </div>
+                         <div class="poweruser-card-item card-hover-interaction">
+                             <h5 class="poweruser-card-label text-primary-green-span">AUDIT LOGS</h5>
+                             <p class="poweruser-card-desc">Advanced API endpoints for specific data actions.</p>
+                         </div>
+                     </div>
+                 </div>
+                 
+                 <div class="poweruser-category-box">
+                     <h4 class="poweruser-category-title">ENTERPRISE</h4>
+                     <div class="poweruser-items-grid-2col">
+                         <div class="poweruser-card-item card-hover-interaction">
+                             <h5 class="poweruser-card-label text-primary-green-span">AUDIT LOGS</h5>
+                             <p class="poweruser-card-desc">SAML Single Sign-On and native provisioning.</p>
+                         </div>
+                         <div class="poweruser-card-item card-hover-interaction">
+                             <h5 class="poweruser-card-label text-primary-green-span">AUDIT LOGS</h5>
+                             <p class="poweruser-card-desc">Centralized role management and permissions.</p>
+                         </div>
+                         <div class="poweruser-card-item card-hover-interaction">
+                             <h5 class="poweruser-card-label text-primary-green-span">AUDIT LOGS</h5>
+                             <p class="poweruser-card-desc">Advanced visibility tracking and enterprise reporting.</p>
+                         </div>
+                         <div class="poweruser-card-item card-hover-interaction">
+                             <h5 class="poweruser-card-label text-primary-green-span">AUDIT LOGS</h5>
+                             <p class="poweruser-card-desc">Dedicated client success and prioritized support.</p>
+                         </div>
+                     </div>
+                 </div>
+
+                 <div class="poweruser-category-box">
+                     <h4 class="poweruser-category-title">AUTOMATION</h4>
+                     <div class="poweruser-items-grid-2col">
+                         <div class="poweruser-card-item card-hover-interaction">
+                             <h5 class="poweruser-card-label text-primary-green-span">GLOBAL TOKENS</h5>
+                             <p class="poweruser-card-desc">Sync values across all libraries instantly with semantic values.</p>
+                         </div>
+                         <div class="poweruser-card-item card-hover-interaction">
+                             <h5 class="poweruser-card-label text-primary-green-span">BATCH OPERATIONS</h5>
+                             <p class="poweruser-card-desc">Process hundreds of layers securely and effortlessly.</p>
+                         </div>
+                         <div class="poweruser-card-item card-hover-interaction">
+                             <h5 class="poweruser-card-label text-primary-green-span">SMART COMPONENTS</h5>
+                             <p class="poweruser-card-desc">State-reacting components that parse logical changes.</p>
+                         </div>
+                         <div class="poweruser-card-item card-hover-interaction">
+                             <h5 class="poweruser-card-label text-primary-green-span">CI/CD INTEGRATION</h5>
+                             <p class="poweruser-card-desc">Connect with CircleCI, GitHub Actions and other pipelines.</p>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+        <section id="features-ready-cta" class="features-ready-reveal">
+            <div class="features-ready-content pb-20">
+                <h2 class="features-ready-title-unified">READY TO <span class="text-primary-green-span">CREATE?</span></h2>
+                <p class="features-ready-desc">Join thousands of creators, engineers, and brands scaling their ideas today. Try it for free or schedule a demo to get started.</p>
+                <div class="features-hero-cta-group" style="justify-content: center; margin-top: 30px;">
+                    <button class="features-start-trial-btn button-hover-interaction">START FREE TRIAL</button>
+                    <button class="features-pricing-btn button-hover-interaction">CONTACT SALES <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-site-footer-container" style="border-top: 1px solid rgba(112, 153, 135, 0.2); padding-top: 60px; padding-bottom: 20px;">
+        <div class="footer-navigation-grid" style="padding: 0 5vw; display: flex; justify-content: space-between;">
+            <div class="footer-nav-column">
+                <span class="footer-nav-label" style="color: #709987; font-size: 0.8rem;">CREESTUDIOS</span>
+                <p class="footer-about-text" style="margin-top: 10px; font-size: 0.8rem; color: rgba(255, 238, 220, 0.6); max-width: 300px;">Empowering design visibility, collaboration, and prototyping workflows for modern creators.</p>
+            </div>
+            <div class="footer-nav-column" style="display: flex; gap: 40px;">
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <span class="footer-nav-label" style="color: #709987; font-size: 0.8rem;">COMPANY</span>
+                    <a href="#" style="color: #ffeedc; text-decoration: none; font-size: 0.9rem;">About</a>
+                    <a href="#" style="color: #ffeedc; text-decoration: none; font-size: 0.9rem;">Careers</a>
+                    <a href="#" style="color: #ffeedc; text-decoration: none; font-size: 0.9rem;">Contact</a>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <span class="footer-nav-label" style="color: #709987; font-size: 0.8rem;">PRODUCT</span>
+                    <a href="#" style="color: #ffeedc; text-decoration: none; font-size: 0.9rem;">Features</a>
+                    <a href="#" style="color: #ffeedc; text-decoration: none; font-size: 0.9rem;">Pricing</a>
+                    <a href="#" style="color: #ffeedc; text-decoration: none; font-size: 0.9rem;">Integrations</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 80px; opacity: 0.1;">
+            <h1 style="font-size: 15vw; font-family: 'Unbounded', sans-serif; letter-spacing: -2px; margin: 0; line-height: 0.75;">CREESTUDIOS</h1>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>"""
+
+css_content = """
+/* --- FEATURES PAGE STYLES --- */
+.features-page-body-root {
+    background-color: #181818;
+    color: #ffeedc;
+}
+
+.features-page-main-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+}
+
+/* Base Classes */
+.features-section-title-unified {
+    font-size: 3rem;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    font-family: 'Choldera', display;
+    text-transform: uppercase;
+}
+
+/* Features Hero */
+.features-hero-section-reveal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 180px 5vw 80px;
+    gap: 25px;
+    border-bottom: 1px solid rgba(112, 153, 135, 0.2);
+}
+
+.features-hero-label {
+    font-size: 0.7rem;
+    color: #55A887;
+    letter-spacing: 3px;
+}
+
+.features-hero-title-unified {
+    font-size: 5rem;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    font-family: 'Choldera', display;
+    text-transform: uppercase;
+}
+
+.features-hero-subtext {
+    font-size: 1.1rem;
+    color: #709987;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.features-hero-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+.feature-hero-pill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(112, 153, 135, 0.2);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: #ffeedc;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.feature-hero-pill-item:hover {
+    border-color: #55A887;
+    background-color: #222;
+}
+
+.features-hero-cta-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.features-start-trial-btn {
+    background-color: #ffeedc;
+    color: #181818;
+    border: none;
+    padding: 18px 36px;
+    border-radius: 4px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.features-pricing-btn {
+    background-color: transparent;
+    color: #ffeedc;
+    border: 1px solid #ffeedc;
+    padding: 18px 36px;
+    border-radius: 4px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.features-pricing-btn:hover {
+    background-color: #ffeedc;
+    color: #181818;
+}
+
+/* Built for Creators */
+.features-creators-reveal {
+    padding: 100px 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.creators-block-container {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+}
+
+.creator-row-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.creator-row-left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.creator-content-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.creator-badge-label {
+    font-size: 0.7rem;
+    color: #181818;
+    background-color: #55A887;
+    padding: 5px 12px;
+    border-radius: 4px;
+    width: fit-content;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.creator-block-title-unified {
+    font-size: 2.5rem;
+    line-height: 1.1;
+    font-family: 'Choldera', display;
+    text-transform: uppercase;
+}
+
+.creator-block-desc {
+    color: #709987;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.creator-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.creator-feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+}
+
+.creator-list-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: rgba(85, 168, 135, 0.1);
+    border: 1px solid #55A887;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Complete Toolkit */
+.features-toolkit-reveal {
+    padding: 100px 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.toolkit-header-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.toolkit-subtext {
+    color: #709987;
+    max-width: 500px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.toolkit-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.toolkit-card-item {
+    background-color: #141414;
+    border: 1px solid rgba(112, 153, 135, 0.15);
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.toolkit-card-title-unified {
+    font-size: 1.1rem;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+}
+
+.toolkit-card-desc {
+    color: #709987;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Power User Section */
+.features-poweruser-reveal {
+    padding: 100px 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.poweruser-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.poweruser-category-box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.poweruser-category-title {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffeedc;
+    border-bottom: 1px solid rgba(112, 153, 135, 0.2);
+    padding-bottom: 15px;
+}
+
+.poweruser-items-grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.poweruser-card-item {
+    background-color: #111;
+    border: 1px solid rgba(112, 153, 135, 0.15);
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.poweruser-card-label {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.poweruser-card-desc {
+    color: #709987;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Ready to Create */
+.features-ready-reveal {
+    padding: 120px 5vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.features-ready-content {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.features-ready-title-unified {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-family: 'Choldera', display;
+    text-transform: uppercase;
+}
+
+.features-ready-desc {
+    color: #709987;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .features-hero-title-unified {
+        font-size: 4rem;
+    }
+    .toolkit-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .features-hero-title-unified {
+        font-size: 3rem;
+    }
+    .features-section-title-unified {
+        font-size: 2.5rem;
+    }
+    .features-hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    .features-start-trial-btn, .features-pricing-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .creator-row-right, .creator-row-left {
+        justify-content: center;
+    }
+    .creator-content-block {
+        max-width: 100%;
+    }
+    .toolkit-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .poweruser-items-grid-2col {
+        grid-template-columns: 1fr;
+    }
+}
+"""
+
+js_content = """
+// Features specific interactions
+document.addEventListener('DOMContentLoaded', () => {
+    // Reveal observing for Features page
+    const featuresRevealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                el.classList.add('is-visible');
+                
+                if (el.hasAttribute('data-reveal-stagger')) {
+                    const children = el.querySelectorAll('.feature-hero-pill-item, .toolkit-card-item, .poweruser-card-item');
+                    children.forEach((child, index) => {
+                        child.style.transitionDelay = `${index * 0.1}s`;
+                        child.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                        setTimeout(() => {
+                            child.style.opacity = '1';
+                            child.style.transform = 'translateY(0)';
+                        }, 50);
+                    });
+                }
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    const featureElements = document.querySelectorAll('.features-hero-section-reveal, .features-creators-reveal, .creator-block-reveal, .features-toolkit-reveal, .features-poweruser-reveal, .features-ready-reveal, [data-reveal-stagger]');
+    featureElements.forEach(el => {
+        if (!el.classList.contains('is-visible') && !el.hasAttribute('data-reveal-stagger')) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
+        } else if (el.hasAttribute('data-reveal-stagger')) {
+            const children = el.querySelectorAll('.feature-hero-pill-item, .toolkit-card-item, .poweruser-card-item');
+            children.forEach(child => {
+                child.style.opacity = '0';
+                child.style.transform = 'translateY(20px)';
+            });
+        }
+        featuresRevealObserver.observe(el);
+    });
+
+    const magneticBtns2 = document.querySelectorAll('.features-start-trial-btn, .features-pricing-btn');
+    magneticBtns2.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.3}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0px, 0px)';
+        });
+    });
+});
+"""
+
+with open("Features.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+with open("Stylesheet.css", "a", encoding="utf-8") as f:
+    f.write(css_content)
+
+with open("script.js", "a", encoding="utf-8") as f:
+    f.write(js_content)
+
+print("Done")
