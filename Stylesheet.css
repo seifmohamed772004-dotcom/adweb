@@ -38,7 +38,7 @@ h1, h2, h3, .choldera-text {
     color: #55A887;
 }
 
-/* --- Global Animation Utilities --- */
+
 [class*="-reveal"] {
     opacity: 0;
     transform: translateY(30px);
@@ -54,7 +54,7 @@ h1, h2, h3, .choldera-text {
 .reveal-scale-in { transform: scale(0.95); }
 .reveal-scale-in.is-visible { transform: scale(1) !important; }
 
-/* Micro-interactions: Cards & Buttons */
+
 .card-hover-interaction { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease; }
 .card-hover-interaction:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
 
@@ -1617,7 +1617,7 @@ width: 100%;
     line-height: 1.5;
 }
 
-/* --- About Page Specific Styles --- */
+
 .about-page-body-root {
     scroll-behavior: smooth;
     background-color: #181818;
@@ -1630,7 +1630,7 @@ width: 100%;
     overflow-x: hidden;
 }
 
-/* 1. Hero Section */
+
 .about-hero-section-reveal {
     height: 90vh;
     min-height: 600px;
@@ -1697,7 +1697,7 @@ width: 100%;
     color: #55A887;
 }
 
-/* 2. Intro Section */
+
 .about-intro-section-reveal {
     padding: 100px 8vw;
     display: flex;
@@ -1745,7 +1745,7 @@ width: 100%;
     filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
 }
 
-/* 3. Stats Section */
+
 .about-stats-section-reveal {
     padding: 60px 8vw;
 }
@@ -1784,7 +1784,7 @@ width: 100%;
     letter-spacing: 2px;
 }
 
-/* 4. Values Section */
+
 .about-values-section-reveal {
     padding: 80px 8vw;
 }
@@ -1822,7 +1822,7 @@ width: 100%;
     font-weight: 500;
 }
 
-/* 5. Workflow Section */
+
 .about-workflow-section-reveal {
     padding: 100px 8vw;
     display: flex;
@@ -1889,7 +1889,7 @@ width: 100%;
     letter-spacing: 5px;
 }
 
-/* 6. Built for Creators */
+
 .about-creators-reveal {
     padding: 100px 8vw;
     display: flex;
@@ -1987,7 +1987,7 @@ width: 100%;
     order: 2;
 }
 
-/* 7. Industry Grid */
+
 .about-industries-section-reveal {
     padding: 100px 8vw;
     display: flex;
@@ -2040,7 +2040,7 @@ width: 100%;
     color: #709987;
 }
 
-/* Responsive Overrides */
+
 @media (max-width: 1024px) {
     .about-hero-title-text-unified { font-size: 4rem; }
     .about-intro-grid-layout { grid-template-columns: 1fr; text-align: center; }
@@ -2066,7 +2066,7 @@ width: 100%;
     .about-creator-sub-heading-unified { font-size: 1.8rem; }
 }
 
-/* --- Contact Page Specific Styles --- */
+
 .contact-page-body-root {
     background-color: #181818;
     color: #ffeedc;
@@ -2078,7 +2078,7 @@ width: 100%;
     flex-direction: column;
 }
 
-/* 1. Hero & Details Grid */
+
 .contact-hero-reveal {
     padding: 100px 5vw;
     min-height: 90vh;
@@ -2189,7 +2189,7 @@ width: 100%;
     color: #181818;
 }
 
-/* 2. Testimonial Ticker */
+
 .contact-ticker-reveal {
     background-color: rgba(255, 238, 220, 0.03);
     padding: 40px 0;
@@ -2217,7 +2217,7 @@ width: 100%;
     100% { transform: translateX(-50%); }
 }
 
-/* 3. Social Grid */
+
 .contact-social-reveal {
     padding: 100px 5vw;
 }
@@ -2274,7 +2274,7 @@ width: 100%;
     font-size: 0.9rem;
 }
 
-/* 4. Pill Navigation Overlay */
+
 .contact-pill-nav-wrapper {
     width: 100%;
     display: flex;
@@ -2282,7 +2282,7 @@ width: 100%;
     padding: 50px 0;
 }
 
-/* Responsive Overrides */
+
 @media (max-width: 1024px) {
     .contact-grid-container { grid-template-columns: 1fr 1.5fr; }
     .contact-title-col { grid-column: span 2; text-align: center; }
@@ -2302,7 +2302,7 @@ width: 100%;
     .contact-platform-card-item { padding: 50px 30px; }
 }
 
-/* --- Subscriptions V2 Page Specific Styles --- */
+
 .subscriptions-v2-body-root {
     background-color: #181818;
     color: #ffeedc;
@@ -2314,7 +2314,7 @@ width: 100%;
     flex-direction: column;
 }
 
-/* 1. Pricing Grid V2 */
+
 .pricing-table-v2-reveal {
     padding: 100px 5vw;
 }
@@ -2348,7 +2348,7 @@ width: 100%;
     color: #181818;
 }
 
-/* Watermark & Price V2 */
+
 .pricing-v2-visual-box {
     position: relative;
     display: flex;
@@ -2391,14 +2391,14 @@ width: 100%;
     font-family: 'Unbounded', sans-serif;
 }
 
-/* Plan Title V2 */
+
 .pricing-v2-plan-title-unified {
     font-size: 2.5rem;
     font-family: 'Choldera', display;
     letter-spacing: 2px;
 }
 
-/* Features List V2 */
+
 .pricing-v2-features-list {
     list-style: none;
     display: flex;
@@ -2414,7 +2414,7 @@ width: 100%;
     opacity: 0.8;
 }
 
-/* Action Button V2 */
+
 .pricing-v2-card-footer {
     width: 100%;
     margin-top: auto;
@@ -2453,14 +2453,14 @@ width: 100%;
     color: #ffeedc;
 }
 
-/* Nav Wrapper V2 */
+
 .subs-v2-pill-nav-wrapper {
     padding: 80px 5vw;
     display: flex;
     justify-content: center;
 }
 
-/* --- Responsive V2 --- */
+
 @media (max-width: 1100px) {
     .pricing-v2-grid-layout { grid-template-columns: 1fr; border-right: none; }
     .pricing-v2-card-item { border-right: none; border-bottom: 1px solid rgba(255, 238, 220, 0.1); }
@@ -2474,7 +2474,7 @@ width: 100%;
     .pricing-v2-integer-value { font-size: 4.5rem; }
 }
 
-/* --- FAQ Page Specific Styles --- */
+
 .faq-page-body-root {
     background-color: #181818;
     background-image: linear-gradient(rgba(24, 24, 24, 0.8), rgba(24, 24, 24, 0.8)), url('Assets/AboutSection2.png');
@@ -2491,7 +2491,7 @@ width: 100%;
     min-height: 100vh;
 }
 
-/* 1. FAQ Branding */
+
 .faq-minimal-branding-nav {
     padding: 40px 5vw;
     display: flex;
@@ -2503,7 +2503,7 @@ width: 100%;
     opacity: 0.8;
 }
 
-/* 2. Hero & Pagination */
+
 .faq-hero-reveal {
     display: flex;
     flex-direction: column;
@@ -2543,7 +2543,7 @@ width: 100%;
     color: #55A887;
 }
 
-/* 3. Question/Answer Display */
+
 .faq-content-reveal {
     padding: 20px 10vw;
     display: flex;
@@ -2573,7 +2573,7 @@ width: 100%;
     font-family: 'Unbounded', sans-serif;
 }
 
-/* 4. Action Hub */
+
 .faq-action-wrapper-reveal {
     padding: 80px 5vw;
     display: flex;
@@ -2614,14 +2614,14 @@ width: 100%;
     color: #55AAAA;
 }
 
-/* 5. Nav Overlay */
+
 .faq-pill-nav-overlay-wrapper {
     padding: 60px 0;
     display: flex;
     justify-content: center;
 }
 
-/* Responsive Overrides */
+
 @media (max-width: 1024px) {
     .faq-display-title-unified { font-size: 10rem; }
     .faq-active-title-unified { font-size: 2rem; }
@@ -2635,7 +2635,7 @@ width: 100%;
     .faq-page-number-item { font-size: 1rem; }
 }
 
-/* --- Privacy Policy Page Specific Styles --- */
+
 .policy-page-body-root {
     background-color: #181818;
     color: #ffeedc;
@@ -2647,7 +2647,7 @@ width: 100%;
     flex-direction: column;
 }
 
-/* 1. Hero Section */
+
 .policy-hero-reveal {
     padding: 100px 8vw;
     display: flex;
@@ -2701,7 +2701,7 @@ width: 100%;
     margin-bottom: 50px;
 }
 
-/* 2. Collection Blocks */
+
 .policy-collect-reveal {
     padding: 100px 8vw;
 }
@@ -2731,7 +2731,7 @@ width: 100%;
     max-width: 800px;
 }
 
-/* 3. Usage Grid */
+
 .policy-usage-reveal {
     padding: 100px 8vw;
 }
@@ -2765,7 +2765,7 @@ width: 100%;
     font-weight: 500;
 }
 
-/* 4. Sharing & Disclosure */
+
 .policy-sharing-reveal {
     padding: 100px 8vw;
 }
@@ -2821,7 +2821,7 @@ width: 100%;
     font-family: 'Unbounded', sans-serif;
 }
 
-/* 5. Your Rights */
+
 .policy-rights-reveal {
     padding: 100px 8vw;
 }
@@ -2864,7 +2864,7 @@ width: 100%;
     max-width: 800px;
 }
 
-/* 6. Data Security */
+
 .policy-security-reveal {
     padding: 100px 8vw;
 }
@@ -2919,7 +2919,7 @@ width: 100%;
     color: #55A887;
 }
 
-/* 7. Cookies & Tracking */
+
 .policy-cookies-reveal {
     padding: 100px 8vw 200px 8vw;
 }
@@ -2979,14 +2979,14 @@ width: 100%;
     font-style: italic;
 }
 
-/* Nav Overlay */
+
 .policy-pill-nav-module {
     padding: 100px 0;
     display: flex;
     justify-content: center;
 }
 
-/* Responsive Overrides */
+
 @media (max-width: 1024px) {
     .policy-massive-title-unified { font-size: 4rem; }
     .policy-massive-icon-img { width: 150px; height: 150px; }
@@ -3002,16 +3002,14 @@ width: 100%;
     .policy-section-title-unified { font-size: 3rem; }
 }
 
-/* ==========================================
-   CAREERS PAGE MODULES
-   ========================================== */
+
 
 .careers-page-body-root {
     background-color: #181818;
     color: #ffeedc;
 }
 
-/* 1. Careers Hero Section */
+
 .careers-hero-reveal {
     position: relative;
     padding: 180px 8vw 100px 8vw;
@@ -3125,7 +3123,7 @@ width: 100%;
     text-transform: uppercase;
 }
 
-/* Hero Benefits Preview Column */
+
 .careers-hero-benefits-preview-col {
     display: flex;
     flex-direction: column;
@@ -3159,7 +3157,7 @@ width: 100%;
     color: #709987;
 }
 
-/* 2. Job Board Section */
+
 .find-your-role-reveal {
     padding: 120px 8vw;
     background-color: #121212;
@@ -3216,7 +3214,7 @@ width: 100%;
     gap: 30px;
 }
 
-/* Featured Role Card */
+
 .role-card-featured-high-impact {
     background-color: rgba(255, 238, 220, 0.02);
     border: 1px solid rgba(85, 168, 135, 0.4);
@@ -3290,7 +3288,7 @@ width: 100%;
     margin-top: 20px;
 }
 
-/* Positions Mini Grid */
+
 .role-positions-grid-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -3347,7 +3345,7 @@ width: 100%;
     color: #181818;
 }
 
-/* Role Missing Green Card */
+
 .role-missing-green-cta-card {
     background-color: #55A887;
     color: #181818;
@@ -3385,7 +3383,7 @@ width: 100%;
     align-self: flex-start;
 }
 
-/* 3. Culture & Perks */
+
 .why-join-us-reveal {
     padding: 120px 8vw;
     background-color: #181818;
@@ -3441,7 +3439,7 @@ width: 100%;
     color: #709987;
 }
 
-/* 4. Recruitment Process Timeline */
+
 .how-it-works-reveal {
     padding: 120px 8vw;
     background-color: #121212;
@@ -3506,7 +3504,7 @@ width: 100%;
     align-self: flex-end;
 }
 
-/* Step marker dot */
+
 .timeline-step-card-box::after {
     content: "";
     position: absolute;
@@ -3556,7 +3554,7 @@ width: 100%;
     line-height: 1.6;
 }
 
-/* 5. Ready to Join CTA */
+
 .careers-ready-cta-reveal {
     padding: 150px 8vw 250px 8vw;
     text-align: center;
@@ -3597,7 +3595,7 @@ width: 100%;
     text-transform: uppercase;
 }
 
-/* Floating Nav Positioning */
+
 .careers-pill-nav-wrapper {
     position: fixed;
     bottom: 40px;
@@ -3606,7 +3604,7 @@ width: 100%;
     z-index: 1000;
 }
 
-/* RESPONSIVE OVERRIDES */
+
 @media (max-width: 1200px) {
     .careers-hero-main-heading-unified { font-size: 5rem; }
     .benefits-five-column-grid-layout { grid-template-columns: repeat(3, 1fr); }
@@ -3644,16 +3642,14 @@ width: 100%;
     .timeline-step-card-box { padding: 30px; }
 }
 
-/* ==========================================
-   OUR TEAM PAGE MODULES
-   ========================================== */
+
 
 .team-page-body-root {
     background-color: #181818;
     color: #ffeedc;
 }
 
-/* 1. Team Hero Section */
+
 .team-hero-reveal {
     min-height: 90vh;
     padding: 180px 8vw 100px 8vw;
@@ -3730,7 +3726,7 @@ width: 100%;
     font-weight: 600;
 }
 
-/* 2. Leadership Section */
+
 .our-leaders-reveal {
     padding: 120px 8vw;
     background-color: #121212;
@@ -3751,7 +3747,7 @@ width: 100%;
     gap: 30px;
 }
 
-/* Primary CEO Card */
+
 .leader-primary-spotlight-card {
     background-color: rgba(255, 238, 220, 0.03);
     border: 1px solid rgba(85, 168, 135, 0.4);
@@ -3807,7 +3803,7 @@ width: 100%;
     border-radius: 0 16px 16px 0;
 }
 
-/* Secondary Leaders Grid */
+
 .leaders-secondary-grid-layout {
     display: grid;
     grid-template-columns: 1fr;
@@ -3856,7 +3852,7 @@ width: 100%;
     font-weight: 600;
 }
 
-/* 3. Meet the Teams Sections */
+
 .meet-the-teams-reveal {
     padding: 120px 8vw;
     background-color: #181818;
@@ -3937,7 +3933,7 @@ width: 100%;
     font-weight: 600;
 }
 
-/* 4. Culture & Testimonials */
+
 .studio-culture-reveal {
     padding: 150px 8vw 250px 8vw;
     background-color: #121212;
@@ -4035,7 +4031,7 @@ width: 100%;
     font-weight: 800;
 }
 
-/* RESPONSIVE OVERRIDES */
+
 @media (max-width: 1200px) {
     .team-hero-main-title-unified { font-size: 5rem; }
     .culture-split-grid-canvas { gap: 60px; }
@@ -4067,16 +4063,14 @@ width: 100%;
     .member-card-mini-box { flex: 1 1 100%; }
 }
 
-/* ==========================================
-   BLOG PORTAL MODULES
-   ========================================== */
+
 
 .blog-page-body-root {
     background-color: #181818;
     color: #ffeedc;
 }
 
-/* 1. Blog Hero Section */
+
 .blog-hero-reveal {
     padding: 100px 8vw 120px 8vw;
     background-color: #181818;
@@ -4205,7 +4199,7 @@ width: 100%;
     cursor: pointer;
 }
 
-/* Sidebar Modules */
+
 .blog-hero-sidebar-col {
     display: flex;
     flex-direction: column;
@@ -4277,7 +4271,7 @@ width: 100%;
     cursor: pointer;
 }
 
-/* 2. Archive Section */
+
 .recent-articles-reveal {
     padding: 120px 8vw;
     background-color: #121212;
@@ -4368,7 +4362,7 @@ width: 100%;
     color: #55AAAA;
 }
 
-/* Horizontal Mini Card */
+
 .blog-card-item-horizontal {
     grid-column: span 2;
     background-color: rgba(255, 238, 220, 0.02);
@@ -4430,7 +4424,7 @@ width: 100%;
     cursor: pointer;
 }
 
-/* 3. Topic Hub Section */
+
 .blog-topic-hub-reveal {
     padding: 120px 8vw 200px 8vw;
     background-color: #181818;
@@ -4503,7 +4497,7 @@ width: 100%;
     line-height: 1.5;
 }
 
-/* Sidebar Trending & Search */
+
 .topic-hub-sidebar-col {
     display: flex;
     flex-direction: column;
@@ -4572,7 +4566,7 @@ width: 100%;
     color: #55AAAA;
 }
 
-/* RESPONSIVE OVERRIDES */
+
 @media (max-width: 1200px) {
     .blog-hero-main-title-unified { font-size: 6rem; }
     .blog-hero-featured-grid-canvas,
@@ -4602,16 +4596,14 @@ width: 100%;
     .blog-card-item-horizontal { grid-column: auto; }
 }
 
-/* ==========================================
-   PARTNERS ECOSYSTEM MODULES
-   ========================================== */
+
 
 .partners-page-body-root {
     background-color: #181818;
     color: #ffeedc;
 }
 
-/* 1. Partners Hero Section */
+
 .partners-hero-reveal {
     min-height: 95vh;
     padding: 160px 8vw 100px 8vw;
@@ -4706,7 +4698,7 @@ width: 100%;
     letter-spacing: 1px;
 }
 
-/* 3D Visual Globe */
+
 .partners-hero-visual-col {
     display: flex;
     justify-content: center;
@@ -4724,7 +4716,7 @@ width: 100%;
     to { transform: rotate(360deg); }
 }
 
-/* 2. Trusted By Leaders */
+
 .trusted-leaders-reveal {
     padding: 120px 8vw;
     background-color: #121212;
@@ -4818,7 +4810,7 @@ width: 100%;
     font-weight: 700;
 }
 
-/* Partner Icon Grid */
+
 .partner-icons-grid-layout {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -4851,7 +4843,7 @@ width: 100%;
     color: #709987;
 }
 
-/* 3. Benefits Section */
+
 .partnership-benefits-reveal {
     padding: 150px 8vw;
     background-color: #181818;
@@ -4953,7 +4945,7 @@ width: 100%;
     color: #55AAAA;
 }
 
-/* 4. Partner CTA Phase */
+
 .partner-cta-reveal {
     padding: 100px 8vw 250px 8vw;
     background-color: #121212;
@@ -5037,7 +5029,7 @@ width: 100%;
     cursor: pointer;
 }
 
-/* RESPONSIVE OVERRIDES */
+
 @media (max-width: 1200px) {
     .partners-hero-main-title-unified { font-size: 6rem; }
 }
@@ -5073,7 +5065,7 @@ width: 100%;
     .partner-cta-inner-container { padding: 60px 30px; }
 }
 
-/* --- FEATURES PAGE STYLES --- */
+
 .features-page-body-root {
     background-color: #181818;
     color: #ffeedc;
@@ -5086,7 +5078,7 @@ width: 100%;
     gap: 0;
 }
 
-/* Base Classes */
+
 .features-section-title-unified {
     font-size: 3rem;
     line-height: 1.1;
@@ -5095,7 +5087,7 @@ width: 100%;
     text-transform: uppercase;
 }
 
-/* Features Hero */
+
 .features-hero-section-reveal {
     display: flex;
     flex-direction: column;
@@ -5193,7 +5185,7 @@ width: 100%;
     color: #181818;
 }
 
-/* Built for Creators */
+
 .features-creators-reveal {
     padding: 100px 5vw;
     display: flex;
@@ -5275,7 +5267,7 @@ width: 100%;
     justify-content: center;
 }
 
-/* Complete Toolkit */
+
 .features-toolkit-reveal {
     padding: 100px 5vw;
     display: flex;
@@ -5324,7 +5316,7 @@ width: 100%;
     line-height: 1.6;
 }
 
-/* Power User Section */
+
 .features-poweruser-reveal {
     padding: 100px 5vw;
     display: flex;
@@ -5381,7 +5373,7 @@ width: 100%;
     line-height: 1.5;
 }
 
-/* Ready to Create */
+
 .features-ready-reveal {
     padding: 120px 5vw;
     display: flex;
@@ -5409,7 +5401,7 @@ width: 100%;
     line-height: 1.6;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 1024px) {
     .features-hero-title-unified {
         font-size: 4rem;
@@ -5448,7 +5440,7 @@ width: 100%;
     }
 }
 
-/* --- CASE STUDIES PAGE STYLES --- */
+
 .case-studies-body-root {
     background-color: #181818;
     color: #ffeedc;
@@ -5461,7 +5453,7 @@ width: 100%;
     gap: 0;
 }
 
-/* Base Titles */
+
 .cs-section-title-unified {
     font-size: 3rem;
     line-height: 1.1;
@@ -5471,7 +5463,7 @@ width: 100%;
     margin-bottom: 40px;
 }
 
-/* CS Hero */
+
 .cs-hero-reveal {
     padding: 180px 5vw 80px;
     display: flex;
@@ -5571,7 +5563,7 @@ width: 100%;
     border-color: #55A887;
 }
 
-/* Spotlight Section */
+
 .cs-spotlight-reveal {
     padding: 80px 5vw;
 }
@@ -5741,7 +5733,7 @@ width: 100%;
     color: #709987;
 }
 
-/* Proven Results */
+
 .cs-proven-reveal {
     padding: 80px 5vw;
     display: flex;
@@ -5829,7 +5821,7 @@ width: 100%;
     color: #709987;
 }
 
-/* How We Deliver */
+
 .cs-deliver-reveal {
     padding: 80px 5vw;
 }
@@ -5877,7 +5869,7 @@ width: 100%;
     line-height: 1.5;
 }
 
-/* Industries We Serve */
+
 .cs-industries-reveal {
     padding: 80px 5vw;
 }
@@ -5921,7 +5913,7 @@ width: 100%;
     color: #55A887;
 }
 
-/* CTA Section */
+
 .cs-cta-reveal {
     padding: 100px 5vw;
     display: flex;
@@ -5991,7 +5983,7 @@ width: 100%;
     border-color: #ffeedc;
 }
 
-/* Responsive Overrides */
+
 @media (max-width: 1024px) {
     .cs-hero-content-grid {
         grid-template-columns: 1fr;
@@ -6048,7 +6040,7 @@ width: 100%;
     }
 }
 
-/* --- OUR PROCESS PAGE STYLES --- */
+
 .op-page-body-root {
     background-color: #181818;
     color: #ffeedc;
@@ -6060,7 +6052,7 @@ width: 100%;
     gap: 0;
 }
 
-/* Typography Unified */
+
 .op-section-title-unified {
     font-size: 3rem;
     line-height: 1.1;
@@ -6070,7 +6062,7 @@ width: 100%;
     margin-bottom: 30px;
 }
 
-/* Button Unified */
+
 .op-btn-primary {
     background-color: #ffeedc;
     color: #181818;
@@ -6102,7 +6094,7 @@ width: 100%;
     background-color: rgba(255, 238, 220, 0.05);
 }
 
-/* Hero Section */
+
 .op-hero-reveal {
     padding: 180px 5vw 100px;
 }
@@ -6159,7 +6151,7 @@ width: 100%;
     filter: drop-shadow(0 0 30px rgba(85, 168, 135, 0.2));
 }
 
-/* Start to Finish (Timeline Top) */
+
 .op-timeline-reveal {
     padding: 80px 5vw;
 }
@@ -6205,10 +6197,10 @@ width: 100%;
     height: 2px;
     background: linear-gradient(90deg, rgba(85,168,135,0.5) 0%, rgba(85,168,135,0.1) 100%);
     margin: 0 15px;
-    margin-top: -35px; /* align with circles */
+    margin-top: -35px; 
 }
 
-/* Steps Vertical Container */
+
 .op-steps-container {
     display: flex;
     flex-direction: column;
@@ -6334,7 +6326,7 @@ width: 100%;
     font-weight: 600;
 }
 
-/* Transparency Section */
+
 .op-transparency-reveal {
     padding: 80px 5vw;
 }
@@ -6385,7 +6377,7 @@ width: 100%;
     line-height: 1.6;
 }
 
-/* CTA Section */
+
 .op-cta-reveal {
     padding: 100px 5vw;
     display: flex;
@@ -6425,7 +6417,7 @@ width: 100%;
     margin-top: 10px;
 }
 
-/* Responsive Overrides */
+
 @media (max-width: 1024px) {
     .op-hero-grid {
         grid-template-columns: 1fr;
@@ -6459,7 +6451,7 @@ width: 100%;
     .op-time-line {
         width: 2px;
         height: 30px;
-        margin: -15px 0 -15px 29px; /* Connect circles vertically */
+        margin: -15px 0 -15px 29px; 
     }
     .op-time-item {
         flex-direction: row;
@@ -6483,7 +6475,7 @@ width: 100%;
     }
 }
 
-/* --- PERFORMANCE PAGE STYLES --- */
+
 .perf-page-body-root {
     background-color: #181818;
     color: #ffeedc;
@@ -6495,7 +6487,7 @@ width: 100%;
     gap: 0;
 }
 
-/* Perf Typography & Globals */
+
 .perf-section-title-unified {
     font-size: 3rem;
     line-height: 1.1;
@@ -6508,7 +6500,7 @@ width: 100%;
 .emoji-sm { font-size: 1.5rem; }
 .text-center { text-align: center; }
 
-/* Buttons */
+
 .perf-btn-primary {
     background-color: #ffeedc;
     color: #181818;
@@ -6540,7 +6532,7 @@ width: 100%;
     background-color: rgba(255, 238, 220, 0.05);
 }
 
-/* Hero */
+
 .perf-hero-reveal {
     padding: 180px 5vw 80px;
     border-bottom: 1px solid rgba(112, 153, 135, 0.2);
@@ -6608,7 +6600,7 @@ width: 100%;
     line-height: 1.4;
 }
 
-/* Real-time */
+
 .perf-realtime-reveal {
     padding: 80px 5vw;
 }
@@ -6680,7 +6672,7 @@ width: 100%;
     margin-top: 10px;
 }
 
-/* Growth */
+
 .perf-growth-reveal {
     padding: 80px 5vw;
 }
@@ -6749,7 +6741,7 @@ width: 100%;
     font-weight: 700;
 }
 
-/* ROI */
+
 .perf-roi-reveal {
     padding: 80px 5vw;
 }
@@ -6831,7 +6823,7 @@ width: 100%;
     color: #709987;
 }
 
-/* Compare */
+
 .perf-compare-reveal {
     padding: 80px 5vw;
 }
@@ -6879,7 +6871,7 @@ width: 100%;
     font-weight: 700;
 }
 
-/* Above Avg */
+
 .perf-above-reveal {
     padding: 80px 5vw;
 }
@@ -6919,7 +6911,7 @@ width: 100%;
     margin-right: 10px;
 }
 
-/* Guarantee */
+
 .perf-guarantee-reveal {
     padding: 80px 5vw;
 }
@@ -6986,7 +6978,7 @@ width: 100%;
     font-weight: 700;
 }
 
-/* CTA */
+
 .perf-cta-reveal {
     padding: 100px 5vw;
     display: flex;
@@ -7026,7 +7018,7 @@ width: 100%;
     margin-top: 10px;
 }
 
-/* Responsiveness */
+
 @media (max-width: 1024px) {
     .perf-hero-stats-row {
         grid-template-columns: 1fr;
@@ -7089,7 +7081,7 @@ width: 100%;
     }
 }
 
-/* --- TOP CREATORS PAGE STYLES --- */
+
 .tc-page-body-root {
     background-color: #181818;
     color: #ffeedc;
@@ -7101,18 +7093,18 @@ width: 100%;
     gap: 0;
 }
 
-/* Globals */
+
 .tc-dark-section {
     background-color: #181818;
 }
 
 .tc-green-section {
-    background-color: rgba(85, 168, 135, 0.15); /* Green tinted background */
+    background-color: rgba(85, 168, 135, 0.15); 
 }
 
 .tc-light-green-span {
     color: #55A887;
-    filter: brightness(1.2); /* Ensure it contrasts well against tinted bg */
+    filter: brightness(1.2); 
 }
 
 .tc-section-reveal {
@@ -7153,14 +7145,14 @@ width: 100%;
     letter-spacing: 1px;
 }
 
-/* Featured Hero */
+
 .tc-featured-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     margin-bottom: 60px;
-    margin-top: 80px; /* Offset for nav */
+    margin-top: 80px; 
 }
 
 .tc-featured-grid {
@@ -7258,7 +7250,7 @@ width: 100%;
     color: #55A887;
 }
 
-/* Filter Row */
+
 .tc-filter-row {
     display: flex;
     justify-content: center;
@@ -7286,7 +7278,7 @@ width: 100%;
     border-color: #55A887;
 }
 
-/* Cards Grid */
+
 .tc-cards-grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -7325,7 +7317,7 @@ width: 100%;
 }
 
 .tc-creator-card:hover .tc-card-img-wrapper img {
-    transform: scale(1.05); /* subtle zoom on hover */
+    transform: scale(1.05); 
 }
 
 .tc-card-info {
@@ -7348,7 +7340,7 @@ width: 100%;
     font-size: 0.85rem;
     color: #709987;
     line-height: 1.5;
-    min-height: 60px; /* aligns cards assuming 3 lines */
+    min-height: 60px; 
 }
 
 .tc-card-stats-row {
@@ -7383,13 +7375,13 @@ width: 100%;
     margin-top: 10px;
 }
 
-/* Modifiers for Green Section Cards */
+
 .tc-green-section .tc-creator-card {
-    background-color: #181818; /* Ensure cards remain dark on green background */
+    background-color: #181818; 
     border-color: rgba(85, 168, 135, 0.3);
 }
 
-/* Final CTA */
+
 #tc-bottom-cta {
     display: flex;
     justify-content: center;
@@ -7415,7 +7407,7 @@ width: 100%;
     font-weight: 700;
 }
 
-/* Responsiveness */
+
 @media (max-width: 1024px) {
     .tc-featured-grid {
         grid-template-columns: 1fr;
@@ -7442,4 +7434,18 @@ width: 100%;
         font-size: 1.5rem;
     }
 }
+
+/* --- Global Nav Styles Override --- */
+nav a {
+    color: #ffffff !important;
+    opacity: 0.5 !important;
+    transition: opacity 0.3s ease, color 0.3s ease !important;
+}
+
+nav a.active,
+nav a:hover {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
 

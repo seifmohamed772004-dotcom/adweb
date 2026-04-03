@@ -1,16 +1,13 @@
-/**
- * Creestudios Login Page Functionality
- * Handles: Password Toggle, Scroll Animations, Stats Counting, and Form Submission
- */
+
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Password Visibility Toggle
+    
     const passwordInput = document.getElementById('password-input-field');
     const togglePasswordBtn = document.getElementById('toggle-password-visibility-btn');
     const toggleIcon = document.getElementById('password-toggle-icon');
 
     if (togglePasswordBtn && passwordInput && toggleIcon) {
-        // Simple initialization: Always clear fields for a fresh start
+        
         if (passwordInput) passwordInput.value = '';
         if (passwordInput) passwordInput.setAttribute('type', 'password');
         
@@ -21,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
             
-            // Toggle icon based on state
+            
             if (type === 'text') {
                 toggleIcon.src = 'Assets/Shown Icon.png';
                 toggleIcon.alt = 'Hide password';
@@ -32,13 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Reset form on pageshow (handles back/forward cache)
+    
     window.addEventListener('pageshow', (event) => {
         const loginFormElement = document.getElementById('user-login-form-element');
         if (loginFormElement) loginFormElement.reset();
     });
 
-    // 2. Enhanced Scroll Reveal with Staggering
+    
     const revealElements = document.querySelectorAll('[class*="-reveal"]');
     const revealOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
 
@@ -48,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const el = entry.target;
                 el.classList.add('is-visible');
                 
-                // If the element is a container for staggered children
+                
                 if (el.hasAttribute('data-reveal-stagger')) {
                     const children = el.querySelectorAll('.pricing-v2-card-item, .policy-usage-green-card, .subs-stat-card-item, .subs-industry-dark-card, .contact-platform-card-item, .hero-stat-mini-card, .benefit-preview-card, .role-card-mini-item, .benefit-col-item, .timeline-step-card-box, .team-metric-stat-box, .leader-compact-card, .member-card-mini-box, .culture-value-item-box, .culture-testimonial-card-item, .blog-featured-card-spotlight, .sidebar-module-box, .blog-card-item-vertical, .blog-card-item-horizontal, .topic-item-card-mini, .ranking-item, .partner-metric-item, .partner-full-spotlight-card, .partner-mini-card-item, .benefit-numbered-item, .partner-mini-quote, .step-card-pill');
                     children.forEach((child, index) => {
@@ -57,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
 
-                // Trigger specialized counting
+                
                 if (el.classList.contains('subscriptions-stats-section-reveal') || 
                     el.classList.contains('about-stats-section-reveal') ||
                     el.classList.contains('careers-hero-reveal') ||
@@ -78,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // 3. Magnetic Button Interaction (Premium Micro-interaction)
+    
     const magneticBtns = document.querySelectorAll('.footer-get-app-pill-btn, .branding-get-app-button-primary, .tier-action-pill-btn-dark, .careers-primary-pill-btn-beige, .role-apply-now-btn-beige, .ready-join-empire-btn-beige, .partners-primary-pill-btn-beige, .partners-secondary-outline-btn, .partners-action-pill-btn-beige');
     
     magneticBtns.forEach(btn => {
@@ -95,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Numeric Counter Animation (Refined)
+    
     function startStatsCounting(container = document) {
         const stats = container.querySelectorAll('.stat-value-text, .counter-value-number, .about-stat-value, .subs-stat-value, .policy-stat-number');
         
@@ -124,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
             const current = Math.floor(progress * (end - start) + start);
             
-            // Format with K/M if large
+            
             let output = current;
             if (current >= 1000000) output = (current / 1000000).toFixed(0) + 'M';
             else if (current >= 1000) output = (current / 1000).toFixed(0) + 'K';
@@ -133,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (progress < 1) {
                 window.requestAnimationFrame(step);
             } else {
-                // Final value cleanup
+                
                 if (end >= 1000000) obj.innerHTML = (end / 1000000).toFixed(0) + 'M' + suffix;
                 else if (end >= 1000) obj.innerHTML = (end / 1000).toFixed(0) + 'K' + suffix;
                 else obj.innerHTML = end + suffix;
@@ -142,14 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
         window.requestAnimationFrame(step);
     }
 
-    // 5. Job Board Filter Logic (Careers Page)
+    
     const filterTabs = document.querySelectorAll('.role-filter-tab-item');
     const jobCards = document.querySelectorAll('.role-card-featured-high-impact, .role-card-mini-item');
 
     if (filterTabs.length > 0) {
         filterTabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                // Remove active class from all tabs
+                
                 filterTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
 
@@ -159,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const cardCategory = card.getAttribute('data-category');
                     if (category === 'all' || cardCategory === category) {
                         card.style.display = 'flex';
-                        // Trigger small re-reveal
+                        
                         card.style.opacity = '0';
                         card.style.transform = 'translateY(20px)';
                         setTimeout(() => {
@@ -175,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Form Submission Micro-interaction
+    
     const loginForm = document.getElementById('user-login-form-element');
     const submitBtn = document.getElementById('login-submit-button');
 
@@ -192,13 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const password = passwordInput.value;
             const rememberMe = document.getElementById('remember-me-checkbox')?.checked;
 
-            // Visual feedback
+            
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Verifying...';
             submitBtn.style.opacity = '0.7';
             submitBtn.disabled = true;
 
-            // Simulate server delay for premium feel
+            
             setTimeout(() => {
                 if (email === 'seifmohamed772004@gmail.com' && password === '772004') {
                     submitBtn.textContent = 'Success! Redirecting...';
@@ -218,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Google Account Picker Simulation
+    
     const googleAuthBtn = document.getElementById('google-auth-button');
     const googleOverlay = document.getElementById('google-picker-overlay');
     const googleAccounts = document.querySelectorAll('.google-account-item');
@@ -228,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
             googleOverlay.classList.add('google-modal-overlay-visible');
         });
 
-        // Close modal when clicking outside the card
+        
         googleOverlay.addEventListener('click', (e) => {
             if (e.target === googleOverlay) {
                 googleOverlay.classList.remove('google-modal-overlay-visible');
@@ -241,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const accountBox = account.querySelector('.account-info-box');
                 const originalContent = accountBox.innerHTML;
 
-                // Visual feedback inside the picker
+                
                 accountBox.innerHTML = '<span class="account-name-text" style="color: #55A887;">Signing in...</span>';
                 
                 setTimeout(() => {
@@ -256,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Button Hover Glow Effect (Extra Micro-interaction)
+    
     const primaryBtns = document.querySelectorAll('.branding-get-app-button-primary, .google-auth-login-button-secondary');
     
     primaryBtns.forEach(btn => {
@@ -270,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 6. Smooth Scrolling for Navigation
+    
     const navLinks = document.querySelectorAll('.nav-link-anchor-style');
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -281,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetEl = document.getElementById(targetId);
                 if (targetEl) {
                     window.scrollTo({
-                        top: targetEl.offsetTop - 80, // Account for fixed header
+                        top: targetEl.offsetTop - 80, 
                         behavior: 'smooth'
                     });
                 }
@@ -289,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 7. Active Navigation State on Scroll
+    
     const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
         let currentSectionId = '';
@@ -309,12 +306,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 7. Back to Top Smooth Scroll
+    
     const backToTopBtn = document.getElementById('back-to-top-btn');
     if (backToTopBtn) {
         backToTopBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            // Target the first major section or main wrapper for the relative page
+            
             const topElement = document.querySelector('section, main');
             if (topElement) {
                 topElement.scrollIntoView({ 
@@ -330,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. Contact Page Ticker & FAQ Logic
+    
     const tickerTrack = document.getElementById('contact-ticker-track');
     if (tickerTrack) {
         const items = Array.from(tickerTrack.children);
@@ -343,12 +340,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqBtn = document.getElementById('contact-faq-btn');
     if (faqBtn) {
         faqBtn.addEventListener('click', () => {
-            // Redirect to FAQ page instead of alert
+            
             window.location.href = 'FAQ.html';
         });
     }
 
-    // 10. FAQ Slider Pagination Logic
+    
     const faqNumbers = document.querySelectorAll('.faq-page-number-item');
     const faqQuestion = document.getElementById('faq-active-question-text');
     const faqAnswer = document.getElementById('faq-active-answer-paragraph');
@@ -384,11 +381,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (faqNumbers.length > 0 && faqQuestion && faqAnswer && faqInnerLabel) {
         faqNumbers.forEach((num, index) => {
             num.addEventListener('click', () => {
-                // Update markers
+                
                 faqNumbers.forEach(n => n.classList.remove('active'));
                 num.classList.add('active');
 
-                // Fade out, update, fade in
+                
                 faqInnerLabel.style.opacity = '0';
                 faqInnerLabel.style.transform = 'translateY(10px)';
 
@@ -411,14 +408,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 11. Blog Archive Filter Logic
+    
     const blogFilterTabs = document.querySelectorAll('.blog-filter-tab-item');
     const blogPosts = document.querySelectorAll('.blog-card-item-vertical, .blog-card-item-horizontal');
 
     if (blogFilterTabs.length > 0) {
         blogFilterTabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                // Update active tab
+                
                 blogFilterTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
 
@@ -428,9 +425,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const category = post.getAttribute('data-category');
                     if (filter === 'all' || category === filter) {
                         post.style.display = 'flex';
-                        // Add entrance animation
+                        
                         post.style.animation = 'none';
-                        post.offsetHeight; // trigger reflow
+                        post.offsetHeight; 
                         post.style.animation = 'scaleInFade 0.5s ease forwards';
                     } else {
                         post.style.display = 'none';
@@ -440,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Features specific interactions
+    
     const featuresRevealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -492,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Case Studies specific interactions
+    
     const csRevealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -544,14 +541,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Tag filtering interaction
+    
     const csFilterPills = document.querySelectorAll('.cs-filter-pill');
     csFilterPills.forEach(pill => {
         pill.addEventListener('click', () => {
             csFilterPills.forEach(p => p.classList.remove('active'));
             pill.classList.add('active');
             
-            // Subtle feedback for clicking filters
+            
             const cards = document.querySelectorAll('.cs-proven-card');
             cards.forEach(card => {
                 card.style.opacity = '0.5';
@@ -564,7 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Our Process specific interactions
+    
     const opRevealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -600,7 +597,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 child.style.transform = 'translateY(20px)';
             });
         }
-        opRevealObserver.observe(el); // Wait to observe properly
+        opRevealObserver.observe(el); 
     });
     
     const magneticBtns4 = document.querySelectorAll('.op-btn-primary, .op-btn-outline');
@@ -616,7 +613,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Performance specific interactions
+    
     const perfRevealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -668,7 +665,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Top Creators specific interactions
+    
     const tcRevealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -707,14 +704,14 @@ document.addEventListener('DOMContentLoaded', () => {
         tcRevealObserver.observe(el);
     });
 
-    // Tag filtering interaction for Top Creators
+    
     const tcFilterPills = document.querySelectorAll('.tc-filter-pill');
     tcFilterPills.forEach(pill => {
         pill.addEventListener('click', () => {
             tcFilterPills.forEach(p => p.classList.remove('active'));
             pill.classList.add('active');
             
-            // Subtle feedback for clicking filters
+            
             const cards = document.querySelectorAll('.tc-creator-card');
             cards.forEach(card => {
                 card.style.opacity = '0.5';
@@ -724,6 +721,49 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.transform = 'scale(1)';
                 }, 300);
             });
+        });
+    });
+
+    // Dynamic Active Nav Link Management
+    const mainNavLinks = document.querySelectorAll('.nav-link-anchor-style');
+    let currentPath = window.location.pathname.split('/').pop().toLowerCase();
+    
+    // Default to index/home if root path
+    if (!currentPath) currentPath = 'index.html';
+
+    mainNavLinks.forEach(link => {
+        link.classList.remove('active'); // Clear hardcoded active states
+        const href = link.getAttribute('href')?.toLowerCase() || '';
+        
+        // Match base links
+        if (currentPath === href || (currentPath === 'index.html' && href === 'home.html')) {
+            link.classList.add('active');
+        } 
+        // Maintain 'About Us' active state for sub-pages 
+        else if (href === 'about.html' && (currentPath === 'ourprocess.html' || currentPath === 'our-team.html' || currentPath === 'partners.html')) {
+            link.classList.add('active');
+        }
+    });
+
+    // Language Toggle (EN/AR) with LocalStorage state preservation
+    const langLinks = document.querySelectorAll('.lang-link');
+    const savedLang = localStorage.getItem('cree_lang_pref') || 'EN';
+
+    langLinks.forEach(langLink => {
+        const langSpan = langLink.querySelector('span');
+        
+        // Initialize state on load
+        if (langSpan) {
+            langSpan.innerText = savedLang;
+        }
+
+        langLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (langSpan) {
+                const newLang = langSpan.innerText.trim() === 'EN' ? 'AR' : 'EN';
+                langSpan.innerText = newLang;
+                localStorage.setItem('cree_lang_pref', newLang);
+            }
         });
     });
 
