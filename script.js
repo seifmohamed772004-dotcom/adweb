@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // If the element is a container for staggered children
                 if (el.hasAttribute('data-reveal-stagger')) {
-                    const children = el.querySelectorAll('.pricing-v2-card-item, .policy-usage-green-card, .subs-stat-card-item, .subs-industry-dark-card, .contact-platform-card-item, .hero-stat-mini-card, .benefit-preview-card, .role-card-mini-item, .benefit-col-item, .timeline-step-card-box, .team-metric-stat-box, .leader-compact-card, .member-card-mini-box, .culture-value-item-box, .culture-testimonial-card-item, .blog-featured-card-spotlight, .sidebar-module-box, .blog-card-item-vertical, .blog-card-item-horizontal, .topic-item-card-mini, .ranking-item');
+                    const children = el.querySelectorAll('.pricing-v2-card-item, .policy-usage-green-card, .subs-stat-card-item, .subs-industry-dark-card, .contact-platform-card-item, .hero-stat-mini-card, .benefit-preview-card, .role-card-mini-item, .benefit-col-item, .timeline-step-card-box, .team-metric-stat-box, .leader-compact-card, .member-card-mini-box, .culture-value-item-box, .culture-testimonial-card-item, .blog-featured-card-spotlight, .sidebar-module-box, .blog-card-item-vertical, .blog-card-item-horizontal, .topic-item-card-mini, .ranking-item, .partner-metric-item, .partner-full-spotlight-card, .partner-mini-card-item, .benefit-numbered-item, .partner-mini-quote, .step-card-pill');
                     children.forEach((child, index) => {
                         child.style.transitionDelay = `${index * 0.15}s`;
                         child.classList.add('is-visible');
@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     el.classList.contains('careers-hero-reveal') ||
                     el.classList.contains('team-hero-reveal') ||
                     el.classList.contains('blog-hero-reveal') ||
+                    el.classList.contains('partners-hero-reveal') ||
                     el.classList.contains('pricing-table-v2-reveal')) {
                     startStatsCounting(el);
                     if (el.classList.contains('pricing-table-v2-reveal')) {
@@ -78,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => revealObserver.observe(el));
 
     // 3. Magnetic Button Interaction (Premium Micro-interaction)
-    const magneticBtns = document.querySelectorAll('.footer-get-app-pill-btn, .branding-get-app-button-primary, .tier-action-pill-btn-dark, .careers-primary-pill-btn-beige, .role-apply-now-btn-beige, .ready-join-empire-btn-beige');
+    const magneticBtns = document.querySelectorAll('.footer-get-app-pill-btn, .branding-get-app-button-primary, .tier-action-pill-btn-dark, .careers-primary-pill-btn-beige, .role-apply-now-btn-beige, .ready-join-empire-btn-beige, .partners-primary-pill-btn-beige, .partners-secondary-outline-btn, .partners-action-pill-btn-beige');
     
     magneticBtns.forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
