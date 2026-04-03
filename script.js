@@ -38,21 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (loginFormElement) loginFormElement.reset();
     });
 
-    // 2. Scroll Reveal Animation using Intersection Observer (Targeting classes ending in -reveal)
-    const revealElements = document.querySelectorAll('[class$="-reveal"]');
+    // 2. Scroll Reveal Animation using Intersection Observer (Matching any class containing -reveal)
+    const revealElements = document.querySelectorAll('[class*="-reveal"]');
     const revealOptions = {
-        threshold: 0.05,
-        rootMargin: '0px 0px 0px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            // Enhanced check for visibility
-            if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight) {
+            if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
                 
-                // Trigger stats counting if relevant
-                if (entry.target.classList.contains('login-branding-card-reveal') || 
+                // Trigger stats counting for all page sections
+                if (entry.target.classList.contains('about-stats-section-reveal') || 
+                    entry.target.classList.contains('login-branding-card-reveal') || 
                     entry.target.classList.contains('join-revolution-section-reveal')) {
                     startStatsCounting(entry.target);
                 }
@@ -62,29 +62,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, revealOptions);
 
-    // Initial check for elements already in view
-    document.querySelectorAll('[class$="-reveal"]').forEach(el => {
+    // Observe all reveal elements and run immediate check for visibility
+    revealElements.forEach(el => {
         const rect = el.getBoundingClientRect();
+        // If already in viewport OR below it (to trigger as you scroll)
         if (rect.top < window.innerHeight) {
             el.classList.add('is-visible');
-            if (el.classList.contains('login-branding-card-reveal') || el.classList.contains('join-revolution-section-reveal')) {
+            if (el.classList.contains('about-stats-section-reveal') || 
+                el.classList.contains('login-branding-card-reveal') || 
+                el.classList.contains('join-revolution-section-reveal')) {
                 startStatsCounting(el);
             }
+            // Once visible, we don't need to observe it anymore
+        } else {
+            revealObserver.observe(el);
         }
-        revealObserver.observe(el);
     });
 
     // 3. Generalized Stats Counter Animation
     function startStatsCounting(container = document) {
-        // Find stats within the specific container (performance optimization)
-        const stats = container.querySelectorAll('.stat-value-text, .counter-value-number');
+        // Find stats within the specific container
+        const stats = container.querySelectorAll('.stat-value-text, .counter-value-number, .about-stat-value');
         
         stats.forEach(stat => {
             const target = parseInt(stat.getAttribute('data-target'));
             if (isNaN(target)) return;
             
-            const duration = 2000;
-            const stepTime = 20;
+            const duration = 2000; // 2 seconds
+            const stepTime = 30;
             const steps = duration / stepTime;
             const increment = target / steps;
             
@@ -93,13 +98,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
-                    stat.textContent = target.toLocaleString();
+                    // Final formatting with suffixes
+                    formatCounterOutput(stat, target);
                     clearInterval(timer);
                 } else {
-                    stat.textContent = Math.floor(current).toLocaleString();
+                    formatCounterOutput(stat, Math.floor(current));
                 }
             }, stepTime);
         });
+    }
+
+    function formatCounterOutput(element, value) {
+        let output = value;
+        let suffix = "+";
+        
+        if (value >= 1000000) {
+            output = (value / 1000000).toFixed(0) + "M";
+        } else if (value >= 1000) {
+            output = (value / 1000).toFixed(0) + "K";
+        }
+        
+        element.textContent = output + suffix;
     }
 
     // 4. Form Submission Micro-interaction
