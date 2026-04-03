@@ -2610,3 +2610,370 @@ width: 100%;
     .faq-numeric-pagination-grid { gap: 15px; }
     .faq-page-number-item { font-size: 1rem; }
 }
+
+/* --- Privacy Policy Page Specific Styles --- */
+.policy-page-body-root {
+    background-color: #181818;
+    color: #ffeedc;
+    overflow-x: hidden;
+}
+
+.policy-site-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. Hero Section */
+.policy-hero-reveal {
+    padding: 100px 8vw;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.policy-hero-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.policy-massive-title-unified {
+    font-size: 6rem;
+    font-family: 'Choldera', display;
+    line-height: 1.1;
+    letter-spacing: 2px;
+}
+
+.policy-massive-icon-img {
+    width: 250px;
+    height: 250px;
+    opacity: 0.9;
+}
+
+.policy-hero-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 100px;
+}
+
+.policy-last-updated-text {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #55AAAA;
+    letter-spacing: 2px;
+}
+
+.policy-intro-p-text {
+    max-width: 500px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #709987;
+}
+
+.policy-section-title-unified {
+    font-size: 4rem;
+    font-family: 'Choldera', display;
+    margin-bottom: 50px;
+}
+
+/* 2. Collection Blocks */
+.policy-collect-reveal {
+    padding: 100px 8vw;
+}
+
+.policy-collect-blocks-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.policy-data-block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.policy-data-sub-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: 'Unbounded', sans-serif;
+}
+
+.policy-data-p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #709987;
+    max-width: 800px;
+}
+
+/* 3. Usage Grid */
+.policy-usage-reveal {
+    padding: 100px 8vw;
+}
+
+.policy-usage-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.policy-usage-green-card {
+    background-color: #55A887;
+    border-radius: 16px;
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.usage-card-index {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #181818;
+    font-family: 'Unbounded', sans-serif;
+}
+
+.usage-card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #181818;
+    font-weight: 500;
+}
+
+/* 4. Sharing & Disclosure */
+.policy-sharing-reveal {
+    padding: 100px 8vw;
+}
+
+.policy-sharing-intro-text {
+    font-size: 1.1rem;
+    color: #709987;
+    margin-bottom: 60px;
+    max-width: 700px;
+}
+
+.policy-sharing-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.policy-stat-card-item {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.policy-stat-number {
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: 'Unbounded', sans-serif;
+    color: #ffeedc;
+}
+
+.policy-stat-info {
+    font-size: 0.85rem;
+    color: #55AAAA;
+    line-height: 1.6;
+}
+
+.policy-sharing-details-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.policy-detail-row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.policy-detail-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Unbounded', sans-serif;
+}
+
+/* 5. Your Rights */
+.policy-rights-reveal {
+    padding: 100px 8vw;
+}
+
+.policy-rights-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.policy-right-item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(112, 153, 135, 0.2);
+}
+
+.policy-right-icon-box {
+    font-size: 2rem;
+    width: 60px;
+}
+
+.policy-right-content-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.policy-right-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Unbounded', sans-serif;
+}
+
+.policy-right-p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #709987;
+    max-width: 800px;
+}
+
+/* 6. Data Security */
+.policy-security-reveal {
+    padding: 100px 8vw;
+}
+
+.policy-security-intro-text {
+    font-size: 1.1rem;
+    color: #709987;
+    margin-bottom: 60px;
+    max-width: 700px;
+}
+
+.policy-security-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.policy-security-dark-card {
+    background-color: rgba(255, 238, 220, 0.03);
+    border: 1px solid rgba(112, 153, 135, 0.2);
+    border-radius: 16px;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.policy-security-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffeedc;
+    font-family: 'Unbounded', sans-serif;
+}
+
+.policy-security-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.policy-security-list li {
+    font-size: 0.95rem;
+    color: #709987;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.policy-security-list li::before {
+    content: "•";
+    color: #55A887;
+}
+
+/* 7. Cookies & Tracking */
+.policy-cookies-reveal {
+    padding: 100px 8vw 200px 8vw;
+}
+
+.policy-cookies-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+.policy-cookie-tier-row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.policy-cookie-header-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.policy-cookie-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Unbounded', sans-serif;
+}
+
+.policy-cookie-badge-required, 
+.policy-cookie-badge-optional {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.policy-cookie-badge-required {
+    background-color: #55A887;
+    color: #181818;
+}
+
+.policy-cookie-badge-optional {
+    background-color: rgba(255, 238, 220, 0.1);
+    color: #55AAAA;
+}
+
+.policy-cookie-p {
+    font-size: 1rem;
+    color: #709987;
+}
+
+.policy-cookie-footer-p {
+    font-size: 0.9rem;
+    color: #55AAAA;
+    font-style: italic;
+}
+
+/* Nav Overlay */
+.policy-pill-nav-module {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+    .policy-massive-title-unified { font-size: 4rem; }
+    .policy-massive-icon-img { width: 150px; height: 150px; }
+    .policy-usage-grid-layout { grid-template-columns: repeat(2, 1fr); }
+    .policy-sharing-stats-grid { grid-template-columns: 1fr; }
+    .policy-security-grid-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .policy-hero-title-row { flex-direction: column; align-items: flex-start; gap: 40px; }
+    .policy-hero-meta-row { flex-direction: column; gap: 40px; }
+    .policy-usage-grid-layout { grid-template-columns: 1fr; }
+    .policy-section-title-unified { font-size: 3rem; }
+}
