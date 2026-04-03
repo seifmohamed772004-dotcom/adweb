@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creestudios | Welcome Back</title>
+    <meta name="description" content="Join the digital revolution with Creestudios. Sign in to access your account and explore our services.">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="Stylesheet.css">
+    <!-- Font Preload -->
+    <link rel="preload" href="Assets/Choldera Demo.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="Assets/Unbounded.ttf" as="font" type="font/ttf" crossorigin>
+</head>
+<body class="login-page-body-root">
+    <main id="main-login-wrapper" class="login-page-main-wrapper" role="main">
+        <!-- Background Video & Overlay -->
+        <div class="background-video-container">
+            <video autoplay muted loop playsinline class="background-video-element">
+                <source src="Assets/Background Video.mp4" type="video/mp4">
+            </video>
+            <div class="background-video-overlay"></div>
+        </div>
+
+        <!-- Left Column: Branding and Stats -->
+        <section id="branding-section" class="branding-stats-column-container">
+            <div id="branding-card" class="login-branding-card-box scroll-reveal-animation">
+                <!-- Banner Header -->
+                <header class="branding-header-banner-box">
+                    <img src="Assets/Login Logo.png" alt="Creestudios Logo" class="branding-logo-image-element">
+                </header>
+
+                <!-- Branding Content -->
+                <div class="branding-content-details-box">
+                    <div class="taglines-and-cta-wrapper">
+                        <h1 class="branding-hero-title-text">JOIN THE DIGITAL <br>REVOLUTION</h1>
+                        
+                        <button id="get-app-cta-button" class="branding-get-app-button-primary" type="button">
+                            <span class="button-icon-placeholder">📱</span> GET THE APP
+                        </button>
+
+                        <div class="branding-available-platforms-box">
+                            <span class="platform-label-text">AVAILABLE ON:</span>
+                            <div class="platform-icons-row-flex">
+                                <img src="Assets/App Store Login Icon.png" alt="App Store" class="platform-icon-image">
+                                <img src="Assets/PlayStore Login Icon.png" alt="Google Play Store" class="platform-icon-image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Section -->
+                    <footer class="branding-stats-summary-grid">
+                        <div class="stat-item-box">
+                            <span class="stat-label-text">Active Users</span>
+                            <span class="stat-value-text" data-target="21997">0</span>
+                        </div>
+                        <div class="stat-item-box">
+                            <span class="stat-label-text">Active Users</span>
+                            <span class="stat-value-text" data-target="16486">0</span>
+                        </div>
+                        <div class="stat-item-box">
+                            <span class="stat-label-text">Active Users</span>
+                            <span class="stat-value-text" data-target="77664">0</span>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Login Form -->
+        <section id="login-form-section" class="login-form-column-container">
+            <div class="login-right-content-wrapper scroll-reveal-animation">
+                <header class="login-header-group">
+                    <h2 class="login-welcome-back-header">WELCOME <span class="text-primary-green">BACK!</span></h2>
+                    <p class="login-welcome-subtext">Enter your e-mail and password to access your account</p>
+                </header>
+
+                <form id="user-login-form-element" class="login-submission-form-container" action="#" method="POST">
+                    <!-- Email Field -->
+                    <div class="form-input-group-wrapper">
+                        <label for="email-input-field" class="form-label-text-style">Email</label>
+                        <input type="email" id="email-input-field" class="form-input-field-style" placeholder="| @gmail.com" required aria-required="true">
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-input-group-wrapper">
+                        <label for="password-input-field" class="form-label-text-style">Password</label>
+                        <div class="password-input-with-toggle-box">
+                            <input type="password" id="password-input-field" class="form-input-field-style" placeholder="| ********" required aria-required="true">
+                            <button type="button" id="toggle-password-visibility-btn" class="password-toggle-control-btn" aria-label="Toggle password visibility">
+                                <img src="Assets/Hidden Icon.png" id="password-toggle-icon" alt="Toggle icon" class="toggle-icon-image">
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Options Row -->
+                    <div class="form-options-row-flex">
+                        <div class="remember-me-checkbox-group">
+                            <input type="checkbox" id="remember-me-checkbox" class="custom-checkbox-input">
+                            <label for="remember-me-checkbox" class="checkbox-label-text">Remember me</label>
+                        </div>
+                        <a href="#" class="forgot-password-link-element">Forgot Password?</a>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="login-submit-button" class="login-form-submit-button-primary">Login</button>
+
+                    <!-- Google Auth -->
+                    <button type="button" id="google-auth-button" class="google-auth-login-button-secondary">
+                        <img src="Assets/Google.png" alt="Google Logo" class="google-logo-icon">
+                        Login with Google
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+</body>
+</html>
