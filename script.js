@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // If the element is a container for staggered children
                 if (el.hasAttribute('data-reveal-stagger')) {
-                    const children = el.querySelectorAll('.pricing-v2-card-item, .policy-usage-green-card, .subs-stat-card-item, .subs-industry-dark-card, .contact-platform-card-item, .hero-stat-mini-card, .benefit-preview-card, .role-card-mini-item, .benefit-col-item, .timeline-step-card-box');
+                    const children = el.querySelectorAll('.pricing-v2-card-item, .policy-usage-green-card, .subs-stat-card-item, .subs-industry-dark-card, .contact-platform-card-item, .hero-stat-mini-card, .benefit-preview-card, .role-card-mini-item, .benefit-col-item, .timeline-step-card-box, .team-metric-stat-box, .leader-compact-card, .member-card-mini-box, .culture-value-item-box, .culture-testimonial-card-item');
                     children.forEach((child, index) => {
                         child.style.transitionDelay = `${index * 0.15}s`;
                         child.classList.add('is-visible');
@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (el.classList.contains('subscriptions-stats-section-reveal') || 
                     el.classList.contains('about-stats-section-reveal') ||
                     el.classList.contains('careers-hero-reveal') ||
+                    el.classList.contains('team-hero-reveal') ||
                     el.classList.contains('pricing-table-v2-reveal')) {
                     startStatsCounting(el);
                     if (el.classList.contains('pricing-table-v2-reveal')) {
