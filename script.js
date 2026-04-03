@@ -38,87 +38,104 @@ document.addEventListener('DOMContentLoaded', () => {
         if (loginFormElement) loginFormElement.reset();
     });
 
-    // 2. Scroll Reveal Animation using Intersection Observer (Matching any class containing -reveal)
+    // 2. Enhanced Scroll Reveal with Staggering
     const revealElements = document.querySelectorAll('[class*="-reveal"]');
-    const revealOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    const revealOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
+                const el = entry.target;
+                el.classList.add('is-visible');
                 
-                // Trigger stats counting for all page sections
-                if (entry.target.classList.contains('about-stats-section-reveal') || 
-                    entry.target.classList.contains('login-branding-card-reveal') || 
-                    entry.target.classList.contains('join-revolution-section-reveal')) {
-                    startStatsCounting(entry.target);
+                // If the element is a container for staggered children
+                if (el.hasAttribute('data-reveal-stagger')) {
+                    const children = el.querySelectorAll('.pricing-v2-card-item, .policy-usage-green-card, .subs-stat-card-item, .subs-industry-dark-card, .contact-platform-card-item');
+                    children.forEach((child, index) => {
+                        child.style.transitionDelay = `${index * 0.15}s`;
+                        child.classList.add('is-visible');
+                    });
                 }
-                
-                observer.unobserve(entry.target);
+
+                // Trigger specialized counting
+                if (el.classList.contains('subscriptions-stats-section-reveal') || 
+                    el.classList.contains('about-stats-section-reveal') ||
+                    el.classList.contains('pricing-table-v2-reveal')) {
+                    startStatsCounting(el);
+                    if (el.classList.contains('pricing-table-v2-reveal')) {
+                        animatePricingNumbers(el);
+                    }
+                }
+
+                observer.unobserve(el);
             }
         });
     }, revealOptions);
 
-    // Observe all reveal elements and run immediate check for visibility
-    revealElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        // If already in viewport OR below it (to trigger as you scroll)
-        if (rect.top < window.innerHeight) {
-            el.classList.add('is-visible');
-            if (el.classList.contains('about-stats-section-reveal') || 
-                el.classList.contains('login-branding-card-reveal') || 
-                el.classList.contains('join-revolution-section-reveal')) {
-                startStatsCounting(el);
-            }
-            // Once visible, we don't need to observe it anymore
-        } else {
-            revealObserver.observe(el);
-        }
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 3. Magnetic Button Interaction (Premium Micro-interaction)
+    const magneticBtns = document.querySelectorAll('.footer-get-app-pill-btn, .branding-get-app-button-primary, .tier-action-pill-btn-dark');
+    
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0px, 0px)';
+        });
     });
 
-    // 3. Generalized Stats Counter Animation
+    // 4. Numeric Counter Animation (Refined)
     function startStatsCounting(container = document) {
-        // Find stats within the specific container
-        const stats = container.querySelectorAll('.stat-value-text, .counter-value-number, .about-stat-value');
+        const stats = container.querySelectorAll('.stat-value-text, .counter-value-number, .about-stat-value, .subs-stat-value, .policy-stat-number');
         
         stats.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-target'));
+            let targetStr = stat.getAttribute('data-target') || stat.textContent.replace(/[^\d]/g, '');
+            const target = parseInt(targetStr);
             if (isNaN(target)) return;
             
-            const duration = 2000; // 2 seconds
-            const stepTime = 30;
-            const steps = duration / stepTime;
-            const increment = target / steps;
-            
-            let current = 0;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    // Final formatting with suffixes
-                    formatCounterOutput(stat, target);
-                    clearInterval(timer);
-                } else {
-                    formatCounterOutput(stat, Math.floor(current));
-                }
-            }, stepTime);
+            animateValue(stat, 0, target, 2000);
         });
     }
 
-    function formatCounterOutput(element, value) {
-        let output = value;
-        let suffix = "+";
-        
-        if (value >= 1000000) {
-            output = (value / 1000000).toFixed(0) + "M";
-        } else if (value >= 1000) {
-            output = (value / 1000).toFixed(0) + "K";
-        }
-        
-        element.textContent = output + suffix;
+    function animatePricingNumbers(container) {
+        const prices = container.querySelectorAll('.pricing-v2-integer-value');
+        prices.forEach(price => {
+            const target = parseInt(price.textContent);
+            if (isNaN(target)) return;
+            animateValue(price, 0, target, 1500, '');
+        });
+    }
+
+    function animateValue(obj, start, end, duration, suffix = '+') {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const current = Math.floor(progress * (end - start) + start);
+            
+            // Format with K/M if large
+            let output = current;
+            if (current >= 1000000) output = (current / 1000000).toFixed(0) + 'M';
+            else if (current >= 1000) output = (current / 1000).toFixed(0) + 'K';
+            
+            obj.innerHTML = output + suffix;
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                // Final value cleanup
+                if (end >= 1000000) obj.innerHTML = (end / 1000000).toFixed(0) + 'M' + suffix;
+                else if (end >= 1000) obj.innerHTML = (end / 1000).toFixed(0) + 'K' + suffix;
+                else obj.innerHTML = end + suffix;
+            }
+        };
+        window.requestAnimationFrame(step);
     }
 
     // 4. Form Submission Micro-interaction

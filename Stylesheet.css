@@ -38,6 +38,30 @@ h1, h2, h3, .choldera-text {
     color: #55A887;
 }
 
+/* --- Global Animation Utilities --- */
+[class*="-reveal"] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+[class*="-reveal"].is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.reveal-scale-in { transform: scale(0.95); }
+.reveal-scale-in.is-visible { transform: scale(1) !important; }
+
+/* Micro-interactions: Cards & Buttons */
+.card-hover-interaction { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease; }
+.card-hover-interaction:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+
+.button-hover-interaction { transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
+.button-hover-interaction:hover { transform: scale(1.05); filter: brightness(1.1); }
+.button-hover-interaction:active { transform: scale(0.98); }
+
 
 .login-page-main-wrapper {
     position: relative;
