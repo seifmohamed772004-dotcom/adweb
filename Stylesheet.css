@@ -3001,3 +3001,645 @@ width: 100%;
     .policy-usage-grid-layout { grid-template-columns: 1fr; }
     .policy-section-title-unified { font-size: 3rem; }
 }
+
+/* ==========================================
+   CAREERS PAGE MODULES
+   ========================================== */
+
+.careers-page-body-root {
+    background-color: #181818;
+    color: #ffeedc;
+}
+
+/* 1. Careers Hero Section */
+.careers-hero-reveal {
+    position: relative;
+    padding: 180px 8vw 100px 8vw;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.careers-hero-grid-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 100px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.careers-hero-badge-pill {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #55A887;
+    border: 1px solid rgba(85, 168, 135, 0.3);
+    padding: 6px 16px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+.careers-hero-main-heading-unified {
+    font-size: 7rem;
+    line-height: 0.9;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.careers-hero-subtext-copy {
+    font-size: 1.25rem;
+    color: #709987;
+    max-width: 500px;
+    margin-bottom: 60px;
+    line-height: 1.6;
+}
+
+.careers-hero-cta-actions {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 100px;
+}
+
+.careers-primary-pill-btn-beige {
+    background-color: #ffeedc;
+    color: #181818;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 4px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.careers-secondary-action-link {
+    color: #ffeedc;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.careers-secondary-action-link::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #55A887;
+    transition: width 0.3s ease;
+}
+
+.careers-secondary-action-link:hover::after {
+    width: 100%;
+}
+
+.careers-hero-quick-stats-row {
+    display: flex;
+    gap: 60px;
+}
+
+.hero-stat-mini-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mini-stat-value {
+    font-size: 2.5rem;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    color: #55A887;
+}
+
+.mini-stat-label {
+    font-size: 0.8rem;
+    color: #709987;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Hero Benefits Preview Column */
+.careers-hero-benefits-preview-col {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+}
+
+.benefit-preview-card {
+    background-color: rgba(255, 238, 220, 0.03);
+    border: 1px solid rgba(255, 238, 220, 0.05);
+    padding: 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.benefit-preview-icon {
+    font-size: 1.5rem;
+}
+
+.benefit-preview-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Unbounded', sans-serif;
+    color: #ffeedc;
+}
+
+.benefit-preview-text {
+    font-size: 0.9rem;
+    color: #709987;
+}
+
+/* 2. Job Board Section */
+.find-your-role-reveal {
+    padding: 120px 8vw;
+    background-color: #121212;
+}
+
+.role-board-header {
+    margin-bottom: 60px;
+}
+
+.small-label-dash {
+    color: #709987;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.role-board-main-title-unified {
+    font-size: 5rem;
+    text-transform: uppercase;
+}
+
+.role-filter-tab-pill-nav {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+}
+
+.role-filter-tab-item {
+    background-color: rgba(255, 238, 220, 0.05);
+    color: #ffeedc;
+    border: 1px solid rgba(255, 238, 220, 0.1);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.role-filter-tab-item.active,
+.role-filter-tab-item:hover {
+    background-color: #55A887;
+    color: #181818;
+    border-color: #55A887;
+}
+
+.role-board-content-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Featured Role Card */
+.role-card-featured-high-impact {
+    background-color: rgba(255, 238, 220, 0.02);
+    border: 1px solid rgba(85, 168, 135, 0.4);
+    border-radius: 16px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    grid-row: span 2;
+}
+
+.role-card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.role-card-title-unified {
+    font-size: 2.5rem;
+    line-height: 1.1;
+}
+
+.role-badge-tag-pill {
+    background-color: #55AAAA;
+    color: #181818;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 4px;
+}
+
+.role-card-detail-text {
+    font-size: 1rem;
+    color: #ffeedc;
+    font-weight: 600;
+}
+
+.role-card-description-long {
+    font-size: 1.1rem;
+    color: #709987;
+    line-height: 1.6;
+}
+
+.role-card-tags-flex {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.mini-tag-pill {
+    background-color: rgba(85, 168, 135, 0.1);
+    color: #55AAAA;
+    border: 1px solid rgba(85, 170, 170, 0.2);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.role-apply-now-btn-beige {
+    width: 100%;
+    padding: 18px;
+    background-color: #ffeedc;
+    color: #181818;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Positions Mini Grid */
+.role-positions-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.role-card-mini-item {
+    background-color: rgba(255, 238, 220, 0.03);
+    border: 1px solid rgba(255, 238, 220, 0.05);
+    padding: 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.mini-role-category-tag {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #55A887;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mini-role-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Unbounded', sans-serif;
+    color: #ffeedc;
+}
+
+.mini-role-specs {
+    font-size: 0.85rem;
+    color: #709987;
+}
+
+.role-view-details-action {
+    background: none;
+    border: 1px solid rgba(255, 238, 220, 0.1);
+    color: #ffeedc;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: 'Unbounded', sans-serif;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.role-view-details-action:hover {
+    background-color: #ffeedc;
+    color: #181818;
+}
+
+/* Role Missing Green Card */
+.role-missing-green-cta-card {
+    background-color: #55A887;
+    color: #181818;
+    padding: 40px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    grid-column: span 2;
+}
+
+.role-missing-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: 'Unbounded', sans-serif;
+}
+
+.role-missing-description {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.role-general-apply-action {
+    background-color: #181818;
+    color: #55A887;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+/* 3. Culture & Perks */
+.why-join-us-reveal {
+    padding: 120px 8vw;
+    background-color: #181818;
+}
+
+.why-reveal-header {
+    margin-bottom: 80px;
+}
+
+.why-reveal-title-unified {
+    font-size: 5rem;
+    text-transform: uppercase;
+}
+
+.benefits-five-column-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.benefit-col-item {
+    background-color: rgba(255, 238, 220, 0.02);
+    border: 1px solid rgba(255, 238, 220, 0.05);
+    padding: 40px 25px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.benefit-emoji-large {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.benefit-col-title {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.benefit-details-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.benefit-details-list li {
+    font-size: 0.85rem;
+    color: #709987;
+}
+
+/* 4. Recruitment Process Timeline */
+.how-it-works-reveal {
+    padding: 120px 8vw;
+    background-color: #121212;
+}
+
+.process-reveal-header {
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.process-title-unified {
+    font-size: 5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.process-intro-text {
+    font-size: 1.1rem;
+    color: #709987;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.recruitment-timeline-staggered-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.recruitment-timeline-staggered-layout::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(85, 168, 135, 0.5), transparent);
+    z-index: 1;
+}
+
+.timeline-step-card-box {
+    width: 45%;
+    background-color: rgba(255, 238, 220, 0.03);
+    border: 1px solid rgba(255, 238, 220, 0.05);
+    padding: 40px;
+    border-radius: 16px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.timeline-step-card-box.left-reveal {
+    align-self: flex-start;
+}
+
+.timeline-step-card-box.right-reveal {
+    align-self: flex-end;
+}
+
+/* Step marker dot */
+.timeline-step-card-box::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    background-color: #55A887;
+    border-radius: 50%;
+    border: 4px solid #121212;
+}
+
+.timeline-step-card-box.left-reveal::after {
+    right: -27.5%;
+}
+
+.timeline-step-card-box.right-reveal::after {
+    left: -27.5%;
+}
+
+.timeline-step-index {
+    font-size: 1.2rem;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    color: #55A887;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timeline-tag-pill {
+    font-size: 0.65rem;
+    background-color: rgba(255, 238, 220, 0.05);
+    color: #55AAAA;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.timeline-step-title {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.timeline-step-description {
+    font-size: 0.95rem;
+    color: #709987;
+    line-height: 1.6;
+}
+
+/* 5. Ready to Join CTA */
+.careers-ready-cta-reveal {
+    padding: 150px 8vw 250px 8vw;
+    text-align: center;
+    background-color: #181818;
+}
+
+.ready-cta-title-unified {
+    font-size: 6rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.ready-cta-description {
+    font-size: 1.2rem;
+    color: #709987;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+    line-height: 1.6;
+}
+
+.ready-join-empire-btn-beige {
+    padding: 20px 50px;
+    background-color: #ffeedc;
+    color: #181818;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.ready-cta-footer-small {
+    font-size: 0.75rem;
+    color: #55AAAA;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Floating Nav Positioning */
+.careers-pill-nav-wrapper {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* RESPONSIVE OVERRIDES */
+@media (max-width: 1200px) {
+    .careers-hero-main-heading-unified { font-size: 5rem; }
+    .benefits-five-column-grid-layout { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 1024px) {
+    .careers-hero-grid-container { grid-template-columns: 1fr; gap: 60px; }
+    .role-board-content-grid-layout { grid-template-columns: 1fr; }
+    .role-card-featured-high-impact { grid-row: auto; }
+    .role-positions-grid-layout { grid-template-columns: 1fr 1fr; }
+    .recruitment-timeline-staggered-layout::before { left: 0; }
+    .timeline-step-card-box { width: 90%; align-self: flex-start; margin-left: 10%; }
+    .timeline-step-card-box::after { left: -11% !important; }
+}
+
+@media (max-width: 768px) {
+    .careers-hero-main-heading-unified { font-size: 4rem; }
+    .role-board-main-title-unified, 
+    .process-title-unified, 
+    .why-reveal-title-unified { font-size: 3.5rem; }
+    .ready-cta-title-unified { font-size: 4rem; }
+    .benefits-five-column-grid-layout { grid-template-columns: repeat(2, 1fr); }
+    .role-positions-grid-layout { grid-template-columns: 1fr; }
+    .role-missing-green-cta-card { grid-column: auto; }
+}
+
+@media (max-width: 480px) {
+    .careers-hero-main-heading-unified { font-size: 3rem; }
+    .role-board-main-title-unified, 
+    .process-title-unified, 
+    .why-reveal-title-unified { font-size: 2.5rem; }
+    .ready-cta-title-unified { font-size: 2.5rem; }
+    .benefits-five-column-grid-layout { grid-template-columns: 1fr; }
+    .careers-hero-quick-stats-row { flex-direction: column; gap: 30px; }
+    .timeline-step-card-box { padding: 30px; }
+}

@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // If the element is a container for staggered children
                 if (el.hasAttribute('data-reveal-stagger')) {
-                    const children = el.querySelectorAll('.pricing-v2-card-item, .policy-usage-green-card, .subs-stat-card-item, .subs-industry-dark-card, .contact-platform-card-item');
+                    const children = el.querySelectorAll('.pricing-v2-card-item, .policy-usage-green-card, .subs-stat-card-item, .subs-industry-dark-card, .contact-platform-card-item, .hero-stat-mini-card, .benefit-preview-card, .role-card-mini-item, .benefit-col-item, .timeline-step-card-box');
                     children.forEach((child, index) => {
                         child.style.transitionDelay = `${index * 0.15}s`;
                         child.classList.add('is-visible');
@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Trigger specialized counting
                 if (el.classList.contains('subscriptions-stats-section-reveal') || 
                     el.classList.contains('about-stats-section-reveal') ||
+                    el.classList.contains('careers-hero-reveal') ||
                     el.classList.contains('pricing-table-v2-reveal')) {
                     startStatsCounting(el);
                     if (el.classList.contains('pricing-table-v2-reveal')) {
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => revealObserver.observe(el));
 
     // 3. Magnetic Button Interaction (Premium Micro-interaction)
-    const magneticBtns = document.querySelectorAll('.footer-get-app-pill-btn, .branding-get-app-button-primary, .tier-action-pill-btn-dark');
+    const magneticBtns = document.querySelectorAll('.footer-get-app-pill-btn, .branding-get-app-button-primary, .tier-action-pill-btn-dark, .careers-primary-pill-btn-beige, .role-apply-now-btn-beige, .ready-join-empire-btn-beige');
     
     magneticBtns.forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
@@ -136,6 +137,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
         window.requestAnimationFrame(step);
+    }
+
+    // 5. Job Board Filter Logic (Careers Page)
+    const filterTabs = document.querySelectorAll('.role-filter-tab-item');
+    const jobCards = document.querySelectorAll('.role-card-featured-high-impact, .role-card-mini-item');
+
+    if (filterTabs.length > 0) {
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const category = tab.getAttribute('data-role');
+
+                jobCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'flex';
+                        // Trigger small re-reveal
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                            card.style.transition = 'all 0.5s ease';
+                        }, 10);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
     }
 
     // 4. Form Submission Micro-interaction
