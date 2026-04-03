@@ -616,4 +616,115 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Performance specific interactions
+    const perfRevealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                el.classList.add('is-visible');
+                
+                if (el.hasAttribute('data-reveal-stagger')) {
+                    const children = el.querySelectorAll('.perf-hero-stat-card, .perf-filter-pill, .perf-rt-card, .perf-growth-card, .perf-roi-card, .perf-comp-col, .perf-above-row, .perf-guar-stat');
+                    children.forEach((child, index) => {
+                        child.style.transitionDelay = `${index * 0.15}s`;
+                        child.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                        setTimeout(() => {
+                            child.style.opacity = '1';
+                            child.style.transform = 'translateY(0)';
+                        }, 50);
+                    });
+                }
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    const perfElements = document.querySelectorAll('.perf-hero-reveal, .perf-realtime-reveal, .perf-growth-reveal, .perf-roi-reveal, .perf-compare-reveal, .perf-above-reveal, .perf-guarantee-reveal, .perf-cta-reveal, [data-reveal-stagger]');
+    perfElements.forEach(el => {
+        if (!el.classList.contains('is-visible') && !el.hasAttribute('data-reveal-stagger')) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
+        } else if (el.hasAttribute('data-reveal-stagger')) {
+            const children = el.querySelectorAll('.perf-hero-stat-card, .perf-filter-pill, .perf-rt-card, .perf-growth-card, .perf-roi-card, .perf-comp-col, .perf-above-row, .perf-guar-stat');
+            children.forEach(child => {
+                child.style.opacity = '0';
+                child.style.transform = 'translateY(20px)';
+            });
+        }
+        perfRevealObserver.observe(el);
+    });
+    
+    const magneticBtns5 = document.querySelectorAll('.perf-btn-primary, .perf-btn-outline');
+    magneticBtns5.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.3}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0px, 0px)';
+        });
+    });
+
+    // Top Creators specific interactions
+    const tcRevealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                el.classList.add('is-visible');
+                
+                if (el.hasAttribute('data-reveal-stagger')) {
+                    const children = el.querySelectorAll('.tc-feat-img-col, .tc-feat-info-col, .tc-filter-pill, .tc-creator-card');
+                    children.forEach((child, index) => {
+                        child.style.transitionDelay = `${index * 0.15}s`;
+                        child.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                        setTimeout(() => {
+                            child.style.opacity = '1';
+                            child.style.transform = 'translateY(0)';
+                        }, 50);
+                    });
+                }
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    const tcElements = document.querySelectorAll('.tc-section-reveal, [data-reveal-stagger]');
+    tcElements.forEach(el => {
+        if (!el.classList.contains('is-visible') && !el.hasAttribute('data-reveal-stagger')) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
+        } else if (el.hasAttribute('data-reveal-stagger')) {
+            const children = el.querySelectorAll('.tc-feat-img-col, .tc-feat-info-col, .tc-filter-pill, .tc-creator-card');
+            children.forEach(child => {
+                child.style.opacity = '0';
+                child.style.transform = 'translateY(30px)';
+            });
+        }
+        tcRevealObserver.observe(el);
+    });
+
+    // Tag filtering interaction for Top Creators
+    const tcFilterPills = document.querySelectorAll('.tc-filter-pill');
+    tcFilterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            tcFilterPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            
+            // Subtle feedback for clicking filters
+            const cards = document.querySelectorAll('.tc-creator-card');
+            cards.forEach(card => {
+                card.style.opacity = '0.5';
+                card.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, 300);
+            });
+        });
+    });
+
 });
