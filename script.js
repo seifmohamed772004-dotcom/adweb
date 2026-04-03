@@ -275,4 +275,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 8. Contact Page Ticker & FAQ Logic
+    const tickerTrack = document.getElementById('contact-ticker-track');
+    if (tickerTrack) {
+        const items = Array.from(tickerTrack.children);
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            tickerTrack.appendChild(clone);
+        });
+    }
+
+    const faqBtn = document.getElementById('contact-faq-btn');
+    if (faqBtn) {
+        faqBtn.addEventListener('click', () => {
+            alert('FAQ Section is coming soon! For immediate assistance, please use our email or phone contact.');
+        });
+    }
 });

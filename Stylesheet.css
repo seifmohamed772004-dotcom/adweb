@@ -2041,3 +2041,239 @@ width: 100%;
     .about-industries-cards-grid-layout { grid-template-columns: 1fr; }
     .about-creator-sub-heading-unified { font-size: 1.8rem; }
 }
+
+/* --- Contact Page Specific Styles --- */
+.contact-page-body-root {
+    background-color: #181818;
+    color: #ffeedc;
+    overflow-x: hidden;
+}
+
+.contact-page-main-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. Hero & Details Grid */
+.contact-hero-reveal {
+    padding: 100px 5vw;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: stretch;
+}
+
+.contact-title-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-massive-heading-unified {
+    font-size: 6rem;
+    line-height: 1.1;
+    font-family: 'Choldera', display;
+    letter-spacing: 2px;
+}
+
+.contact-right-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.contact-details-col {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-branding-small {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #ffeedc;
+}
+
+.contact-secondary-heading-unified {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    font-family: 'Choldera', display;
+}
+
+.contact-p-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #709987;
+    max-width: 300px;
+}
+
+.contact-id-card-wrapper {
+    background-color: transparent;
+    border: 1px solid rgba(112, 153, 135, 0.2);
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact-item-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-icon-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #55A887;
+}
+
+.contact-handle-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.contact-faq-action-button {
+    background-color: transparent;
+    color: #ffeedc;
+    border: 1px solid #709987;
+    border-radius: 4px;
+    padding: 15px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.contact-faq-action-button:hover {
+    background-color: #55A887;
+    border-color: #55A887;
+    color: #181818;
+}
+
+/* 2. Testimonial Ticker */
+.contact-ticker-reveal {
+    background-color: rgba(255, 238, 220, 0.03);
+    padding: 40px 0;
+    border-top: 1px solid rgba(112, 153, 135, 0.1);
+    border-bottom: 1px solid rgba(112, 153, 135, 0.1);
+    overflow: hidden;
+}
+
+.contact-ticker-sliding-track {
+    display: flex;
+    gap: 80px;
+    white-space: nowrap;
+    animation: contactTickerScroll 40s linear infinite;
+}
+
+.contact-ticker-item {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffeedc;
+    opacity: 0.7;
+}
+
+@keyframes contactTickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* 3. Social Grid */
+.contact-social-reveal {
+    padding: 100px 5vw;
+}
+
+.contact-social-grid-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.1fr 1.1fr;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.contact-social-sidebar-box {
+    display: flex;
+    align-items: flex-end;
+}
+
+.contact-sidebar-p-style {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #55AAAA;
+    max-width: 250px;
+}
+
+.contact-platform-card-item {
+    background-color: rgba(255, 238, 220, 0.05);
+    border-radius: 16px;
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.contact-platform-card-item:hover {
+    transform: translateY(-10px);
+    background-color: rgba(85, 168, 135, 0.1);
+}
+
+.contact-platform-icon-large {
+    width: 120px;
+    height: 120px;
+    color: #ffeedc;
+}
+
+.contact-visit-action-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffeedc;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* 4. Pill Navigation Overlay */
+.contact-pill-nav-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+    .contact-grid-container { grid-template-columns: 1fr 1.5fr; }
+    .contact-title-col { grid-column: span 2; text-align: center; }
+    .contact-massive-heading-unified { font-size: 4rem; }
+    .contact-social-grid-layout { grid-template-columns: 1fr 1fr; }
+    .contact-social-sidebar-box { grid-column: span 2; align-items: center; text-align: center; }
+    .contact-sidebar-p-style { max-width: none; }
+}
+
+@media (max-width: 768px) {
+    .contact-grid-container { grid-template-columns: 1fr; text-align: center; }
+    .contact-title-col { grid-column: span 1; }
+    .contact-details-col { align-items: center; }
+    .contact-secondary-heading-unified { font-size: 3rem; }
+    .contact-social-grid-layout { grid-template-columns: 1fr; }
+    .contact-social-sidebar-box { grid-column: span 1; }
+    .contact-platform-card-item { padding: 50px 30px; }
+}
