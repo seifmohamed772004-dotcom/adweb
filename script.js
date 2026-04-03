@@ -289,7 +289,71 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqBtn = document.getElementById('contact-faq-btn');
     if (faqBtn) {
         faqBtn.addEventListener('click', () => {
-            alert('FAQ Section is coming soon! For immediate assistance, please use our email or phone contact.');
+            // Redirect to FAQ page instead of alert
+            window.location.href = 'FAQ.html';
+        });
+    }
+
+    // 10. FAQ Slider Pagination Logic
+    const faqNumbers = document.querySelectorAll('.faq-page-number-item');
+    const faqQuestion = document.getElementById('faq-active-question-text');
+    const faqAnswer = document.getElementById('faq-active-answer-paragraph');
+    const faqInnerLabel = document.getElementById('faq-active-content-inner');
+
+    const faqData = [
+        {
+            q: "HOW LONG DOES IT TAKE TO SEE RESULTS AFTER STARTING WITH CREESTUDIOS?",
+            a: "While timelines vary depending on your goals and campaign scope, most clients begin seeing measurable engagement improvements within the first 30 days. We focus on building a strong strategic foundation first, then continuously optimize to ensure sustainable, long-term growth — not just short-term spikes."
+        },
+        {
+            q: "WHAT INDUSTRIES DO YOU SPECIALIZE IN?",
+            a: "We work across a broad spectrum including Tech, Fashion, E-commerce, and Entertainment. Our adaptive creative process allows us to tailor visual strategies to any niche that demands high-end aesthetic execution."
+        },
+        {
+            q: "CAN I CUSTOMIZE MY SUBSCRIPTION PLAN?",
+            a: "Absolutely. While we offer structured tiers, our Enterprise level is fully customizable. We can scale resources, concepts, and delivery speeds to match your specific studio requirements."
+        },
+        {
+            q: "DO YOU OFFER ONE-OFF PROJECT SERVICES?",
+            a: "Our model is primarily subscription-based to ensure consistent quality and growth. However, for significant brand launches or milestones, we do take on select one-off visual identity projects."
+        },
+        {
+            q: "HOW DO WE COMMUNICATION DURING THE PROCESS?",
+            a: "Transparency is key. Depending on your plan, you'll have access to a dedicated Slack channel, bi-weekly video calls, or a personal account strategist to keep you updated on every asset's progress."
+        },
+        {
+            q: "IS THERE A CONTRACT COMMITMENT?",
+            a: "Our monthly plans are flexible, while our yearly commitments offer a 20% discount. We believe in our work's ability to retain partners through results rather than restrictive long-term locking."
+        }
+    ];
+
+    if (faqNumbers.length > 0 && faqQuestion && faqAnswer && faqInnerLabel) {
+        faqNumbers.forEach((num, index) => {
+            num.addEventListener('click', () => {
+                // Update markers
+                faqNumbers.forEach(n => n.classList.remove('active'));
+                num.classList.add('active');
+
+                // Fade out, update, fade in
+                faqInnerLabel.style.opacity = '0';
+                faqInnerLabel.style.transform = 'translateY(10px)';
+
+                setTimeout(() => {
+                    const data = faqData[index];
+                    faqQuestion.textContent = data.q;
+                    faqAnswer.textContent = data.a;
+                    
+                    faqInnerLabel.style.opacity = '1';
+                    faqInnerLabel.style.transform = 'translateY(0)';
+                }, 300);
+            });
+        });
+    }
+
+    const faqDiffBtn = document.getElementById('faq-different-question-btn');
+    if (faqDiffBtn) {
+        faqDiffBtn.addEventListener('click', () => {
+            alert('Redirecting to our detailed support portal...');
         });
     }
 });
