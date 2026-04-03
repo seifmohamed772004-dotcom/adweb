@@ -10,6 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleIcon = document.getElementById('password-toggle-icon');
 
     if (togglePasswordBtn && passwordInput && toggleIcon) {
+        // Simple initialization: Always clear fields for a fresh start
+        if (passwordInput) passwordInput.value = '';
+        if (passwordInput) passwordInput.setAttribute('type', 'password');
+        
+        const emailInput = document.getElementById('email-input-field');
+        if (emailInput) emailInput.value = '';
+
         togglePasswordBtn.addEventListener('click', () => {
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
@@ -25,8 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Scroll Reveal Animation using Intersection Observer
-    const revealElements = document.querySelectorAll('.scroll-reveal-animation');
+    // Reset form on pageshow (handles back/forward cache)
+    window.addEventListener('pageshow', (event) => {
+        const loginFormElement = document.getElementById('user-login-form-element');
+        if (loginFormElement) loginFormElement.reset();
+    });
+
+    // 2. Scroll Reveal Animation using Intersection Observer (Targeting classes ending in -reveal)
+    const revealElements = document.querySelectorAll('[class$="-reveal"]');
     const revealOptions = {
         threshold: 0.05,
         rootMargin: '0px 0px 0px 0px'
@@ -34,12 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            // Enhanced check for visibility
+            if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight) {
                 entry.target.classList.add('is-visible');
                 
-                // If it's a branding card or a stats section, trigger counting
-                if (entry.target.classList.contains('login-branding-card-box') || 
-                    entry.target.classList.contains('join-revolution-section-container')) {
+                // Trigger stats counting if relevant
+                if (entry.target.classList.contains('login-branding-card-reveal') || 
+                    entry.target.classList.contains('join-revolution-section-reveal')) {
                     startStatsCounting(entry.target);
                 }
                 
@@ -48,7 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, revealOptions);
 
-    revealElements.forEach(el => revealObserver.observe(el));
+    // Initial check for elements already in view
+    document.querySelectorAll('[class$="-reveal"]').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+            el.classList.add('is-visible');
+            if (el.classList.contains('login-branding-card-reveal') || el.classList.contains('join-revolution-section-reveal')) {
+                startStatsCounting(el);
+            }
+        }
+        revealObserver.observe(el);
+    });
 
     // 3. Generalized Stats Counter Animation
     function startStatsCounting(container = document) {
@@ -86,31 +110,80 @@ document.addEventListener('DOMContentLoaded', () => {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
+            const emailInput = document.getElementById('email-input-field');
+            const passwordInput = document.getElementById('password-input-field');
+            
+            if (!emailInput || !passwordInput) return;
+
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            const rememberMe = document.getElementById('remember-me-checkbox')?.checked;
+
             // Visual feedback
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Verifying...';
             submitBtn.style.opacity = '0.7';
             submitBtn.disabled = true;
 
-            // Simulate server delay
+            // Simulate server delay for premium feel
             setTimeout(() => {
-                submitBtn.textContent = 'Redirecting...';
-                submitBtn.style.backgroundColor = '#55A887';
-                submitBtn.style.color = '#181818';
-                
-                setTimeout(() => {
-                    alert('Login successful! Design recreation complete.');
+                if (email === 'seifmohamed772004@gmail.com' && password === '772004') {
+                    submitBtn.textContent = 'Success! Redirecting...';
+                    submitBtn.style.backgroundColor = '#55A887';
+                    submitBtn.style.color = '#181818';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'Home.html';
+                    }, 1000);
+                } else {
+                    alert('Authentication failed: Invalid email or password.');
                     submitBtn.textContent = originalText;
                     submitBtn.style.opacity = '1';
-                    submitBtn.style.backgroundColor = '#181818';
-                    submitBtn.style.color = '#ffeedc';
                     submitBtn.disabled = false;
-                }, 1000);
-            }, 1500);
+                }
+            }, 1200);
         });
     }
 
-    // 5. Button Hover Glow Effect (Extra Micro-interaction)
+    // 5. Google Account Picker Simulation
+    const googleAuthBtn = document.getElementById('google-auth-button');
+    const googleOverlay = document.getElementById('google-picker-overlay');
+    const googleAccounts = document.querySelectorAll('.google-account-item');
+
+    if (googleAuthBtn && googleOverlay) {
+        googleAuthBtn.addEventListener('click', () => {
+            googleOverlay.classList.add('google-modal-overlay-visible');
+        });
+
+        // Close modal when clicking outside the card
+        googleOverlay.addEventListener('click', (e) => {
+            if (e.target === googleOverlay) {
+                googleOverlay.classList.remove('google-modal-overlay-visible');
+            }
+        });
+
+        googleAccounts.forEach(account => {
+            account.addEventListener('click', () => {
+                const email = account.getAttribute('data-email');
+                const accountBox = account.querySelector('.account-info-box');
+                const originalContent = accountBox.innerHTML;
+
+                // Visual feedback inside the picker
+                accountBox.innerHTML = '<span class="account-name-text" style="color: #55A887;">Signing in...</span>';
+                
+                setTimeout(() => {
+                    if (email === 'seifmohamed772004@gmail.com') {
+                        window.location.href = 'Home.html';
+                    } else {
+                        alert('Simulation: This account is not authorized for this demo.');
+                        accountBox.innerHTML = originalContent;
+                    }
+                }, 1500);
+            });
+        });
+    }
+
+    // 6. Button Hover Glow Effect (Extra Micro-interaction)
     const primaryBtns = document.querySelectorAll('.branding-get-app-button-primary, .google-auth-login-button-secondary');
     
     primaryBtns.forEach(btn => {
@@ -162,4 +235,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 7. Back to Top Smooth Scroll
+    const backToTopBtn = document.getElementById('back-to-top-btn');
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Target the first major section or main wrapper for the relative page
+            const topElement = document.querySelector('section, main');
+            if (topElement) {
+                topElement.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            } else {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
 });

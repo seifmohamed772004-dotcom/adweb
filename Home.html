@@ -12,36 +12,61 @@
     <link rel="preload" href="Assets/Unbounded.ttf" as="font" type="font/ttf" crossorigin>
 </head>
 <body class="home-page-body-root">
-    <!-- Background Video & Overlay -->
-    <div class="background-video-container">
-        <video autoplay muted loop playsinline class="background-video-element">
-            <source src="Assets/Background Video.mp4" type="video/mp4">
-        </video>
-        <div class="background-video-overlay"></div>
-    </div>
-
-    <!-- Navigation Header -->
-    <nav id="site-primary-navbar" class="main-navigation-header-bar">
-        <div class="nav-logo-brand-box">
-            <img src="Assets/White Logo.png" alt="Creestudios Logo" class="nav-logo-image">
+    <!-- Floating Pill Navigation -->
+    <nav id="site-primary-navbar" class="pill-nav-container">
+        <!-- Main Navigation Pill -->
+        <div class="pill-nav-main">
+            <ul class="pill-nav-list">
+                <li>
+                    <a href="#hero-section-home" class="nav-link-anchor-style active">
+                        <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#creators-section-info" class="nav-link-anchor-style">
+                        <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        <span>About Us</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#footer-section-contact" class="nav-link-anchor-style">
+                        <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <span>Reach Out</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#join-section-revolution" class="nav-link-anchor-style">
+                        <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <span>Subscriptions</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <ul class="nav-links-list-flex">
-            <li><a href="#hero-section-home" class="nav-link-anchor-style active">Home</a></li>
-            <li><a href="#creators-section-info" class="nav-link-anchor-style">About</a></li>
-            <li><a href="#leaders-section-showcase" class="nav-link-anchor-style">Services</a></li>
-            <li><a href="#articles-section-news" class="nav-link-anchor-style">Features</a></li>
-            <li><a href="#footer-section-contact" class="nav-link-anchor-style">Blog</a></li>
-        </ul>
-        <button id="nav-join-cta-btn" class="nav-cta-button-primary">JOIN</button>
+
+        <!-- Language Pill -->
+        <div class="pill-nav-lang">
+            <a href="#" class="lang-link">
+                <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span>EN</span>
+            </a>
+        </div>
     </nav>
 
     <main id="home-content-container" class="home-page-main-wrapper">
         
         <!-- Section 1: Hero -->
-        <section id="hero-section-home" class="home-hero-section-container scroll-reveal-animation">
+        <section id="hero-section-home" class="home-hero-section-reveal">
+            <!-- Background Video & Overlay (Now Contained to Hero) -->
+            <div class="background-video-container">
+                <video autoplay muted loop playsinline class="background-video-element">
+                    <source src="Assets/Background Video.mp4" type="video/mp4">
+                </video>
+                <div class="background-video-overlay"></div>
+            </div>
             <div class="hero-content-flex-container">
                 <div class="hero-branding-typography-box">
-                    <h1 class="hero-main-title-text h1-title">BE THE <br><span class="text-primary-green">SOUND</span> <br>OF DESIGN</h1>
+                    <h1 class="hero-main-title-unified">BE THE <br><span class="text-primary-green-span">SOUND</span> <br>OF DESIGN</h1>
                     <p class="hero-subtext-description">The simplest and fastest way to build your brand and expand your reach in the creative world.</p>
                     <div class="hero-cta-group">
                         <button class="cta-primary-btn">GET STARTED <img src="Assets/45arrow.png" alt="arrow" class="btn-arrow-icon"></button>
@@ -49,14 +74,12 @@
                     </div>
                 </div>
 
-                <div class="hero-central-logo-box">
-                    <img src="Assets/White Logo.png" alt="Branding Visual" class="hero-central-3d-logo">
-                </div>
+             
 
-                <div class="hero-info-card-widget">
-                    <div class="widget-card-item card-border-16">
+                <div class="hero-info-card-widget-layout">
+                    <div class="widget-card-item-bordered">
                         <span class="widget-label-pill">MOBILE APP</span>
-                        <h3 class="widget-title-text h3-title">MOBILE APP</h3>
+                        <h3 class="widget-title-unified">MOBILE APP</h3>
                         <p class="widget-description">Our mobile app is ready for you!</p>
                         <div class="widget-app-store-icons">
                             <img src="Assets/App Store Login Icon.png" alt="Store Icon">
@@ -66,22 +89,50 @@
                 </div>
             </div>
             
-            <nav class="hero-bottom-mini-nav">
-                <ul class="mini-nav-links-flex">
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">SERVICES</a></li>
-                    <li><a href="#">FEATURES</a></li>
-                    <li><a href="#">BLOG</a></li>
-                </ul>
-            </nav>
         </section>
-
+        
+                <!-- Section 3: Built for Creators -->
+                <section id="creators-section-info" class="creators-section-consolidated">
+                    <header class="creators-header-reveal">
+                        <h2 class="creators-main-title-unified">BUILT FOR <br><span class="text-primary-green-span">CREATORS</span></h2>
+                    </header>
+        
+                    <div class="creators-features-list-wrapper">
+                        <!-- Feature 01 -->
+                        <article class="feature-item-row-reveal">
+                            <div class="feature-visual-media-box">
+                                <img src="Assets/AboutSecimg1.png" alt="Creative Workspace" class="feature-main-image-bordered">
+                                <div class="feature-tag-badge">VIRTUAL ART</div>
+                            </div>
+                            <div class="feature-content-details-box">
+                                <span class="feature-index-number">01</span>
+                                <h3 class="feature-heading-unified">EMPOWERING CREATIVE <br>VISIBILITY</h3>
+                                <p class="feature-description-text">Those who believe they can complete the task and excel at it. To fulfill this, you must develop a mindset of determination, focus, and unwavering belief in your abilities.</p>
+                                <a href="#" class="feature-action-link">LEARN MORE <img src="Assets/45arrow.png" alt="arrow" class="link-arrow-icon"></a>
+                            </div>
+                        </article>
+        
+                        <!-- Feature 02 -->
+                        <article class="feature-item-row-reversed-reveal">
+                            <div class="feature-content-details-box">
+                                <span class="feature-index-number">02</span>
+                                <h3 class="feature-heading-unified">CREATIVE CONTROL & <br>MANAGEMENT</h3>
+                                <p class="feature-description-text">Those who believe they can complete the task and excel at it. To fulfill this, you must develop a mindset of determination, focus, and unwavering belief in your abilities.</p>
+                                <a href="#" class="feature-action-link">LEARN MORE <img src="Assets/45arrow.png" alt="arrow" class="link-arrow-icon"></a>
+                            </div>
+                            <div class="feature-visual-media-box">
+                                <img src="Assets/AboutSecimg2.png" alt="Management Tools" class="feature-main-image-bordered">
+                                <div class="feature-tag-badge">VIRTUAL ART</div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+        
         <!-- Section 2: Join Revolution -->
-        <section id="join-section-revolution" class="join-revolution-section-container scroll-reveal-animation">
+        <section id="join-section-revolution" class="join-revolution-section-reveal">
             <div class="join-content-grid-wrapper">
                 <div class="join-title-branding-box">
-                    <h2 class="join-hero-title h2-title">JOIN THE <br><span class="text-primary-green">DIGITAL</span> <br>REVOLUTION</h2>
+                    <h2 class="join-hero-title-unified">JOIN THE <br><span class="text-primary-green-span">DIGITAL</span> <br>REVOLUTION</h2>
                     
                     <div class="join-cta-actions-group">
                         <button class="cta-green-pill-btn">GET THE APP</button>
@@ -109,54 +160,17 @@
             </div>
         </section>
 
-        <!-- Section 3: Built for Creators -->
-        <section id="creators-section-info" class="creators-section-container">
-            <header class="creators-section-header scroll-reveal-animation">
-                <h2 class="creators-main-title h2-title">BUILT FOR <br><span class="text-primary-green">CREATORS</span></h2>
-            </header>
-
-            <div class="creators-features-list-wrapper">
-                <!-- Feature 01 -->
-                <article class="feature-item-row-layout scroll-reveal-animation">
-                    <div class="feature-visual-media-box">
-                        <img src="Assets/AboutSecimg1.png" alt="Creative Workspace" class="feature-main-image card-border-16">
-                        <div class="feature-tag-badge">VIRTUAL ART</div>
-                    </div>
-                    <div class="feature-content-details-box">
-                        <span class="feature-index-number">01</span>
-                        <h3 class="feature-heading-text h3-title">EMPOWERING CREATIVE <br>VISIBILITY</h3>
-                        <p class="feature-description-text">Those who believe they can complete the task and excel at it. To fulfill this, you must develop a mindset of determination, focus, and unwavering belief in your abilities.</p>
-                        <a href="#" class="feature-action-link">LEARN MORE <img src="Assets/45arrow.png" alt="arrow" class="link-arrow-icon"></a>
-                    </div>
-                </article>
-
-                <!-- Feature 02 -->
-                <article class="feature-item-row-layout reverse-flex scroll-reveal-animation">
-                    <div class="feature-content-details-box">
-                        <span class="feature-index-number">02</span>
-                        <h3 class="feature-heading-text h3-title">CREATIVE CONTROL & <br>MANAGEMENT</h3>
-                        <p class="feature-description-text">Those who believe they can complete the task and excel at it. To fulfill this, you must develop a mindset of determination, focus, and unwavering belief in your abilities.</p>
-                        <a href="#" class="feature-action-link">LEARN MORE <img src="Assets/45arrow.png" alt="arrow" class="link-arrow-icon"></a>
-                    </div>
-                    <div class="feature-visual-media-box">
-                        <img src="Assets/AboutSecimg2.png" alt="Management Tools" class="feature-main-image card-border-16">
-                        <div class="feature-tag-badge">VIRTUAL ART</div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
         <!-- Section 4: Our Leaders -->
-        <section id="leaders-section-showcase" class="leaders-section-container scroll-reveal-animation">
+        <section id="leaders-section-showcase" class="leaders-section-reveal">
             <header class="leaders-section-header">
-                <h2 class="leaders-title-text h2-title">OUR <span class="text-primary-green">LEADERS</span></h2>
+                <h2 class="leaders-title-unified">OUR <span class="text-primary-green-span">LEADERS</span></h2>
             </header>
             
             <div class="leaders-cards-grid-layout">
                 <!-- Featured Leader -->
-                <div class="leader-main-featured-card card-border-16">
+                <div class="leader-main-featured-card-bordered">
                     <div class="leader-profile-icon"><img src="Assets/Mike Hunter.png" alt="Leader Pic"></div>
-                    <h3 class="leader-name-text h3-title">MIKE HUNTER</h3>
+                    <h3 class="leader-name-unified">MIKE HUNTER</h3>
                     <p class="leader-role-tag">CHIEF OPERATING OFFICER</p>
                     <p class="leader-bio-summary">The core of our agency is a team of leaders who bring together decades of combined experience across various creative and technical domains.</p>
                     <button class="leader-cta-primary-btn">EXPLORE ARTIST PORTFOLIO</button>
@@ -168,31 +182,31 @@
 
                 <!-- Side Leaders Grid -->
                 <div class="leaders-side-mini-grid">
-                    <div class="mini-leader-item card-border-16">
+                    <div class="mini-leader-item-bordered">
                         <img src="Assets/Mike Hunter.png" alt="Leader" class="mini-leader-avatar">
                         <div class="mini-leader-info">
-                            <h4 class="mini-leader-name h4-title">SARAH J.</h4>
+                            <h4 class="mini-leader-name-unified">SARAH J.</h4>
                             <p class="mini-leader-role">Creative Director</p>
                         </div>
                     </div>
-                    <div class="mini-leader-item card-border-16">
+                    <div class="mini-leader-item-bordered">
                         <img src="Assets/Mike Hunter.png" alt="Leader" class="mini-leader-avatar">
                         <div class="mini-leader-info">
-                            <h4 class="mini-leader-name h4-title">SARAH J.</h4>
+                            <h4 class="mini-leader-name-unified">SARAH J.</h4>
                             <p class="mini-leader-role">Creative Director</p>
                         </div>
                     </div>
-                    <div class="mini-leader-item card-border-16">
+                    <div class="mini-leader-item-bordered">
                         <img src="Assets/Mike Hunter.png" alt="Leader" class="mini-leader-avatar">
                         <div class="mini-leader-info">
-                            <h4 class="mini-leader-name h4-title">SARAH J.</h4>
+                            <h4 class="mini-leader-name-unified">SARAH J.</h4>
                             <p class="mini-leader-role">Creative Director</p>
                         </div>
                     </div>
-                    <div class="mini-leader-item card-border-16">
+                    <div class="mini-leader-item-bordered">
                         <img src="Assets/Mike Hunter.png" alt="Leader" class="mini-leader-avatar">
                         <div class="mini-leader-info">
-                            <h4 class="mini-leader-name h4-title">SARAH J.</h4>
+                            <h4 class="mini-leader-name-unified">SARAH J.</h4>
                             <p class="mini-leader-role">Creative Director</p>
                         </div>
                     </div>
@@ -201,12 +215,12 @@
         </section>
 
         <!-- Section 5: Proven Results -->
-        <section id="results-section-data" class="results-section-container scroll-reveal-animation">
-            <h2 class="results-title-text h2-title">PROVEN <span class="text-primary-green">RESULTS</span></h2>
-            <div class="results-case-study-banner card-border-16">
+        <section id="results-section-data" class="results-section-reveal">
+            <h2 class="results-title-unified">PROVEN <span class="text-primary-green-span">RESULTS</span></h2>
+            <div class="results-banner-bordered">
                 <div class="case-study-header-box">
                     <span class="case-study-label">URBAN THREADS</span>
-                    <h3 class="case-study-title h3-title">EXPLORING THE FUTURE OF <br>FASHION E-COMMERCE</h3>
+                    <h3 class="case-study-title-unified">EXPLORING THE FUTURE OF <br>FASHION E-COMMERCE</h3>
                 </div>
                 <div class="case-study-metrics-grid">
                     <div class="metric-item-box">
@@ -226,24 +240,24 @@
         </section>
 
         <!-- Section 6: Recent Articles -->
-        <section id="articles-section-news" class="articles-section-container scroll-reveal-animation">
-            <h2 class="articles-main-title h2-title">RECENT <span class="text-primary-green">ARTICLES</span></h2>
+        <section id="articles-section-news" class="articles-section-reveal">
+            <h2 class="articles-main-title-unified">RECENT <span class="text-primary-green-span">ARTICLES</span></h2>
             <div class="articles-grid-layout">
-                <article class="article-card-item card-border-16">
+                <article class="article-card-bordered">
                     <span class="article-category-tag">DESIGN</span>
-                    <h3 class="article-heading h3-title">BUILDING VISUALLY <br>COLLABORATIVE <br>REVOLT</h3>
+                    <h3 class="article-heading-unified">BUILDING VISUALLY <br>COLLABORATIVE <br>REVOLT</h3>
                     <p class="article-excerpt-text">Design systems have evolved from simple style guides to comprehensive tools that empower designers.</p>
                     <a href="#" class="article-read-more">READ MORE</a>
                 </article>
-                <article class="article-card-item card-border-16">
+                <article class="article-card-bordered">
                     <span class="article-category-tag">CULTURE</span>
-                    <h3 class="article-heading h3-title">HOW TO <br>TRANSFORM <br>IDEAS INTO <br>REALITY</h3>
+                    <h3 class="article-heading-unified">HOW TO <br>TRANSFORM <br>IDEAS INTO <br>REALITY</h3>
                     <p class="article-excerpt-text">The journey from a creative idea to a finished product requires strategic planning and disciplined execution.</p>
                     <a href="#" class="article-read-more">READ MORE</a>
                 </article>
-                <article class="article-card-item card-border-16">
+                <article class="article-card-bordered">
                     <span class="article-category-tag">RESEARCH</span>
-                    <h3 class="article-heading h3-title">USER RESEARCH <br>THAT WORKS <br>EFFECTIVELY</h3>
+                    <h3 class="article-heading-unified">USER RESEARCH <br>THAT WORKS <br>EFFECTIVELY</h3>
                     <p class="article-excerpt-text">Understanding your audience is the cornerstone of any successful design project.</p>
                     <a href="#" class="article-read-more">READ MORE</a>
                 </article>
@@ -251,8 +265,8 @@
         </section>
 
         <!-- Section 7: Testimonial -->
-        <section id="testimonial-section-quote" class="testimonial-section-container scroll-reveal-animation">
-            <div class="testimonial-green-card-box card-border-16">
+        <section id="testimonial-section-quote" class="testimonial-section-reveal">
+            <div class="testimonial-card-bordered">
                 <div class="testimonial-profile-visual">
                     <img src="Assets/Mike Hunter.png" alt="Sarah J." class="testimonial-avatar-image circle-mask">
                 </div>
@@ -267,8 +281,8 @@
         </section>
 
         <!-- Section 8: Ready to Start CTA -->
-        <section id="cta-final-section" class="ready-to-start-cta-container scroll-reveal-animation">
-            <h2 class="ready-title-text h2-title">READY TO <span class="text-primary-green">START?</span></h2>
+        <section id="cta-final-section" class="ready-to-start-reveal">
+            <h2 class="ready-title-unified">READY TO <span class="text-primary-green-span">START?</span></h2>
             <p class="ready-description-text">Join hundreds of creators who have already transformed their digital presence with Creestudios.</p>
             <button class="final-get-started-btn">GET STARTED NOW</button>
         </section>
@@ -276,50 +290,74 @@
     </main>
 
     <!-- Footer Section -->
+    <!-- Footer Section -->
     <footer id="footer-section-contact" class="main-site-footer-container">
-        <div class="footer-top-links-grid">
-            <div class="footer-branding-info-box">
-                <p>Empowering the next generation of digital creators with high-end design and technical excellence.</p>
+        <!-- Tier 1: Action Banner -->
+        <div class="footer-action-banner-row">
+            <a href="#" class="footer-get-app-pill-btn">
+                GET APP 
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+
+        <!-- Tier 2: Navigation Grid -->
+        <div class="footer-navigation-grid">
+            <!-- Column 1: About -->
+            <div class="footer-nav-column">
+                <span class="footer-nav-label">// ABOUT US</span>
+                <p class="footer-about-text">We are a creative studio dedicated to pushing the boundaries of digital interaction. Our mission is to create visuals beyond reality.</p>
             </div>
-            <div class="footer-navigation-column">
-                <h4 class="footer-column-title">PAGES</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
+
+            <!-- Column 2: Explore -->
+            <div class="footer-nav-column">
+                <span class="footer-nav-label">// EXPLORE</span>
+                <nav class="footer-link-list">
+                    <a href="#" class="footer-link-item">CAREERS</a>
+                    <a href="#" class="footer-link-item">Services</a>
+                    <a href="#" class="footer-link-item">About</a>
+                    <a href="#" class="footer-link-item">Contact</a>
+                </nav>
             </div>
-            <div class="footer-navigation-column">
-                <h4 class="footer-column-title">SERVICES</h4>
-                <ul>
-                    <li><a href="#">Design</a></li>
-                    <li><a href="#">Development</a></li>
-                    <li><a href="#">Research</a></li>
-                    <li><a href="#">Articles</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact-info-box">
-                <h4 class="footer-column-title">CONTACT</h4>
-                <p>Hello@creestudios.com</p>
-                <div class="footer-newsletter-row">
-                    <input type="email" placeholder="Enter your email" class="footer-email-input">
-                    <button class="footer-subscribe-btn">GO</button>
+
+            <!-- Column 3: Connect -->
+            <div class="footer-nav-column">
+                <span class="footer-nav-label">// CONNECT</span>
+                <div class="footer-connect-list">
+                    <a href="mailto:creestudios@gmail.com" class="footer-connect-item">
+                        <svg class="footer-connect-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        creestudios@gmail.com
+                    </a>
+                    <a href="tel:+201122334455" class="footer-connect-item">
+                        <svg class="footer-connect-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        (+20) 1122334455
+                    </a>
+                    <a href="#" class="footer-connect-item">
+                        <svg class="footer-connect-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        @creestudios
+                    </a>
                 </div>
             </div>
-        </div>
 
-        <div class="footer-giant-branding-typography">
-            <img src="Assets/White Logo.png" alt="Creestudios Giant Text" class="giant-footer-logo">
-        </div>
-
-        <div class="footer-bottom-legal-row">
-            <p>© 2026 CREESTUDIOS. ALL RIGHTS RESERVED.</p>
-            <div class="footer-legal-links">
-                <a href="#">PRIVACY POLICY</a>
-                <a href="#">TERMS OF SERVICE</a>
+            <!-- Column 4: Stay Updated -->
+            <div class="footer-nav-column footer-subscribe-wrapper">
+                <span class="footer-nav-label">// STAY UPDATED</span>
+                <div class="footer-email-field-row">
+                    <input type="email" placeholder="YOUR EMAIL" class="footer-email-input-minimal">
+                </div>
+                <a href="#" class="footer-subscribe-action-link">
+                    SUBSCRIBE 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+                
+                <!-- Back to Top Pill -->
+                <button id="back-to-top-btn" class="back-to-top-pill-btn" title="Back to Top">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                </button>
             </div>
         </div>
+
+        
+
     </footer>
 
     <!-- External JS -->
