@@ -36,6 +36,30 @@ html, body {
     overflow-x: hidden;
 }
 
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #ffeedc transparent;
+}
+
+::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffeedc;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
 
 h1, h2, h3, .choldera-text {
     font-family: 'Choldera', display;

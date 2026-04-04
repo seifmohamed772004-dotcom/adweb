@@ -795,25 +795,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Language Toggle (EN/AR) with LocalStorage state preservation
+    // Language Toggle (EN/AR): switch to same page in the other language
     const langLinks = document.querySelectorAll('.lang-link');
-    const savedLang = localStorage.getItem('cree_lang_pref') || 'EN';
+    const getLocalizedPagePath = (targetArabic) => {
+        const { pathname, search, hash } = window.location;
+        const segments = pathname.split('/');
+        const fileName = segments.pop() || '';
+
+        // If we are at a directory root, fallback to localized home page.
+        if (!fileName || !fileName.includes('.html')) {
+            const fallback = targetArabic ? 'Home-ar.html' : 'Home.html';
+            return `${segments.join('/')}/${fallback}${search}${hash}`;
+        }
+
+        const targetFileName = targetArabic
+            ? fileName.replace(/\.html$/i, '-ar.html')
+            : fileName.replace(/-ar\.html$/i, '.html');
+
+        return `${segments.join('/')}/${targetFileName}${search}${hash}`;
+    };
 
     langLinks.forEach(langLink => {
         const langSpan = langLink.querySelector('span');
-        
-        // Initialize state on load
+        const targetArabic = !arPage;
+        const targetPath = getLocalizedPagePath(targetArabic);
+
         if (langSpan) {
-            langSpan.innerText = savedLang;
+            langSpan.innerText = arPage ? 'AR' : 'EN';
         }
+        langLink.setAttribute('href', targetPath);
 
         langLink.addEventListener('click', (e) => {
             e.preventDefault();
-            if (langSpan) {
-                const newLang = langSpan.innerText.trim() === 'EN' ? 'AR' : 'EN';
-                langSpan.innerText = newLang;
-                localStorage.setItem('cree_lang_pref', newLang);
-            }
+            localStorage.setItem('cree_lang_pref', targetArabic ? 'AR' : 'EN');
+            window.location.href = targetPath;
         });
     });
 

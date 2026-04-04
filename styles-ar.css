@@ -170,15 +170,15 @@ html[lang="ar"] .contact-massive-heading-unified {
 }
 
 html[lang="ar"] .pill-nav-container {
-    direction: rtl;
+    direction: ltr;
 }
 
 html[lang="ar"] .pill-nav-main {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 html[lang="ar"] .pill-nav-list {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 html[lang="ar"] .main-site-footer-container .footer-navigation-grid,
