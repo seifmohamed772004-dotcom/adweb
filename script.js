@@ -1109,4 +1109,77 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const leadersSpotlightSection = document.getElementById('leaders-section-showcase');
+    const leadersSpotlightEndButton = document.getElementById('leaders-spotlight-end-button');
+
+    if (leadersSpotlightSection) {
+        const leadersSpotlightCards = leadersSpotlightSection.querySelectorAll('[data-leaders-spotlight-card]');
+        leadersSpotlightCards.forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.06}s`;
+
+            card.addEventListener('mousemove', (event) => {
+                if (window.innerWidth <= 760) return;
+                const rect = card.getBoundingClientRect();
+                const moveX = ((event.clientX - rect.left) / rect.width - 0.5) * 7;
+                const moveY = ((event.clientY - rect.top) / rect.height - 0.5) * 5;
+                card.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    }
+
+    if (leadersSpotlightEndButton) {
+        leadersSpotlightEndButton.addEventListener('mousedown', () => {
+            leadersSpotlightEndButton.style.transform = 'translateY(0)';
+        });
+
+        leadersSpotlightEndButton.addEventListener('mouseup', () => {
+            leadersSpotlightEndButton.style.transform = '';
+        });
+
+        leadersSpotlightEndButton.addEventListener('mouseleave', () => {
+            leadersSpotlightEndButton.style.transform = '';
+        });
+    }
+
+    const provenResultsCaseCard = document.getElementById('proven-results-case-card');
+    const provenResultsEndButton = document.getElementById('proven-results-end-button');
+
+    if (provenResultsCaseCard) {
+        const provenMetrics = provenResultsCaseCard.querySelectorAll('[data-proven-results-metric]');
+
+        provenMetrics.forEach((metric, index) => {
+            metric.style.transitionDelay = `${index * 0.06}s`;
+        });
+
+        provenResultsCaseCard.addEventListener('mousemove', (event) => {
+            if (window.innerWidth <= 760) return;
+            const rect = provenResultsCaseCard.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / rect.width - 0.5) * 6;
+            const y = ((event.clientY - rect.top) / rect.height - 0.5) * 4;
+            provenResultsCaseCard.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        });
+
+        provenResultsCaseCard.addEventListener('mouseleave', () => {
+            provenResultsCaseCard.style.transform = '';
+        });
+    }
+
+    if (provenResultsEndButton) {
+        provenResultsEndButton.addEventListener('mousedown', () => {
+            provenResultsEndButton.style.transform = 'translateY(0)';
+        });
+
+        provenResultsEndButton.addEventListener('mouseup', () => {
+            provenResultsEndButton.style.transform = '';
+        });
+
+        provenResultsEndButton.addEventListener('mouseleave', () => {
+            provenResultsEndButton.style.transform = '';
+        });
+    }
+
 });
