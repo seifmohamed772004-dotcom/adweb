@@ -138,7 +138,6 @@ html[lang="ar"] .stat-item-box {
     }
 }
 
-/* Site-wide Arabic typography: body = Unbounded, titles = BlueOcen, roomy title lines (layout widths unchanged) */
 html[lang="ar"] body {
     font-family: 'Unbounded', sans-serif;
 }

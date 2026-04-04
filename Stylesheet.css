@@ -643,6 +643,54 @@ section {
     pointer-events: none;
 }
 
+.floating-scroll-bottom-btn {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 52px;
+    height: 52px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 238, 220, 0.15);
+    background-color: #121212;
+    color: #ffeedc;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.42);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    z-index: 1990;
+    transition: transform 0.22s ease, opacity 0.22s ease, background-color 0.22s ease;
+}
+
+.floating-scroll-bottom-btn:hover {
+    background-color: #1b1b1b;
+    transform: translateY(-2px);
+}
+
+.floating-scroll-bottom-btn:active {
+    transform: translateY(0);
+}
+
+.floating-scroll-bottom-btn.is-hidden-near-footer {
+    opacity: 0;
+    transform: translateY(18px);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .floating-scroll-bottom-btn {
+        right: 16px;
+        bottom: 16px;
+        width: 48px;
+        height: 48px;
+    }
+}
+
 @media (max-height: 938px) {
     .pill-nav-container {
         top: calc(100vh - 138px);
@@ -7757,7 +7805,6 @@ width: 100%;
     }
 }
 
-/* --- Global Nav Styles Override --- */
 nav a {
     color: #ffffff !important;
     opacity: 0.5 !important;
@@ -7770,10 +7817,9 @@ nav a:hover {
     opacity: 1 !important;
 }
 
-/* --- Global Responsive Section Layouts & Typography Scaling --- */
 @media (max-width: 1024px) {
     html {
-        font-size: 14px !important; /* Base scale down to 87.5% */
+        font-size: 14px !important;
     }
 
     section {
@@ -7784,7 +7830,7 @@ nav a:hover {
 
 @media (max-width: 600px) {
     html {
-        font-size: 12px !important; /* Base scale down to 75% */
+        font-size: 12px !important;
     }
 
     section {
@@ -7796,15 +7842,13 @@ nav a:hover {
         align-items: center !important;
     }
     
-    /* Additional text centering fallbacks for inner typography strictly on mobile */
     section h1, section h2, section h3, section p, section span, section a {
         text-align: center !important;
     }
 }
 
-/* --- Mobile Fullscreen Animated Burger Menu --- */
 .burger-menu-btn {
-    display: none; /* hidden by default on desktop */
+    display: none;
     align-items: center;
     justify-content: center;
     background-color: #121212;
@@ -7893,7 +7937,6 @@ nav a:hover {
     color: #ffffff !important;
 }
 
-/* Base overrides for Mobile Burger logic exclusively under 640px */
 @media (max-width: 640px) {
     .pill-nav-main {
         display: none !important;
@@ -7904,7 +7947,6 @@ nav a:hover {
     }
 }
 
-/* Recent Articles Section Refresh */
 .recent-articles-section-shell {
     width: 100%;
 }
@@ -8205,7 +8247,6 @@ nav a:hover {
     }
 }
 
-/* Partners Strip Section */
 .partners-strip-section-reveal {
     display: flex;
     flex-direction: column;
@@ -8371,7 +8412,6 @@ nav a:hover {
     }
 }
 
-/* Digital Revolution Section Refresh */
 .djr-section-reveal {
     width: 100%;
     padding: 2rem 2.2rem;
@@ -8599,7 +8639,6 @@ nav a:hover {
     }
 }
 
-/* Sonic Hero Section */
 .home-hero-section-reveal.hero-sonic-section-shell {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -8967,7 +9006,6 @@ margin-left: 90px;
     }
 }
 
-/* Built For Creators Section Refresh */
 .creators-section-consolidated.creators-craft-section-shell {
     display: flex;
     flex-direction: column;
@@ -9191,7 +9229,6 @@ margin-left: 90px;
     }
 }
 
-/* Leaders Spotlight Section */
 .leaders-section-reveal.leaders-spotlight-section-reveal {
     display: flex;
     flex-direction: column;
@@ -9458,7 +9495,6 @@ margin-left: 90px;
     }
 }
 
-/* Proven Results Section Refresh */
 .results-section-reveal.proven-results-section-shell {
     display: flex;
     flex-direction: column;
@@ -9726,7 +9762,6 @@ margin-left: 90px;
     }
 }
 
-/* Testimonial Sculpt Section */
 .testimonial-section-reveal.testimonial-sculpt-section-shell {
     display: flex;
     flex-direction: column;
@@ -9894,7 +9929,6 @@ margin-left: 90px;
     }
 }
 
-/* Home page main section global override */
 #home-content-container > section {
     display: flex;
     flex-direction: column;
@@ -9902,7 +9936,6 @@ margin-left: 90px;
     box-sizing: border-box;
 }
 
-/* Global mobile centering override */
 @media (max-width: 768px) {
     body,
     main,

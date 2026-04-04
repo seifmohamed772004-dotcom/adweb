@@ -276,7 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             setTimeout(() => {
                 if (email === 'seifmohamed772004@gmail.com' && password === '772004') {
-                    // Store logged in user
                     localStorage.setItem('cree_logged_in_user', email);
                     
                     submitBtn.textContent = arPage ? 'تم بنجاح! جارٍ التحويل...' : 'Success! Redirecting...';
@@ -409,6 +408,66 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    const scrollToBottomBtn = document.createElement('button');
+    scrollToBottomBtn.id = 'scroll-to-bottom-btn';
+    scrollToBottomBtn.className = 'floating-scroll-bottom-btn';
+    scrollToBottomBtn.type = 'button';
+    scrollToBottomBtn.setAttribute('aria-label', arPage ? 'الانتقال إلى نهاية الصفحة' : 'Scroll to the end of the page');
+    scrollToBottomBtn.innerHTML = '&darr;';
+    document.body.appendChild(scrollToBottomBtn);
+
+    let scrollBottomAnimationFrameId = null;
+    function scrollToPageEndLinear() {
+        if (scrollBottomAnimationFrameId) {
+            cancelAnimationFrame(scrollBottomAnimationFrameId);
+            scrollBottomAnimationFrameId = null;
+        }
+
+        const bodyEl = document.body;
+        const docEl = document.documentElement;
+        const getCurrentY = () => window.pageYOffset || docEl.scrollTop || bodyEl.scrollTop || 0;
+        const setCurrentY = (y) => {
+            window.scrollTo(0, y);
+            docEl.scrollTop = y;
+            bodyEl.scrollTop = y;
+        };
+        const getMaxY = () => Math.max(
+            bodyEl.scrollHeight,
+            docEl.scrollHeight,
+            bodyEl.offsetHeight,
+            docEl.offsetHeight,
+            bodyEl.clientHeight,
+            docEl.clientHeight
+        ) - window.innerHeight;
+
+        const startY = getCurrentY();
+        const maxScrollY = Math.max(0, getMaxY());
+        const distance = maxScrollY - startY;
+        if (Math.abs(distance) < 2) return;
+
+        const pxPerSecond = 2200;
+        const durationMs = Math.max(450, Math.min(1800, (Math.abs(distance) / pxPerSecond) * 1000));
+        let startTime = null;
+
+        const step = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / durationMs, 1);
+            setCurrentY(startY + distance * progress);
+
+            if (progress < 1) {
+                scrollBottomAnimationFrameId = requestAnimationFrame(step);
+            } else {
+                scrollBottomAnimationFrameId = null;
+            }
+        };
+
+        step(performance.now());
+    }
+
+    scrollToBottomBtn.addEventListener('click', () => {
+        scrollToPageEndLinear();
+    });
 
     
     const tickerTrack = document.getElementById('contact-ticker-track');
@@ -832,38 +891,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Dynamic Active Nav Link Management
     const mainNavLinks = document.querySelectorAll('.nav-link-anchor-style');
     let currentPath = window.location.pathname.split('/').pop().toLowerCase();
     
-    // Default to index/home if root path
     if (!currentPath) currentPath = arPage ? 'index-ar.html' : 'index.html';
 
     mainNavLinks.forEach(link => {
-        link.classList.remove('active'); // Clear hardcoded active states
+        link.classList.remove('active');
         const href = link.getAttribute('href')?.toLowerCase() || '';
         
-        // Match base links
         if (currentPath === href
             || (!arPage && currentPath === 'index.html' && href === 'home.html')
             || (arPage && currentPath === 'index-ar.html' && href === 'home-ar.html')) {
             link.classList.add('active');
         } 
-        // Maintain 'About Us' active state for sub-pages 
         else if ((!arPage && href === 'about.html' && (currentPath === 'ourprocess.html' || currentPath === 'our-team.html' || currentPath === 'partners.html'))
             || (arPage && href === 'about-ar.html' && (currentPath === 'ourprocess-ar.html' || currentPath === 'our-team-ar.html' || currentPath === 'partners-ar.html'))) {
             link.classList.add('active');
         }
     });
 
-    // Language Toggle (EN/AR): switch to same page in the other language
     const langLinks = document.querySelectorAll('.lang-link');
     const getLocalizedPagePath = (targetArabic) => {
         const { pathname, search, hash } = window.location;
         const segments = pathname.split('/');
         const fileName = segments.pop() || '';
 
-        // If we are at a directory root, fallback to localized home page.
         if (!fileName || !fileName.includes('.html')) {
             const fallback = targetArabic ? 'Home-ar.html' : 'Home.html';
             return `${segments.join('/')}/${fallback}${search}${hash}`;
@@ -893,7 +946,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Newsletter Validation & LocalStorage
     const subscribeBtns = document.querySelectorAll('.footer-subscribe-action-link');
     
     subscribeBtns.forEach(btn => {
@@ -905,11 +957,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const inputField = wrapper.querySelector('.footer-email-input-minimal');
             const emailValue = inputField ? inputField.value.trim().toLowerCase() : '';
             
-            // Clear existing feedback messages
             const oldMsg = wrapper.querySelector('.subscribe-validation-msg');
             if (oldMsg) oldMsg.remove();
             
-            // Create Feedback Element
             const msgEl = document.createElement('p');
             msgEl.className = 'subscribe-validation-msg';
             msgEl.style.fontSize = '0.75rem';
@@ -928,11 +978,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 msgEl.innerText = arPage ? 'يرجى إدخال بريد إلكتروني صالح.' : 'Please enter a valid email address.';
                 msgEl.style.color = '#ff6b6b';
             } else if (!loggedInUser) {
-                // Not signed in at all
                 msgEl.innerText = arPage ? 'يجب تسجيل الدخول للبقاء على اطلاع.' : 'You must be signed in to stay updated.';
                 msgEl.style.color = '#ff6b6b';
             } else if (emailValue !== loggedInUser) {
-                // Signed in with a different email
                 msgEl.innerText = arPage ? 'يرجى تسجيل الدخول بنفس بريدك للاشتراك.' : 'Please sign in with your email to subscribe.';
                 msgEl.style.color = '#ff6b6b';
             } else {
@@ -959,11 +1007,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Mobile Burger Menu Initialization ---
     const primaryNavbar = document.getElementById('site-primary-navbar');
     
     if (primaryNavbar) {
-        // Inject left logout control chip
         const logoutChip = document.createElement('div');
         logoutChip.className = 'pill-nav-logout';
         logoutChip.innerHTML = `
@@ -1021,7 +1067,6 @@ document.addEventListener('DOMContentLoaded', () => {
             resetLogoutState();
         });
 
-        // 1. Create Burger Button dynamically
         const burgerBtn = document.createElement('div');
         burgerBtn.className = 'burger-menu-btn';
         burgerBtn.innerHTML = `
@@ -1033,7 +1078,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         primaryNavbar.appendChild(burgerBtn);
         
-        // 2. Clone the Main Navigation List statically for the Overlay
         const desktopPillNav = document.querySelector('.pill-nav-list');
         const overlay = document.createElement('div');
         overlay.className = 'mobile-nav-fullscreen-overlay';
@@ -1044,21 +1088,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         document.body.appendChild(overlay);
         
-        // 3. Bind Toggle Mechanics
         burgerBtn.addEventListener('click', () => {
             const isOpen = overlay.classList.contains('is-open');
             if (isOpen) {
                 overlay.classList.remove('is-open');
                 burgerBtn.classList.remove('is-active');
-                document.body.style.overflow = ''; // Restore
+                document.body.style.overflow = '';
             } else {
                 overlay.classList.add('is-open');
                 burgerBtn.classList.add('is-active');
-                document.body.style.overflow = 'hidden'; // Lock background scrolling
+                document.body.style.overflow = 'hidden';
             }
         });
         
-        // 4. Bind Auto-Close to anchor taps inside mobile menu
         const overlayLinks = overlay.querySelectorAll('a');
         overlayLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -1490,10 +1532,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastScrollY = window.scrollY;
     let upwardDeltaWhileFooterVisible = 0;
 
+    function setFooterAwareHiddenState(shouldHide) {
+        if (primaryNavbar) {
+            primaryNavbar.classList.toggle('nav-hidden-on-footer', shouldHide);
+        }
+        if (scrollToBottomBtn) {
+            scrollToBottomBtn.classList.toggle('is-hidden-near-footer', shouldHide);
+        }
+    }
+
     function updateNavFooterVisibility() {
-        if (!primaryNavbar) return;
+        if (!primaryNavbar && !scrollToBottomBtn) return;
         if (!isFooterVisible) {
-            primaryNavbar.classList.remove('nav-hidden-on-footer');
+            setFooterAwareHiddenState(false);
             upwardDeltaWhileFooterVisible = 0;
             return;
         }
@@ -1505,26 +1556,26 @@ document.addEventListener('DOMContentLoaded', () => {
             upwardDeltaWhileFooterVisible += Math.abs(delta);
         } else if (delta > 0) {
             upwardDeltaWhileFooterVisible = 0;
-            primaryNavbar.classList.add('nav-hidden-on-footer');
+            setFooterAwareHiddenState(true);
         }
 
         if (upwardDeltaWhileFooterVisible >= 10) {
-            primaryNavbar.classList.remove('nav-hidden-on-footer');
+            setFooterAwareHiddenState(false);
         }
 
         lastScrollY = currentY;
     }
 
-    if (primaryNavbar && siteFooter) {
+    if ((primaryNavbar || scrollToBottomBtn) && siteFooter) {
         const footerObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 isFooterVisible = entry.isIntersecting;
                 if (isFooterVisible) {
-                    primaryNavbar.classList.add('nav-hidden-on-footer');
+                    setFooterAwareHiddenState(true);
                     lastScrollY = window.scrollY;
                     upwardDeltaWhileFooterVisible = 0;
                 } else {
-                    primaryNavbar.classList.remove('nav-hidden-on-footer');
+                    setFooterAwareHiddenState(false);
                     upwardDeltaWhileFooterVisible = 0;
                 }
             });
