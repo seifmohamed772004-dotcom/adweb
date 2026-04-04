@@ -965,4 +965,111 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const djrSection = document.getElementById('join-section-revolution');
+    const djrPrimaryAction = document.getElementById('djr-get-app-action');
+    const djrStatsColumn = document.getElementById('djr-stats-column');
+
+    if (djrPrimaryAction) {
+        djrPrimaryAction.addEventListener('mousedown', () => {
+            djrPrimaryAction.style.transform = 'translateY(0)';
+        });
+
+        djrPrimaryAction.addEventListener('mouseup', () => {
+            djrPrimaryAction.style.transform = '';
+        });
+
+        djrPrimaryAction.addEventListener('mouseleave', () => {
+            djrPrimaryAction.style.transform = '';
+        });
+    }
+
+    function animateDjrCounter(counterEl, target, duration = 1800) {
+        let startTimestamp = null;
+
+        const tick = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const current = Math.floor(progress * target);
+            counterEl.textContent = current.toLocaleString('en-US');
+
+            if (progress < 1) {
+                window.requestAnimationFrame(tick);
+            } else {
+                counterEl.textContent = target.toLocaleString('en-US');
+            }
+        };
+
+        window.requestAnimationFrame(tick);
+    }
+
+    if (djrSection && djrStatsColumn) {
+        const djrCounters = djrStatsColumn.querySelectorAll('[data-djr-target]');
+        let hasAnimatedDjr = false;
+
+        const djrObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimatedDjr) {
+                    hasAnimatedDjr = true;
+                    djrCounters.forEach((counterEl, idx) => {
+                        const targetValue = parseInt(counterEl.getAttribute('data-djr-target') || '0', 10);
+                        if (Number.isNaN(targetValue)) return;
+
+                        setTimeout(() => {
+                            animateDjrCounter(counterEl, targetValue);
+                        }, idx * 120);
+                    });
+                    observer.unobserve(djrSection);
+                }
+            });
+        }, { threshold: 0.28 });
+
+        djrObserver.observe(djrSection);
+    }
+
+    const heroSonicSection = document.getElementById('hero-section-home');
+    const heroSonicSymbol = document.getElementById('hero-sonic-symbol-block');
+    const heroSonicProgressBar = document.getElementById('hero-sonic-progress-bar');
+    const heroSonicButtons = document.querySelectorAll('#hero-sonic-start-button, #hero-sonic-explore-button');
+
+    heroSonicButtons.forEach(btn => {
+        btn.addEventListener('mousedown', () => {
+            btn.style.transform = 'translateY(0)';
+        });
+        btn.addEventListener('mouseup', () => {
+            btn.style.transform = '';
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = '';
+        });
+    });
+
+    if (heroSonicSymbol) {
+        heroSonicSymbol.addEventListener('mousemove', (event) => {
+            if (window.innerWidth <= 760) return;
+            const rect = heroSonicSymbol.getBoundingClientRect();
+            const offsetX = ((event.clientX - rect.left) / rect.width - 0.5) * 8;
+            const offsetY = ((event.clientY - rect.top) / rect.height - 0.5) * 8;
+            heroSonicSymbol.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
+        });
+
+        heroSonicSymbol.addEventListener('mouseleave', () => {
+            heroSonicSymbol.style.transform = '';
+        });
+    }
+
+    if (heroSonicSection && heroSonicProgressBar) {
+        let heroSonicAnimated = false;
+        const heroSonicObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !heroSonicAnimated) {
+                    heroSonicAnimated = true;
+                    heroSonicProgressBar.style.width = '70%';
+                    observer.unobserve(heroSonicSection);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        heroSonicObserver.observe(heroSonicSection);
+    }
+
 });
