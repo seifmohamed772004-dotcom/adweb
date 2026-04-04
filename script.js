@@ -1072,4 +1072,41 @@ document.addEventListener('DOMContentLoaded', () => {
         heroSonicObserver.observe(heroSonicSection);
     }
 
+    const creatorsCraftSection = document.getElementById('creators-section-info');
+    const creatorsCraftEndButton = document.getElementById('creators-craft-end-button');
+
+    if (creatorsCraftSection) {
+        const creatorsCraftCards = creatorsCraftSection.querySelectorAll('[data-creators-craft-card]');
+
+        creatorsCraftCards.forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.09}s`;
+
+            card.addEventListener('mousemove', (event) => {
+                if (window.innerWidth <= 760) return;
+                const rect = card.getBoundingClientRect();
+                const dx = ((event.clientX - rect.left) / rect.width - 0.5) * 8;
+                const dy = ((event.clientY - rect.top) / rect.height - 0.5) * 6;
+                card.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    }
+
+    if (creatorsCraftEndButton) {
+        creatorsCraftEndButton.addEventListener('mousedown', () => {
+            creatorsCraftEndButton.style.transform = 'translateY(0)';
+        });
+
+        creatorsCraftEndButton.addEventListener('mouseup', () => {
+            creatorsCraftEndButton.style.transform = '';
+        });
+
+        creatorsCraftEndButton.addEventListener('mouseleave', () => {
+            creatorsCraftEndButton.style.transform = '';
+        });
+    }
+
 });
