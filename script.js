@@ -1182,4 +1182,109 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const testimonialSculptCard = document.querySelector('.testimonial-sculpt-card-shell');
+    const testimonialSculptPrevBtn = document.getElementById('testimonial-sculpt-prev-btn');
+    const testimonialSculptNextBtn = document.getElementById('testimonial-sculpt-next-btn');
+    const testimonialSculptImage = document.getElementById('testimonial-sculpt-image');
+    const testimonialSculptStars = document.getElementById('testimonial-sculpt-stars');
+    const testimonialSculptQuote = document.getElementById('testimonial-sculpt-quote');
+    const testimonialSculptAuthorName = document.getElementById('testimonial-sculpt-author-name');
+    const testimonialSculptAuthorRole = document.getElementById('testimonial-sculpt-author-role');
+
+    const testimonialsData = [
+        {
+            image: 'Assets/Mike Hunter.png',
+            alt: 'Mike Hunter',
+            stars: '★★★★★',
+            quote: '"Whether I\'m browsing on mobile or working on desktop, the experience feels seamless. The consistent design and smooth interactions make it reliable."',
+            name: 'MIKE HUNTER',
+            role: 'VISUAL DIRECTOR'
+        },
+        {
+            image: 'Assets/Container-2.png',
+            alt: 'Priya Patel',
+            stars: '★★★★☆',
+            quote: '"Case studies helped us move faster. The platform keeps everything organized and the visual consistency improved every campaign launch."',
+            name: 'PRIYA PATEL',
+            role: 'VP OF PRODUCT'
+        },
+        {
+            image: 'Assets/Container-10.png',
+            alt: 'Yuki Tanaka',
+            stars: '★★★★★',
+            quote: '"The workflow is clean and collaborative. From feedback to publishing, every interaction feels smooth and intentional for creative teams."',
+            name: 'YUKI TANAKA',
+            role: 'VP OF DESIGN'
+        },
+        {
+            image: 'Assets/Container-5.png',
+            alt: 'Alex Rivera',
+            stars: '★★★★★',
+            quote: '"We saw real momentum quickly. Engagement and reach improved while the team spent less time juggling disconnected tools."',
+            name: 'ALEX RIVERA',
+            role: 'VP OF ENGINEERING'
+        }
+    ];
+
+    let activeTestimonialIndex = 0;
+
+    function renderTestimonial(index) {
+        if (!testimonialSculptImage || !testimonialSculptStars || !testimonialSculptQuote || !testimonialSculptAuthorName || !testimonialSculptAuthorRole) {
+            return;
+        }
+
+        const item = testimonialsData[index];
+        if (!item) return;
+
+        testimonialSculptImage.src = item.image;
+        testimonialSculptImage.alt = item.alt;
+        testimonialSculptStars.textContent = item.stars;
+        testimonialSculptQuote.textContent = item.quote;
+        testimonialSculptAuthorName.textContent = item.name;
+        testimonialSculptAuthorRole.textContent = item.role;
+    }
+
+    if (testimonialSculptCard) {
+        testimonialSculptCard.addEventListener('mousemove', (event) => {
+            if (window.innerWidth <= 760) return;
+            const rect = testimonialSculptCard.getBoundingClientRect();
+            const dx = ((event.clientX - rect.left) / rect.width - 0.5) * 6;
+            const dy = ((event.clientY - rect.top) / rect.height - 0.5) * 4;
+            testimonialSculptCard.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+        });
+
+        testimonialSculptCard.addEventListener('mouseleave', () => {
+            testimonialSculptCard.style.transform = '';
+        });
+    }
+
+    if (testimonialSculptPrevBtn) {
+        testimonialSculptPrevBtn.addEventListener('click', () => {
+            activeTestimonialIndex = (activeTestimonialIndex - 1 + testimonialsData.length) % testimonialsData.length;
+            renderTestimonial(activeTestimonialIndex);
+        });
+    }
+
+    if (testimonialSculptNextBtn) {
+        testimonialSculptNextBtn.addEventListener('click', () => {
+            activeTestimonialIndex = (activeTestimonialIndex + 1) % testimonialsData.length;
+            renderTestimonial(activeTestimonialIndex);
+        });
+    }
+
+    [testimonialSculptPrevBtn, testimonialSculptNextBtn].forEach(control => {
+        if (!control) return;
+        control.addEventListener('mousedown', () => {
+            control.style.transform = 'translateY(0)';
+        });
+        control.addEventListener('mouseup', () => {
+            control.style.transform = '';
+        });
+        control.addEventListener('mouseleave', () => {
+            control.style.transform = '';
+        });
+    });
+
+    renderTestimonial(activeTestimonialIndex);
+
 });
