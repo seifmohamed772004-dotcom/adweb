@@ -9579,5 +9579,13 @@ nav a:hover {
     }
 }
 
+/* Home page main section global override */
+#home-content-container > section {
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+    box-sizing: border-box;
+}
+
 
 
