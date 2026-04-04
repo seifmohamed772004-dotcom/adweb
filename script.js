@@ -61,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     el.classList.contains('team-hero-reveal') ||
                     el.classList.contains('blog-hero-reveal') ||
                     el.classList.contains('partners-hero-reveal') ||
-                    el.classList.contains('pricing-table-v2-reveal')) {
+                    el.classList.contains('pricing-table-v2-reveal') ||
+                    el.classList.contains('login-branding-card-reveal')) {
                     startStatsCounting(el);
                     if (el.classList.contains('pricing-table-v2-reveal')) {
                         animatePricingNumbers(el);
