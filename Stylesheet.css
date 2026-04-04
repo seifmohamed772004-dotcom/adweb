@@ -486,11 +486,18 @@ section {
     position: fixed;
     top: 800px;
     left: 50%;
-
+    width: fit-content;
+    max-width: calc(100vw - 24px);
     transform: translateX(-50%);
     display: flex;
     gap: 15px;
     z-index: 2000;
+}
+
+@media (max-height: 938px) {
+    .pill-nav-container {
+        top: calc(100vh - 138px);
+    }
 }
 
 .pill-nav-main,
@@ -507,12 +514,19 @@ section {
     backdrop-filter: blur(10px);
 }
 
+.pill-nav-main {
+    max-width: calc(100vw - 86px);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
 .pill-nav-list {
     display: flex;
     list-style: none;
     gap: 30px;
     padding: 0;
     margin: 0;
+    flex-wrap: nowrap;
 }
 
 .pill-nav-list li {
@@ -529,6 +543,7 @@ section {
     display: flex;
     align-items: center;
     gap: 10px;
+    white-space: nowrap;
     transition: all 0.3s ease;
 }
 
@@ -562,6 +577,20 @@ section {
     font-weight: 700;
     color: #ffeedc;
     letter-spacing: 1px;
+}
+
+@media (max-width: 1200px) {
+    .pill-nav-list a,
+    .lang-link {
+        font-size: 0.76rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .pill-nav-list a,
+    .lang-link {
+        font-size: 0.7rem;
+    }
 }
 
 .home-hero-section-reveal {
@@ -1474,7 +1503,7 @@ width: 100%;
     .testimonial-green-card-box { grid-template-columns: 1fr; text-align: center; justify-items: center; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
     .nav-links-list-flex, .pill-nav-container { display: none; }
     .hero-main-title-text { font-size: 2.5rem; }
     .hero-central-3d-logo { max-width: 300px; }
@@ -7582,8 +7611,8 @@ nav a:hover {
     color: #ffffff !important;
 }
 
-/* Base overrides for Mobile Burger logic exclusively under 600px */
-@media (max-width: 600px) {
+/* Base overrides for Mobile Burger logic exclusively under 640px */
+@media (max-width: 640px) {
     .pill-nav-main {
         display: none !important;
     }
