@@ -8611,40 +8611,56 @@ nav a:hover {
 }
 
 .hero-sonic-symbol-block {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.8rem;
+    position: relative;
+    display: block;
     width: 100%;
-    max-width: 18rem;
+    max-width: 24rem;
+    min-height: 18rem;
     justify-self: center;
-    transition: transform 0.25s ease;
 }
 
-.hero-sonic-symbol-part {
-    min-height: 7.2rem;
+.hero-sonic-symbol-video {
+    position: absolute;
+    top: 0;
+margin-left: 90px;
+    min-height: 14.4rem;
+    object-fit: cover;
     border-radius: 16px;
-    background-color: #ffeedc;
     box-sizing: border-box;
+    background-color: transparent;
+    mix-blend-mode: lighten;
 }
 
-.hero-sonic-symbol-part-alpha {
-    border-radius: 58% 42% 56% 44% / 46% 58% 42% 54%;
-    transform: rotate(-16deg);
+.hero-sonic-symbol-video-one {
+    width: 68%;
+    min-height: 16rem;
+    z-index: 1;
+    left: -100px;
+    top: -100px;
+    background-color: transparent;
+    mix-blend-mode: lighten;
+    transform: translate(0.4rem, 1.2rem) rotate(-9deg) scale(1.5);
 }
 
-.hero-sonic-symbol-part-beta {
-    border-radius: 42% 58% 40% 60% / 56% 44% 60% 40%;
-    transform: rotate(13deg);
+.hero-sonic-symbol-video-two {
+    width: 42%;
+    min-height: 10rem;
+    z-index: 2;
+    top: -50px;
+    left: -20px;
+    background-color: transparent;
+    mix-blend-mode: lighten;
+    transform: translate(8.8rem, 0.2rem) rotate(10deg) scale(1.5);
 }
 
-.hero-sonic-symbol-part-gamma {
-    border-radius: 50% 50% 42% 58% / 40% 60% 48% 52%;
-    transform: rotate(9deg);
-}
-
-.hero-sonic-symbol-part-delta {
-    border-radius: 62% 38% 58% 42% / 54% 46% 58% 42%;
-    transform: rotate(-12deg);
+.hero-sonic-symbol-video-three {
+    width: 38%;
+    min-height: 8.8rem;
+    left: -90px;
+    z-index: 3;
+    background-color: transparent;
+    mix-blend-mode: lighten;
+    transform: translate(10.2rem, 7.4rem) rotate(19deg) scale(1.5);
 }
 
 .hero-sonic-status-card {
@@ -8787,8 +8803,26 @@ nav a:hover {
         flex-wrap: wrap;
     }
 
-    .hero-sonic-symbol-part {
-        min-height: 5.4rem;
+    .hero-sonic-symbol-video {
+        min-height: 9.2rem;
+    }
+
+    .hero-sonic-symbol-video-one {
+        width: 70%;
+        min-height: 12.5rem;
+        transform: translate(0.2rem, 1.1rem) rotate(-9deg) scale(1.5);
+    }
+
+    .hero-sonic-symbol-video-two {
+        width: 43%;
+        min-height: 8rem;
+        transform: translate(7.2rem, 0.4rem) rotate(10deg) scale(1.5);
+    }
+
+    .hero-sonic-symbol-video-three {
+        width: 39%;
+        min-height: 7.2rem;
+        transform: translate(8.6rem, 6.8rem) rotate(19deg) scale(1.5);
     }
 }
 
@@ -9725,6 +9759,49 @@ nav a:hover {
     flex-direction: column;
     padding: 80px;
     box-sizing: border-box;
+}
+
+/* Global mobile centering override */
+@media (max-width: 768px) {
+    body,
+    main,
+    section,
+    article,
+    header,
+    footer,
+    div,
+    aside,
+    form {
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    span,
+    a,
+    li,
+    label,
+    input,
+    button,
+    blockquote {
+        text-align: center !important;
+    }
+
+    ul,
+    ol {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding-left: 0 !important;
+    }
 }
 
 

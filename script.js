@@ -1096,7 +1096,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const heroSonicSection = document.getElementById('hero-section-home');
-    const heroSonicSymbol = document.getElementById('hero-sonic-symbol-block');
     const heroSonicProgressBar = document.getElementById('hero-sonic-progress-bar');
     const heroSonicButtons = document.querySelectorAll('#hero-sonic-start-button, #hero-sonic-explore-button');
 
@@ -1111,20 +1110,6 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.style.transform = '';
         });
     });
-
-    if (heroSonicSymbol) {
-        heroSonicSymbol.addEventListener('mousemove', (event) => {
-            if (window.innerWidth <= 760) return;
-            const rect = heroSonicSymbol.getBoundingClientRect();
-            const offsetX = ((event.clientX - rect.left) / rect.width - 0.5) * 8;
-            const offsetY = ((event.clientY - rect.top) / rect.height - 0.5) * 8;
-            heroSonicSymbol.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
-        });
-
-        heroSonicSymbol.addEventListener('mouseleave', () => {
-            heroSonicSymbol.style.transform = '';
-        });
-    }
 
     if (heroSonicSection && heroSonicProgressBar) {
         let heroSonicAnimated = false;
