@@ -869,11 +869,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const logoutTriggerBtn = document.getElementById('nav-logout-trigger-btn');
         let isLogoutArmed = false;
+        let logoutArmTimeoutId = null;
 
         const resetLogoutState = () => {
             if (!logoutTriggerBtn) return;
             isLogoutArmed = false;
             logoutTriggerBtn.classList.remove('is-armed');
+            if (logoutArmTimeoutId) {
+                clearTimeout(logoutArmTimeoutId);
+                logoutArmTimeoutId = null;
+            }
         };
 
         if (logoutTriggerBtn) {
@@ -884,6 +889,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!isLogoutArmed) {
                     isLogoutArmed = true;
                     logoutTriggerBtn.classList.add('is-armed');
+                    if (logoutArmTimeoutId) {
+                        clearTimeout(logoutArmTimeoutId);
+                    }
+                    logoutArmTimeoutId = setTimeout(() => {
+                        resetLogoutState();
+                    }, 5000);
                     return;
                 }
 

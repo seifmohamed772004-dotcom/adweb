@@ -2221,6 +2221,7 @@ width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 26px;
 }
 
 .contact-massive-heading-unified {
@@ -2228,6 +2229,61 @@ width: 100%;
     line-height: 1.1;
     font-family: 'Choldera', display;
     letter-spacing: 2px;
+}
+
+.contact-reach-links-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    max-width: 620px;
+}
+
+.contact-reach-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 240px;
+    min-height: 48px;
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 238, 220, 0.24);
+    border-radius: 16px;
+    background-color: rgba(255, 238, 220, 0.04);
+    color: #ffeedc;
+    text-decoration: none;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1;
+    box-sizing: border-box;
+    transition: transform 0.22s ease, border-color 0.22s ease, color 0.22s ease, background-color 0.22s ease;
+}
+
+.contact-reach-link-btn:hover,
+.contact-reach-link-btn:focus-visible {
+    transform: translateY(-0.08rem);
+    border-color: rgba(85, 168, 135, 0.62);
+    background-color: rgba(85, 168, 135, 0.1);
+    color: #55A887;
+    outline: none;
+}
+
+.contact-reach-link-icon {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    color: currentColor;
+}
+
+.contact-reach-link-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.contact-reach-link-text {
+    white-space: nowrap;
 }
 
 .contact-right-content-wrapper {
@@ -2420,6 +2476,8 @@ width: 100%;
     .contact-title-col { grid-column: span 1; }
     .contact-details-col { align-items: center; }
     .contact-secondary-heading-unified { font-size: 3rem; }
+    .contact-reach-links-row { justify-content: center; flex-wrap: wrap; max-width: none; }
+    .contact-reach-link-btn { min-width: 240px; }
     .contact-social-grid-layout { grid-template-columns: 1fr; }
     .contact-social-sidebar-box { grid-column: span 1; }
     .contact-platform-card-item { padding: 50px 30px; }
