@@ -1,7 +1,12 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+    const arPage = document.documentElement.getAttribute('lang') === 'ar';
+    function pageUrl(file) {
+        if (!arPage) return file;
+        return file.replace(/\.html$/i, '-ar.html');
+    }
+
     const passwordInput = document.getElementById('password-input-field');
     const emailInputField = document.getElementById('email-input-field');
     const togglePasswordBtn = document.getElementById('toggle-password-visibility-btn');
@@ -32,10 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (type === 'text') {
                 toggleIcon.src = 'Assets/Shown Icon.png';
-                toggleIcon.alt = 'Hide password';
+                toggleIcon.alt = arPage ? 'إخفاء كلمة المرور' : 'Hide password';
             } else {
                 toggleIcon.src = 'Assets/Hidden Icon.png';
-                toggleIcon.alt = 'Show password';
+                toggleIcon.alt = arPage ? 'إظهار كلمة المرور' : 'Show password';
             }
         });
     }
@@ -203,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Verifying...';
+            submitBtn.textContent = arPage ? 'جارٍ التحقق...' : 'Verifying...';
             submitBtn.style.opacity = '0.7';
             submitBtn.disabled = true;
 
@@ -213,15 +218,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Store logged in user
                     localStorage.setItem('cree_logged_in_user', email);
                     
-                    submitBtn.textContent = 'Success! Redirecting...';
+                    submitBtn.textContent = arPage ? 'تم بنجاح! جارٍ التحويل...' : 'Success! Redirecting...';
                     submitBtn.style.backgroundColor = '#55A887';
                     submitBtn.style.color = '#181818';
                     
                     setTimeout(() => {
-                        window.location.href = 'Home.html';
+                        window.location.href = pageUrl('Home.html');
                     }, 1000);
                 } else {
-                    alert('Authentication failed: Invalid email or password.');
+                    alert(arPage ? 'فشل تسجيل الدخول: البريد الإلكتروني أو كلمة المرور غير صحيحة.' : 'Authentication failed: Invalid email or password.');
                     submitBtn.textContent = originalText;
                     submitBtn.style.opacity = '1';
                     submitBtn.disabled = false;
@@ -254,13 +259,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const originalContent = accountBox.innerHTML;
 
                 
-                accountBox.innerHTML = '<span class="account-name-text" style="color: #55A887;">Signing in...</span>';
+                accountBox.innerHTML = arPage
+                    ? '<span class="account-name-text" style="color: #55A887;">جارٍ تسجيل الدخول...</span>'
+                    : '<span class="account-name-text" style="color: #55A887;">Signing in...</span>';
                 
                 setTimeout(() => {
                     if (email === 'seifmohamed772004@gmail.com') {
-                        window.location.href = 'Home.html';
+                        window.location.href = pageUrl('Home.html');
                     } else {
-                        alert('Simulation: This account is not authorized for this demo.');
+                        alert(arPage ? 'محاكاة: هذا الحساب غير مصرح له في هذا العرض التجريبي.' : 'Simulation: This account is not authorized for this demo.');
                         accountBox.innerHTML = originalContent;
                     }
                 }, 1500);
@@ -287,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
-            if (href.startsWith('#')) {
+            if (href && href.startsWith('#')) {
                 e.preventDefault();
                 const targetId = href.substring(1);
                 const targetEl = document.getElementById(targetId);
@@ -356,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (faqBtn) {
         faqBtn.addEventListener('click', () => {
             
-            window.location.href = 'FAQ.html';
+            window.location.href = pageUrl('FAQ.html');
         });
     }
 
@@ -366,7 +373,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqAnswer = document.getElementById('faq-active-answer-paragraph');
     const faqInnerLabel = document.getElementById('faq-active-content-inner');
 
-    const faqData = [
+    const faqData = arPage ? [
+        {
+            q: "كم يستغرق ظهور النتائج بعد البدء مع Creestudios؟",
+            a: "تختلف الجداول الزمنية حسب أهدافك ونطاق الحملة، لكن معظم العملاء يلاحظون تحسّنًا ملموسًا في التفاعل خلال أول 30 يومًا. نركّز أولًا على أساس استراتيجي قوي، ثم نُحسّن باستمرار لضمان نمو مستدام على المدى الطويل — وليس قفزات قصيرة الأجل فقط."
+        },
+        {
+            q: "في أي قطاعات تتخصصون؟",
+            a: "نعمل عبر قطاعات واسعة تشمل التقنية، الأزياء، التجارة الإلكترونية، والترفيه. تسمح لنا عمليتنا الإبداعية المرنة بتصميم استراتيجيات بصرية لأي مجال يتطلب تنفيذًا جماليًا راقيًا."
+        },
+        {
+            q: "هل يمكنني تخصيص خطة الاشتراك؟",
+            a: "بالتأكيد. بينما نقدم مستويات منظمة، فإن مستوى المؤسسات قابل للتخصيص بالكامل. يمكننا توسيع الموارد والمفاهيم وسرعات التسليم لتناسب احتياجات الاستوديو الخاصة بك."
+        },
+        {
+            q: "هل تقدمون مشاريع لمرة واحدة؟",
+            a: "يعتمد نموذجنا بشكل أساسي على الاشتراك لضمان جودة ونمو ثابتين. ومع ذلك، لإطلاقات العلامة الكبرى أو المحطات المهمة، نقبل مشاريع محددة لهوية بصرية لمرة واحدة."
+        },
+        {
+            q: "كيف تتم التواصل أثناء العمل؟",
+            a: "الشفافية أساسية. حسب خطتك، قد يكون لديك قناة Slack مخصصة، مكالمات فيديو كل أسبوعين، أو استراتيجي حساب شخصي لإبقائك على اطلاع بتقدم كل أصل."
+        },
+        {
+            q: "هل هناك التزام تعاقدي؟",
+            a: "خططنا الشهرية مرنة، بينما التزاماتنا السنوية توفّر خصمًا 20٪. نؤمن بقدرة عملنا على الإبقاء على الشراكات عبر النتائج لا عبر قفل طويل الأجل."
+        }
+    ] : [
         {
             q: "HOW LONG DOES IT TAKE TO SEE RESULTS AFTER STARTING WITH CREESTUDIOS?",
             a: "While timelines vary depending on your goals and campaign scope, most clients begin seeing measurable engagement improvements within the first 30 days. We focus on building a strong strategic foundation first, then continuously optimize to ensure sustainable, long-term growth — not just short-term spikes."
@@ -419,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqDiffBtn = document.getElementById('faq-different-question-btn');
     if (faqDiffBtn) {
         faqDiffBtn.addEventListener('click', () => {
-            alert('Redirecting to our detailed support portal...');
+            alert(arPage ? 'جارٍ التحويل إلى بوابة الدعم التفصيلية...' : 'Redirecting to our detailed support portal...');
         });
     }
 
@@ -744,18 +776,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPath = window.location.pathname.split('/').pop().toLowerCase();
     
     // Default to index/home if root path
-    if (!currentPath) currentPath = 'index.html';
+    if (!currentPath) currentPath = arPage ? 'index-ar.html' : 'index.html';
 
     mainNavLinks.forEach(link => {
         link.classList.remove('active'); // Clear hardcoded active states
         const href = link.getAttribute('href')?.toLowerCase() || '';
         
         // Match base links
-        if (currentPath === href || (currentPath === 'index.html' && href === 'home.html')) {
+        if (currentPath === href
+            || (!arPage && currentPath === 'index.html' && href === 'home.html')
+            || (arPage && currentPath === 'index-ar.html' && href === 'home-ar.html')) {
             link.classList.add('active');
         } 
         // Maintain 'About Us' active state for sub-pages 
-        else if (href === 'about.html' && (currentPath === 'ourprocess.html' || currentPath === 'our-team.html' || currentPath === 'partners.html')) {
+        else if ((!arPage && href === 'about.html' && (currentPath === 'ourprocess.html' || currentPath === 'our-team.html' || currentPath === 'partners.html'))
+            || (arPage && href === 'about-ar.html' && (currentPath === 'ourprocess-ar.html' || currentPath === 'our-team-ar.html' || currentPath === 'partners-ar.html'))) {
             link.classList.add('active');
         }
     });
@@ -811,29 +846,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const loggedInUser = (localStorage.getItem('cree_logged_in_user') || '').toLowerCase();
             
             if (!emailValue) {
-                msgEl.innerText = 'Email cannot be empty.';
+                msgEl.innerText = arPage ? 'لا يمكن ترك البريد فارغًا.' : 'Email cannot be empty.';
                 msgEl.style.color = '#ff6b6b';
             } else if (!emailRegex.test(emailValue)) {
-                msgEl.innerText = 'Please enter a valid email address.';
+                msgEl.innerText = arPage ? 'يرجى إدخال بريد إلكتروني صالح.' : 'Please enter a valid email address.';
                 msgEl.style.color = '#ff6b6b';
             } else if (!loggedInUser) {
                 // Not signed in at all
-                msgEl.innerText = 'You must be signed in to stay updated.';
+                msgEl.innerText = arPage ? 'يجب تسجيل الدخول للبقاء على اطلاع.' : 'You must be signed in to stay updated.';
                 msgEl.style.color = '#ff6b6b';
             } else if (emailValue !== loggedInUser) {
                 // Signed in with a different email
-                msgEl.innerText = 'Please sign in with your email to subscribe.';
+                msgEl.innerText = arPage ? 'يرجى تسجيل الدخول بنفس بريدك للاشتراك.' : 'Please sign in with your email to subscribe.';
                 msgEl.style.color = '#ff6b6b';
             } else {
                 let savedEmails = JSON.parse(localStorage.getItem('cree_subscribed_emails') || '[]');
                 
                 if (savedEmails.includes(emailValue)) {
-                    msgEl.innerText = 'This email is already subscribed.';
+                    msgEl.innerText = arPage ? 'هذا البريد مشترك بالفعل.' : 'This email is already subscribed.';
                     msgEl.style.color = '#ff6b6b';
                 } else {
                     savedEmails.push(emailValue);
                     localStorage.setItem('cree_subscribed_emails', JSON.stringify(savedEmails));
-                    msgEl.innerText = 'Subscribed successfully!';
+                    msgEl.innerText = arPage ? 'تم الاشتراك بنجاح!' : 'Subscribed successfully!';
                     msgEl.style.color = '#55A887';
                     if (inputField) inputField.value = '';
                 }
@@ -856,7 +891,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const logoutChip = document.createElement('div');
         logoutChip.className = 'pill-nav-logout';
         logoutChip.innerHTML = `
-                <button id="nav-logout-trigger-btn" class="nav-logout-trigger" type="button" aria-label="Log out">
+                <button id="nav-logout-trigger-btn" class="nav-logout-trigger" type="button" aria-label="${arPage ? 'تسجيل الخروج' : 'Log out'}">
                     <img src="Assets/Logo Icon.png" alt="Logo icon" class="nav-logout-logo-img">
                 <svg class="nav-logout-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
@@ -901,7 +936,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.removeItem('cree_logged_in_user');
                 sessionStorage.clear();
                 resetLogoutState();
-                window.location.href = 'index.html?logout=1';
+                window.location.href = `${pageUrl('index.html')}?logout=1`;
             });
         }
 
@@ -1059,12 +1094,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
             const current = Math.floor(progress * target);
-            counterEl.textContent = current.toLocaleString('en-US');
+            counterEl.textContent = current.toLocaleString(arPage ? 'ar-EG' : 'en-US');
 
             if (progress < 1) {
                 window.requestAnimationFrame(tick);
             } else {
-                counterEl.textContent = target.toLocaleString('en-US');
+                counterEl.textContent = target.toLocaleString(arPage ? 'ar-EG' : 'en-US');
             }
         };
 
@@ -1245,7 +1280,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const testimonialSculptAuthorName = document.getElementById('testimonial-sculpt-author-name');
     const testimonialSculptAuthorRole = document.getElementById('testimonial-sculpt-author-role');
 
-    const testimonialsData = [
+    const testimonialsData = arPage ? [
+        {
+            image: 'Assets/Mike Hunter.png',
+            alt: 'Mike Hunter',
+            stars: '★★★★★',
+            quote: '"سواء تصفّحت من الجوال أو عملت على سطح المكتب، التجربة سلسة. التصميم المتسق والتفاعلات السلسة يجعلان المنصة موثوقة."',
+            name: 'MIKE HUNTER',
+            role: 'مدير بصري'
+        },
+        {
+            image: 'Assets/Container-2.png',
+            alt: 'Priya Patel',
+            stars: '★★★★☆',
+            quote: '"دراسات الحالة ساعدتنا على التحرّك أسرع. المنصة تنظّم كل شيء والاتساق البصري حسّن كل إطلاق حملة."',
+            name: 'PRIYA PATEL',
+            role: 'نائب رئيس المنتج'
+        },
+        {
+            image: 'Assets/Container-10.png',
+            alt: 'Yuki Tanaka',
+            stars: '★★★★★',
+            quote: '"سير العمل نظيف وتعاوني. من الملاحظات إلى النشر، كل تفاعل يبدو سلسًا ومدروسًا لفرق الإبداع."',
+            name: 'YUKI TANAKA',
+            role: 'نائب رئيس التصميم'
+        },
+        {
+            image: 'Assets/Container-5.png',
+            alt: 'Alex Rivera',
+            stars: '★★★★★',
+            quote: '"رأينا زخمًا حقيقيًا بسرعة. تحسّنت المشاركة والوصول بينما قضى الفريق وقتًا أقل في تشتيت الأدوات."',
+            name: 'ALEX RIVERA',
+            role: 'نائب رئيس الهندسة'
+        }
+    ] : [
         {
             image: 'Assets/Mike Hunter.png',
             alt: 'Mike Hunter',

@@ -137,3 +137,58 @@ html[lang="ar"] .stat-item-box {
         font-size: 2.5rem;
     }
 }
+
+/* Site-wide Arabic typography: body = Unbounded, titles = BlueOcen, roomy title lines (layout widths unchanged) */
+html[lang="ar"] body {
+    font-family: 'Unbounded', sans-serif;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6,
+html[lang="ar"] .choldera-text,
+html[lang="ar"] [class*="title"][class*="unified"],
+html[lang="ar"] [class*="-title-"],
+html[lang="ar"] [class*="display-title"],
+html[lang="ar"] [class*="main-title"],
+html[lang="ar"] .hero-sonic-display-title,
+html[lang="ar"] .ready-title-unified,
+html[lang="ar"] .faq-display-title-unified,
+html[lang="ar"] .contact-massive-heading-unified {
+    font-family: 'BlueOcen', display;
+    line-height: 1.35;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] .hero-sonic-display-title,
+html[lang="ar"] .faq-display-title-unified,
+html[lang="ar"] .contact-massive-heading-unified {
+    line-height: 1.28;
+}
+
+html[lang="ar"] .pill-nav-container {
+    direction: rtl;
+}
+
+html[lang="ar"] .pill-nav-main {
+    flex-direction: row-reverse;
+}
+
+html[lang="ar"] .pill-nav-list {
+    flex-direction: row-reverse;
+}
+
+html[lang="ar"] .main-site-footer-container .footer-navigation-grid,
+html[lang="ar"] .footer-link-list,
+html[lang="ar"] .footer-connect-list {
+    direction: rtl;
+    text-align: right;
+}
+
+html[lang="ar"] .footer-nav-column {
+    align-items: flex-start;
+    text-align: right;
+}
