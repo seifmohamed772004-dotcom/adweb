@@ -198,6 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             setTimeout(() => {
                 if (email === 'seifmohamed772004@gmail.com' && password === '772004') {
+                    // Store logged in user
+                    localStorage.setItem('cree_logged_in_user', email);
+                    
                     submitBtn.textContent = 'Success! Redirecting...';
                     submitBtn.style.backgroundColor = '#55A887';
                     submitBtn.style.color = '#181818';
@@ -766,5 +769,123 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Newsletter Validation & LocalStorage
+    const subscribeBtns = document.querySelectorAll('.footer-subscribe-action-link');
+    
+    subscribeBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const wrapper = btn.closest('.footer-subscribe-wrapper');
+            if (!wrapper) return;
+            
+            const inputField = wrapper.querySelector('.footer-email-input-minimal');
+            const emailValue = inputField ? inputField.value.trim().toLowerCase() : '';
+            
+            // Clear existing feedback messages
+            const oldMsg = wrapper.querySelector('.subscribe-validation-msg');
+            if (oldMsg) oldMsg.remove();
+            
+            // Create Feedback Element
+            const msgEl = document.createElement('p');
+            msgEl.className = 'subscribe-validation-msg';
+            msgEl.style.fontSize = '0.75rem';
+            msgEl.style.marginTop = '10px';
+            msgEl.style.fontWeight = '600';
+            msgEl.style.fontFamily = "'Unbounded', sans-serif";
+            msgEl.style.transition = 'opacity 0.3s ease';
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const loggedInUser = (localStorage.getItem('cree_logged_in_user') || '').toLowerCase();
+            
+            if (!emailValue) {
+                msgEl.innerText = 'Email cannot be empty.';
+                msgEl.style.color = '#ff6b6b';
+            } else if (!emailRegex.test(emailValue)) {
+                msgEl.innerText = 'Please enter a valid email address.';
+                msgEl.style.color = '#ff6b6b';
+            } else if (!loggedInUser) {
+                // Not signed in at all
+                msgEl.innerText = 'You must be signed in to stay updated.';
+                msgEl.style.color = '#ff6b6b';
+            } else if (emailValue !== loggedInUser) {
+                // Signed in with a different email
+                msgEl.innerText = 'Please sign in with your email to subscribe.';
+                msgEl.style.color = '#ff6b6b';
+            } else {
+                let savedEmails = JSON.parse(localStorage.getItem('cree_subscribed_emails') || '[]');
+                
+                if (savedEmails.includes(emailValue)) {
+                    msgEl.innerText = 'This email is already subscribed.';
+                    msgEl.style.color = '#ff6b6b';
+                } else {
+                    savedEmails.push(emailValue);
+                    localStorage.setItem('cree_subscribed_emails', JSON.stringify(savedEmails));
+                    msgEl.innerText = 'Subscribed successfully!';
+                    msgEl.style.color = '#55A887';
+                    if (inputField) inputField.value = '';
+                }
+            }
+            
+            wrapper.appendChild(msgEl);
+            
+            setTimeout(() => {
+                msgEl.style.opacity = '0';
+                setTimeout(() => msgEl.remove(), 300);
+            }, 3500);
+        });
+    });
+
+    // --- Mobile Burger Menu Initialization ---
+    const primaryNavbar = document.getElementById('site-primary-navbar');
+    
+    if (primaryNavbar) {
+        // 1. Create Burger Button dynamically
+        const burgerBtn = document.createElement('div');
+        burgerBtn.className = 'burger-menu-btn';
+        burgerBtn.innerHTML = `
+            <svg class="burger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        `;
+        primaryNavbar.appendChild(burgerBtn);
+        
+        // 2. Clone the Main Navigation List statically for the Overlay
+        const desktopPillNav = document.querySelector('.pill-nav-list');
+        const overlay = document.createElement('div');
+        overlay.className = 'mobile-nav-fullscreen-overlay';
+        
+        if (desktopPillNav) {
+            const overlayNavUl = desktopPillNav.cloneNode(true);
+            overlay.appendChild(overlayNavUl);
+        }
+        document.body.appendChild(overlay);
+        
+        // 3. Bind Toggle Mechanics
+        burgerBtn.addEventListener('click', () => {
+            const isOpen = overlay.classList.contains('is-open');
+            if (isOpen) {
+                overlay.classList.remove('is-open');
+                burgerBtn.classList.remove('is-active');
+                document.body.style.overflow = ''; // Restore
+            } else {
+                overlay.classList.add('is-open');
+                burgerBtn.classList.add('is-active');
+                document.body.style.overflow = 'hidden'; // Lock background scrolling
+            }
+        });
+        
+        // 4. Bind Auto-Close to anchor taps inside mobile menu
+        const overlayLinks = overlay.querySelectorAll('a');
+        overlayLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                overlay.classList.remove('is-open');
+                burgerBtn.classList.remove('is-active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
 
 });
