@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creestudios | مرحبًا بعودتك</title>
+    <meta name="description" content="انضم إلى الثورة الرقمية مع Creestudios. سجّل الدخول للوصول إلى حسابك واستكشاف خدماتنا.">
+
+    <link rel="stylesheet" href="styles-ar.css">
+
+    <link rel="preload" href="Assets/Choldera Demo.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="Assets/Unbounded.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="Assets/Blue Ocean.ttf" as="font" type="font/ttf" crossorigin>
+</head>
+<body class="login-page-body-root">
+    <main id="main-login-wrapper" class="login-page-main-wrapper" role="main">
+
+        <section id="branding-section" class="branding-stats-column-container">
+
+            <div class="background-video-container">
+                <video autoplay muted loop playsinline class="background-video-element">
+                    <source src="Assets/Background Video.mp4" type="video/mp4">
+                </video>
+                <div class="background-video-overlay"></div>
+            </div>
+            <div id="branding-card" class="login-branding-card-reveal">
+
+                <header class="branding-header-banner-box">
+                    <img src="Assets/Login Logo.png" alt="شعار Creestudios" class="branding-logo-image-element">
+                </header>
+
+                <div class="branding-content-details-box">
+                    <div class="taglines-and-cta-wrapper">
+                        <h1 class="branding-hero-title-text">انضم إلى الثورة <br>الرقمية</h1>
+
+                        <button id="get-app-cta-button" class="branding-get-app-button-primary" type="button">
+                            <span class="button-icon-placeholder">📱</span> حمّل التطبيق
+                        </button>
+
+                        <div class="branding-available-platforms-box">
+                            <span class="platform-label-text">متاح على:</span>
+                            <div class="platform-icons-row-flex">
+                                <img src="Assets/App Store Login Icon.png" alt="App Store" class="platform-icon-image">
+                                <img src="Assets/PlayStore Login Icon.png" alt="Google Play Store" class="platform-icon-image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="branding-stats-summary-grid">
+                        <div class="stat-item-box">
+                            <span class="stat-label-text">مستخدمون نشطون</span>
+                            <span class="stat-value-text" data-target="21997">0</span>
+                        </div>
+                        <div class="stat-item-box">
+                            <span class="stat-label-text">مستخدمون نشطون</span>
+                            <span class="stat-value-text" data-target="16486">0</span>
+                        </div>
+                        <div class="stat-item-box">
+                            <span class="stat-label-text">مستخدمون نشطون</span>
+                            <span class="stat-value-text" data-target="77664">0</span>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </section>
+
+        <section id="login-form-section" class="login-form-column-container">
+            <div class="login-content-wrapper-reveal">
+                <header class="login-header-group">
+                    <h2 class="login-welcome-back-header">مرحبًا <span class="text-primary-green-span">بعودتك!</span></h2>
+                    <p class="login-welcome-subtext">أدخل البريد الإلكتروني وكلمة المرور للوصول إلى حسابك</p>
+                </header>
+
+                <form id="user-login-form-element" class="login-submission-form-container" action="#" method="POST" autocomplete="off">
+
+                    <div class="form-input-group-wrapper">
+                        <label for="email-input-field" class="form-label-text-style">البريد الإلكتروني</label>
+                        <input type="email" id="email-input-field" class="form-input-field-style" placeholder="| @gmail.com" required aria-required="true" autocomplete="off">
+                    </div>
+
+                    <div class="form-input-group-wrapper">
+                        <label for="password-input-field" class="form-label-text-style">كلمة المرور</label>
+                        <div class="password-input-with-toggle-box">
+                            <input type="password" id="password-input-field" class="form-input-field-style" placeholder="| ********" required aria-required="true" autocomplete="new-password">
+                            <button type="button" id="toggle-password-visibility-btn" class="password-toggle-control-btn" aria-label="إظهار أو إخفاء كلمة المرور">
+                                <img src="Assets/Hidden Icon.png" id="password-toggle-icon" alt="أيقونة الإظهار" class="toggle-icon-image">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options-row-flex">
+                        <div class="remember-me-checkbox-group">
+                            <input type="checkbox" id="remember-me-checkbox" class="custom-checkbox-input">
+                            <label for="remember-me-checkbox" class="checkbox-label-text">تذكرني</label>
+                        </div>
+                        <a href="#" class="forgot-password-link-element">نسيت كلمة المرور؟</a>
+                    </div>
+
+                    <button type="submit" id="login-submit-button" class="login-form-submit-button-primary">تسجيل الدخول</button>
+
+                    <button type="button" id="google-auth-button" class="google-auth-login-button-secondary">
+                        <img src="Assets/Google_G.svg" alt="شعار Google" class="google-logo-icon">
+                        تسجيل الدخول باستخدام Google
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+    <div id="google-picker-overlay" class="google-modal-overlay-hidden">
+        <div class="google-picker-card">
+            <header class="google-picker-header">
+                <img src="Assets/Google_Modal_Logo.png" alt="Google" class="google-full-logo-modal">
+                <h1 class="google-picker-title">اختر حسابًا</h1>
+                <p class="google-picker-subtitle">للمتابعة إلى <span class="app-name-text">admin.creestudios.com</span></p>
+            </header>
+
+            <ul class="google-accounts-list">
+                <li class="google-account-item" data-email="seifmohamed772004@gmail.com">
+                    <div class="account-avatar-circle">S</div>
+                    <div class="account-info-box">
+                        <span class="account-name-text">Seif Mohamed</span>
+                        <span class="account-email-text">seifmohamed772004@gmail.com</span>
+                    </div>
+                </li>
+                <li class="google-account-item" data-email="another">
+                    <div class="account-avatar-icon">👤</div>
+                    <div class="account-info-box">
+                        <span class="account-name-text">استخدام حساب آخر</span>
+                    </div>
+                </li>
+            </ul>
+
+            <footer class="google-picker-footer">
+                <p>للمتابعة، ستشارك Google اسمك وبريدك الإلكتروني وتفضيل اللغة وصورتك الشخصية مع Creestudios.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script-ar.js"></script>
+</body>
+</html>

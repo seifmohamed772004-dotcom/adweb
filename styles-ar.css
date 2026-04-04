@@ -1,0 +1,139 @@
+@import url("Stylesheet.css");
+
+html[lang="ar"],
+html[lang="ar"] body {
+    direction: rtl;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] .choldera-text,
+html[lang="ar"] .branding-hero-title-text,
+html[lang="ar"] .login-welcome-back-header,
+html[lang="ar"] .google-picker-title {
+    font-family: 'BlueOcen', display;
+}
+
+html[lang="ar"] .branding-hero-title-text {
+    font-size: 1.95rem;
+    line-height: 1.25;
+    letter-spacing: 0.5px;
+}
+
+html[lang="ar"] .login-welcome-back-header {
+    font-size: 3.2rem;
+    letter-spacing: 1px;
+}
+
+html[lang="ar"] .login-welcome-subtext,
+html[lang="ar"] .form-label-text-style,
+html[lang="ar"] .form-input-field-style,
+html[lang="ar"] .checkbox-label-text,
+html[lang="ar"] .forgot-password-link-element,
+html[lang="ar"] .google-auth-login-button-secondary,
+html[lang="ar"] .login-form-submit-button-primary {
+    font-size: 0.9rem;
+}
+
+html[lang="ar"] body,
+html[lang="ar"] p,
+html[lang="ar"] span,
+html[lang="ar"] label,
+html[lang="ar"] a,
+html[lang="ar"] input,
+html[lang="ar"] button,
+html[lang="ar"] li {
+    text-align: right;
+}
+
+html[lang="ar"] .login-page-main-wrapper {
+    direction: rtl;
+    flex-direction: row-reverse;
+}
+
+html[lang="ar"] .branding-stats-column-container {
+    justify-content: flex-start;
+}
+
+html[lang="ar"] .login-form-column-container {
+    justify-content: flex-end;
+}
+
+html[lang="ar"] .login-content-wrapper-reveal,
+html[lang="ar"] .login-submission-form-container,
+html[lang="ar"] .form-input-group-wrapper,
+html[lang="ar"] .password-input-with-toggle-box,
+html[lang="ar"] .form-input-field-style {
+    width: 100%;
+}
+
+html[lang="ar"] .branding-content-details-box,
+html[lang="ar"] .taglines-and-cta-wrapper,
+html[lang="ar"] .login-content-wrapper-reveal,
+html[lang="ar"] .login-header-group,
+html[lang="ar"] .login-submission-form-container,
+html[lang="ar"] .form-input-group-wrapper,
+html[lang="ar"] .remember-me-checkbox-group,
+html[lang="ar"] .google-picker-header,
+html[lang="ar"] .account-info-box,
+html[lang="ar"] .google-picker-footer {
+    align-items: flex-start;
+}
+
+html[lang="ar"] .branding-get-app-button-primary,
+html[lang="ar"] .google-auth-login-button-secondary {
+    flex-direction: row-reverse;
+}
+
+html[lang="ar"] .branding-available-platforms-box {
+    flex-direction: row-reverse;
+}
+
+html[lang="ar"] .platform-icons-row-flex {
+    direction: rtl;
+}
+
+html[lang="ar"] .form-options-row-flex {
+    flex-direction: row-reverse;
+}
+
+html[lang="ar"] .password-input-with-toggle-box {
+    flex-direction: row-reverse;
+}
+
+html[lang="ar"] .form-input-field-style,
+html[lang="ar"] #email-input-field,
+html[lang="ar"] #password-input-field {
+    text-align: right;
+}
+
+html[lang="ar"] .password-toggle-control-btn {
+    left: 15px;
+    right: auto;
+}
+
+html[lang="ar"] .google-account-item {
+    flex-direction: row-reverse;
+}
+
+html[lang="ar"] .branding-stats-summary-grid,
+html[lang="ar"] .stat-item-box {
+    direction: rtl;
+}
+
+@media (max-width: 1024px) {
+    html[lang="ar"] .login-page-main-wrapper {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    html[lang="ar"] .branding-hero-title-text {
+        font-size: 1.7rem;
+    }
+
+    html[lang="ar"] .login-welcome-back-header {
+        font-size: 2.5rem;
+    }
+}
