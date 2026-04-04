@@ -3,8 +3,19 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     const passwordInput = document.getElementById('password-input-field');
+    const emailInputField = document.getElementById('email-input-field');
     const togglePasswordBtn = document.getElementById('toggle-password-visibility-btn');
     const toggleIcon = document.getElementById('password-toggle-icon');
+
+    if (emailInputField) {
+        emailInputField.value = '';
+        emailInputField.setAttribute('autocomplete', 'off');
+    }
+
+    if (passwordInput) {
+        passwordInput.value = '';
+        passwordInput.setAttribute('autocomplete', 'new-password');
+    }
 
     if (togglePasswordBtn && passwordInput && toggleIcon) {
         
@@ -841,6 +852,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const primaryNavbar = document.getElementById('site-primary-navbar');
     
     if (primaryNavbar) {
+        // Inject left logout control chip
+        const logoutChip = document.createElement('div');
+        logoutChip.className = 'pill-nav-logout';
+        logoutChip.innerHTML = `
+                <button id="nav-logout-trigger-btn" class="nav-logout-trigger" type="button" aria-label="Log out">
+                    <img src="Assets/Logo Icon.png" alt="Logo icon" class="nav-logout-logo-img">
+                <svg class="nav-logout-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+            </button>
+        `;
+        primaryNavbar.insertBefore(logoutChip, primaryNavbar.firstChild);
+
+        const logoutTriggerBtn = document.getElementById('nav-logout-trigger-btn');
+        let isLogoutArmed = false;
+
+        const resetLogoutState = () => {
+            if (!logoutTriggerBtn) return;
+            isLogoutArmed = false;
+            logoutTriggerBtn.classList.remove('is-armed');
+        };
+
+        if (logoutTriggerBtn) {
+            logoutTriggerBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+
+                if (!isLogoutArmed) {
+                    isLogoutArmed = true;
+                    logoutTriggerBtn.classList.add('is-armed');
+                    return;
+                }
+
+                localStorage.removeItem('cree_logged_in_user');
+                sessionStorage.clear();
+                resetLogoutState();
+                window.location.href = 'index.html?logout=1';
+            });
+        }
+
+        document.addEventListener('click', () => {
+            if (!isLogoutArmed) return;
+            resetLogoutState();
+        });
+
         // 1. Create Burger Button dynamically
         const burgerBtn = document.createElement('div');
         burgerBtn.className = 'burger-menu-btn';
@@ -1286,5 +1344,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     renderTestimonial(activeTestimonialIndex);
+
+    const siteFooter = document.getElementById('footer-section-contact');
+    let isFooterVisible = false;
+    let lastScrollY = window.scrollY;
+    let upwardDeltaWhileFooterVisible = 0;
+
+    function updateNavFooterVisibility() {
+        if (!primaryNavbar) return;
+        if (!isFooterVisible) {
+            primaryNavbar.classList.remove('nav-hidden-on-footer');
+            upwardDeltaWhileFooterVisible = 0;
+            return;
+        }
+
+        const currentY = window.scrollY;
+        const delta = currentY - lastScrollY;
+
+        if (delta < 0) {
+            upwardDeltaWhileFooterVisible += Math.abs(delta);
+        } else if (delta > 0) {
+            upwardDeltaWhileFooterVisible = 0;
+            primaryNavbar.classList.add('nav-hidden-on-footer');
+        }
+
+        if (upwardDeltaWhileFooterVisible >= 10) {
+            primaryNavbar.classList.remove('nav-hidden-on-footer');
+        }
+
+        lastScrollY = currentY;
+    }
+
+    if (primaryNavbar && siteFooter) {
+        const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isFooterVisible = entry.isIntersecting;
+                if (isFooterVisible) {
+                    primaryNavbar.classList.add('nav-hidden-on-footer');
+                    lastScrollY = window.scrollY;
+                    upwardDeltaWhileFooterVisible = 0;
+                } else {
+                    primaryNavbar.classList.remove('nav-hidden-on-footer');
+                    upwardDeltaWhileFooterVisible = 0;
+                }
+            });
+        }, { threshold: 0.02 });
+
+        footerObserver.observe(siteFooter);
+        window.addEventListener('scroll', updateNavFooterVisibility, { passive: true });
+    }
 
 });

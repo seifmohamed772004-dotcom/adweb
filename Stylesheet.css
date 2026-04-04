@@ -492,6 +492,14 @@ section {
     display: flex;
     gap: 15px;
     z-index: 2000;
+    opacity: 1;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.pill-nav-container.nav-hidden-on-footer {
+    transform: translateX(-50%) translateY(18px);
+    opacity: 0;
+    pointer-events: none;
 }
 
 @media (max-height: 938px) {
@@ -512,6 +520,80 @@ section {
     align-items: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
+}
+
+.pill-nav-logout {
+    background-color: #121212;
+    border: 1px solid rgba(255, 238, 220, 0.1);
+    border-radius: 100px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.nav-logout-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 44px;
+    min-height: 44px;
+    border: 1px solid rgba(255, 238, 220, 0.14);
+    border-radius: 50%;
+    background-color: #181818;
+    color: #ffeedc;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.22s ease, transform 0.22s ease, color 0.22s ease, background-color 0.22s ease;
+}
+
+.nav-logout-logo-img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    opacity: 1;
+    transition: opacity 0.22s ease;
+}
+
+.nav-logout-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0;
+    transition: opacity 0.22s ease;
+}
+
+.nav-logout-trigger:hover,
+.nav-logout-trigger:focus-visible {
+    border-color: rgba(255, 238, 220, 0.45);
+    transform: translateY(-0.04rem);
+    outline: none;
+}
+
+.nav-logout-trigger:hover .nav-logout-logo-img,
+.nav-logout-trigger:focus-visible .nav-logout-logo-img,
+.nav-logout-trigger.is-armed .nav-logout-logo-img {
+    opacity: 0;
+}
+
+.nav-logout-trigger:hover .nav-logout-icon,
+.nav-logout-trigger:focus-visible .nav-logout-icon,
+.nav-logout-trigger.is-armed .nav-logout-icon {
+    opacity: 1;
+}
+
+.nav-logout-trigger.is-armed {
+    background-image: linear-gradient(rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5));
+    border-color: rgba(255, 238, 220, 0.8);
 }
 
 .pill-nav-main {
@@ -2120,7 +2202,8 @@ width: 100%;
 
 
 .contact-hero-reveal {
-    padding: 100px 5vw;
+    padding: 80px;
+    box-sizing: border-box;
     min-height: 90vh;
     display: flex;
     flex-direction: column;
