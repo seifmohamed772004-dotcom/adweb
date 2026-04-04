@@ -6,11 +6,72 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!arPage) return file;
         return file.replace(/\.html$/i, '-ar.html');
     }
+    initGlobalPreloader();
 
     const passwordInput = document.getElementById('password-input-field');
     const emailInputField = document.getElementById('email-input-field');
     const togglePasswordBtn = document.getElementById('toggle-password-visibility-btn');
     const toggleIcon = document.getElementById('password-toggle-icon');
+
+    function initGlobalPreloader() {
+        const existingPreloader = document.getElementById('global-site-preloader');
+        if (existingPreloader) return;
+
+        const minVisibleMs = 2000;
+        const startTime = performance.now();
+        let pageLoaded = document.readyState === 'complete';
+        let dismissed = false;
+
+        const preloader = document.createElement('div');
+        preloader.id = 'global-site-preloader';
+        preloader.setAttribute('aria-hidden', 'true');
+        preloader.innerHTML = `
+            <div class="global-preloader-inner">
+                <div class="global-preloader-orbit global-preloader-orbit-one"></div>
+                <div class="global-preloader-orbit global-preloader-orbit-two"></div>
+                <div class="global-preloader-brand-stack">
+                    <img src="Assets/Logo Icon.png" alt="Creestudios" class="global-preloader-icon">
+                    <img src="Assets/Login Logo.png" alt="Creestudios" class="global-preloader-wordmark">
+                    <span class="global-preloader-status">${arPage ? 'جاري التحميل...' : 'Loading...'}</span>
+                </div>
+            </div>
+        `;
+
+        document.body.classList.add('preloader-lock');
+        document.body.appendChild(preloader);
+        requestAnimationFrame(() => {
+            preloader.classList.add('is-visible');
+        });
+
+        const tryDismiss = () => {
+            if (dismissed || !pageLoaded) return;
+            const elapsed = performance.now() - startTime;
+            if (elapsed < minVisibleMs) {
+                setTimeout(tryDismiss, minVisibleMs - elapsed);
+                return;
+            }
+
+            dismissed = true;
+            preloader.classList.add('is-exit');
+            window.setTimeout(() => {
+                preloader.remove();
+                document.body.classList.remove('preloader-lock');
+            }, 520);
+        };
+
+        window.addEventListener('load', () => {
+            pageLoaded = true;
+            tryDismiss();
+        }, { once: true });
+
+        if (pageLoaded) {
+            tryDismiss();
+        } else {
+            setTimeout(() => {
+                if (pageLoaded) tryDismiss();
+            }, minVisibleMs);
+        }
+    }
 
     if (emailInputField) {
         emailInputField.value = '';

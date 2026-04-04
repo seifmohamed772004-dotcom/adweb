@@ -37,13 +37,14 @@ html, body {
 }
 
 html {
-    scrollbar-width: thin;
-    scrollbar-color: #ffeedc transparent;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 ::-webkit-scrollbar {
-    width: 1px;
-    height: 1px;
+    display: none;
+    width: 0;
+    height: 0;
     background-color: transparent;
 }
 
@@ -67,6 +68,115 @@ h1, h2, h3, .choldera-text {
 
 .text-primary-green-span {
     color: #55A887;
+}
+
+.preloader-lock {
+    overflow: hidden;
+}
+
+#global-site-preloader {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(85, 168, 135, 0.16), transparent 42%),
+        radial-gradient(circle at 78% 70%, rgba(112, 153, 135, 0.14), transparent 44%),
+        #181818;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#global-site-preloader.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#global-site-preloader.is-exit {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.global-preloader-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(32rem, 82vw);
+    min-height: 12rem;
+}
+
+.global-preloader-brand-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    z-index: 2;
+    width: 100%;
+}
+
+.global-preloader-icon {
+    width: clamp(3rem, 8vw, 4.4rem);
+    filter: drop-shadow(0 0 18px rgba(255, 238, 220, 0.16));
+    animation: preloaderIconSpin 2.2s linear infinite;
+}
+
+.global-preloader-wordmark {
+    width: clamp(12rem, 42vw, 22rem);
+    filter: drop-shadow(0 0 16px rgba(255, 238, 220, 0.12));
+}
+
+.global-preloader-status {
+    color: rgba(255, 238, 220, 0.82);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    animation: preloaderStatusPulse 1.2s ease-in-out infinite;
+}
+
+.global-preloader-orbit {
+    position: absolute;
+    border: 1px solid rgba(255, 238, 220, 0.16);
+    border-radius: 999px;
+    pointer-events: none;
+}
+
+.global-preloader-orbit-one {
+    width: clamp(13rem, 48vw, 25rem);
+    min-height: clamp(13rem, 48vw, 25rem);
+    animation: preloaderOrbitOne 4.8s linear infinite;
+}
+
+.global-preloader-orbit-two {
+    width: clamp(9rem, 34vw, 18rem);
+    min-height: clamp(9rem, 34vw, 18rem);
+    animation: preloaderOrbitTwo 3.7s linear infinite reverse;
+}
+
+@keyframes preloaderIconSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes preloaderStatusPulse {
+    0%, 100% { opacity: 0.45; }
+    50% { opacity: 1; }
+}
+
+@keyframes preloaderOrbitOne {
+    from { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.03); }
+    to { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes preloaderOrbitTwo {
+    from { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(0.96); }
+    to { transform: rotate(360deg) scale(1); }
 }
 
 
